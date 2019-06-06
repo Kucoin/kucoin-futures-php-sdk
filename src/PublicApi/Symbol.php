@@ -1,106 +1,112 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMex\SDK\PublicApi;
 
 use KuMex\SDK\Http\Request;
 use KuMex\SDK\KuMexApi;
 
 /**
- * Class Account
- * @package KuMex\SDK\PrivateApi
- * @see https://docs.KuMex.com/#accounts
+ * Class Symbol
+ * @package KuMex\SDK\PublicApi
+ * @see https://docs.KuMex.com/#symbol
  */
-class Account extends KuMexApi
+class Symbol extends KuMexApi
 {
     /**
-     * Get an account overview.
+     * Get the ticker details of a symbol.
      *
+     * @param  string $symbol
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function getOverview()
+    public function getTicker($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/account-overview');
+        $response = $this->call(Request::METHOD_GET, '/api/v1/ticker', $symbol);
         return $response->getApiData();
     }
 
     /**
-     * Get a transaction history of accounts.
+     * Get the snapshot details of a symbol.
      *
-     * @param  array $params
-     * @param  array $pagination
+     * @param  string $symbol
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function getTransactionHistory(array $params = [], array $pagination = [])
+    public function getLevel2Snapshot($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/transaction-history', $params + $pagination);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level2/snapshot', $symbol);
         return $response->getApiData();
     }
 
     /**
-     * KuCoin transfer to KuMex account.
+     * Get the snapshot details of a symbol.
      *
-     * @param  number amount
+     * @param  string $symbol
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function transferIn($amount)
+    public function getLevel3Snapshot($symbol)
     {
-        $response = $this->call(Request::METHOD_POST, '/api/v1//transfer-in', $amount);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level3/snapshot', $symbol);
         return $response->getApiData();
     }
 
     /**
-     * KuMex transfer to KuCoin account.
+     * Get the level2 message of a symbol.
      *
-     * @param  string bizNo
-     * @param  number amount
+     * @param  string $symbol
+     * @param  number $start
+     * @param  number $end
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function transferOut($bizNo, $amount)
+    public function getLevel2Message($symbol, $start, $end)
     {
-        $response = $this->call(Request::METHOD_POST, '/api/v1//transfer-out', compact('bizNo', 'amount'));
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level2/message/query',
+            compact('symbol', 'start', 'end')
+        );
         return $response->getApiData();
     }
 
     /**
-     * Cancel an transfer out.
+     * Get the level3 message of a symbol.
      *
-     * @param  string $applyId
+     * @param  string $symbol
+     * @param  number $start
+     * @param  number $end
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function cancelTransferOut($applyId)
+    public function getLevel3Message($symbol, $start, $end)
     {
-        $response = $this->call(Request::METHOD_DELETE, '/api/v1/cancel/transfer-out' . $applyId);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level3/message/query',
+            compact('symbol', 'start', 'end')
+        );
         return $response->getApiData();
     }
 
     /**
-     * Get a transfer list.
+     * Get the trade history details of a symbol.
      *
-     * @param  array $params
-     * @param  array $pagination
+     * @param  string $symbol
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function getTransferList(array $params = [], array $pagination = [])
+    public function getTradeHistory($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/transfer-list', $params + $pagination);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/trade/history', $symbol);
         return $response->getApiData();
     }
 }
