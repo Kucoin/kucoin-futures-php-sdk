@@ -20,7 +20,8 @@ use Ratchet\RFC6455\Messaging\MessageInterface;
 class WebSocketFeed extends KuMexApi
 {
     /**
-     * Get the server list and temporary token
+     * Get the server list and temporary token.
+     *
      * @return array
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\BusinessException
@@ -33,7 +34,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Get the server list and authorized token
+     * Get the server list and authorized token.
+     *
      * @return array
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\BusinessException
@@ -46,7 +48,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Get the url of WebSocket
+     * Get the url of WebSocket.
+     *
      * @param bool $private
      * @param array $params
      * @return array
@@ -67,7 +70,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Get the url of WebSocket for public channels
+     * Get the url of WebSocket for public channels.
+     *
      * @param array $params
      * @return array
      * @throws NoAvailableWebSocketServerException
@@ -78,7 +82,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Get the url of WebSocket for private channels
+     * Get the url of WebSocket for private channels.
+     *
      * @param array $params
      * @return array
      * @throws NoAvailableWebSocketServerException
@@ -89,7 +94,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Subscribe multiple channels by url
+     * Subscribe multiple channels by url.
+     *
      * @param array $server
      * @param array $channels
      * @param callable $onMessage
@@ -176,7 +182,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Subscribe multiple public channels
+     * Subscribe multiple public channels.
+     *
      * @param array $query The query of websocket url
      * @param array $channels
      * @param callable $onMessage
@@ -205,7 +212,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Subscribe multiple private channels
+     * Subscribe multiple private channels.
+     *
      * @param array $query The query of websocket url
      * @param array $channels
      * @param callable $onMessage
@@ -234,7 +242,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Subscribe one public channel
+     * Subscribe one public channel.
+     *
      * @param array $query The query of websocket url
      * @param array $channel
      * @param callable $onMessage
@@ -248,7 +257,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Subscribe one private channel
+     * Subscribe one private channel.
+     *
      * @param array $query The query of websocket url
      * @param array $channel
      * @param callable $onMessage
@@ -262,7 +272,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Create message for ping
+     * Create message for ping.
+     *
      * @param string $id
      * @return array
      */
@@ -272,7 +283,8 @@ class WebSocketFeed extends KuMexApi
     }
 
     /**
-     * Create message for unsubscribe
+     * Create message for unsubscribe.
+     *
      * @param string $topic
      * @param bool $privateChannel
      * @param bool $response
