@@ -22,7 +22,7 @@ class Position extends KuMexApi
      */
     public function getList()
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/position');
+        $response = $this->call(Request::METHOD_GET, '/api/v1/positions');
         return $response->getApiData();
     }
 
@@ -45,7 +45,7 @@ class Position extends KuMexApi
      * Change auto append status.
      *
      * @param  string $symbol
-     * @param  number $status
+     * @param  boolean $status
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
@@ -88,7 +88,7 @@ class Position extends KuMexApi
      */
     public function marginAppend($symbol, array $params)
     {
-        $response = $this->call(Request::METHOD_GET,
+        $response = $this->call(Request::METHOD_POST,
             '/api/v1/position?margin/auto-append-status?symbol='.$symbol, $params
         );
         return $response->getApiData();

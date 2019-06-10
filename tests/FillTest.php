@@ -18,7 +18,7 @@ class FillTest extends TestCase
      */
     public function testGetList(Fill $api)
     {
-        $data = $api->getList([], ['currentPage' => 1, 'pageSize' => 10]);
+        $data = $api->getFills([], ['currentPage' => 1, 'pageSize' => 10]);
         $this->assertPagination($data);
         foreach ($data['items'] as $item) {
             $this->assertArrayHasKey('symbol', $item);

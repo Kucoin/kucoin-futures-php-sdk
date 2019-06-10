@@ -18,22 +18,6 @@ class DepositTest extends TestCase
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function testCreateAddress(Deposit $api)
-    {
-        $address = $api->createAddress('BTC');
-        $this->assertInternalType('array', $address);
-        $this->assertArrayHasKey('address', $address);
-        $this->assertArrayHasKey('memo', $address);
-    }
-
-    /**
-     * @dataProvider apiProvider
-     * @param Deposit $api
-     * @return array|string
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
-     */
     public function testGetAddress(Deposit $api)
     {
         try {
@@ -65,38 +49,14 @@ class DepositTest extends TestCase
         $data = $api->getDeposits(['currency' => 'BTC'], ['currentPage' => 1, 'pageSize' => 10]);
         $this->assertPagination($data);
         foreach ($data['items'] as $item) {
+            $this->assertArrayHasKey('currency', $item);
+            $this->assertArrayHasKey('status', $item);
             $this->assertArrayHasKey('address', $item);
-            $this->assertArrayHasKey('memo', $item);
+            $this->assertArrayHasKey('isInner', $item);
             $this->assertArrayHasKey('amount', $item);
             $this->assertArrayHasKey('fee', $item);
-            $this->assertArrayHasKey('currency', $item);
-            $this->assertArrayHasKey('isInner', $item);
             $this->assertArrayHasKey('walletTxId', $item);
-            $this->assertArrayHasKey('status', $item);
             $this->assertArrayHasKey('createdAt', $item);
-            $this->assertArrayHasKey('updatedAt', $item);
-        }
-    }
-
-    /**
-     * @dataProvider apiProvider
-     * @param Deposit $api
-     * @return array|string
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
-     */
-    public function testGetV1Deposits(Deposit $api)
-    {
-        $data = $api->getV1Deposits(['currency' => 'ETH'], ['currentPage' => 1, 'pageSize' => 10]);
-        $this->assertPagination($data);
-        foreach ($data['items'] as $item) {
-            $this->assertArrayHasKey('amount', $item);
-            $this->assertArrayHasKey('currency', $item);
-            $this->assertArrayHasKey('isInner', $item);
-            $this->assertArrayHasKey('walletTxId', $item);
-            $this->assertArrayHasKey('createAt', $item);
-            $this->assertArrayHasKey('status', $item);
         }
     }
 }

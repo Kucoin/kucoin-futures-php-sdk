@@ -107,29 +107,6 @@ class OrderTest extends TestCase
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetV1List(Order $api)
-    {
-        $data = $api->getV1List(['symbol' => 'BTC-USDT'], ['currentPage' => 1, 'pageSize' => 10]);
-        $this->assertPagination($data);
-        foreach ($data['items'] as $item) {
-            $this->assertArrayHasKey('symbol', $item);
-            $this->assertArrayHasKey('createdAt', $item);
-            $this->assertArrayHasKey('amount', $item);
-            $this->assertArrayHasKey('side', $item);
-            $this->assertArrayHasKey('dealValue', $item);
-            $this->assertArrayHasKey('fee', $item);
-            $this->assertArrayHasKey('id', $item);
-            $this->assertArrayHasKey('dealPrice', $item);
-        }
-    }
-
-    /**
-     * @dataProvider apiProvider
-     * @param Order $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
-     */
     public function testGetDetail(Order $api)
     {
         $data = $api->getList(['symbol' => 'BTC-USDT'], ['currentPage' => 1, 'pageSize' => 10]);
@@ -185,9 +162,9 @@ class OrderTest extends TestCase
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function testCancelAll($api)
+    public function testBatchCancel($api)
     {
-        $result = $api->cancelAll('BTC-USDT');
+        $result = $api->batchCancel('BTC-USDT');
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('cancelledOrderIds', $result);
     }
@@ -201,7 +178,7 @@ class OrderTest extends TestCase
      */
     public function testGetRecentList(Order $api)
     {
-        $items = $api->getRecentList();
+        $items = $api->getRecentDoneOrders();
         foreach ($items as $item) {
             $this->assertArrayHasKey('symbol', $item);
             $this->assertArrayHasKey('hidden', $item);
@@ -229,5 +206,22 @@ class OrderTest extends TestCase
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('cancelExist', $item);
         }
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Order $api
+     * @throws \KuMex\SDK\Exceptions\BusinessException
+     * @throws \KuMex\SDK\Exceptions\HttpException
+     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testOpenOrderStatistics($api)
+    {
+        $result = $api->batchCancel('XBTUSD');
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('openOrderBuySize', $result);
+        $this->assertArrayHasKey('openOrderSellSize', $result);
+        $this->assertArrayHasKey('openOrderBuyCost', $result);
+        $this->assertArrayHasKey('openOrderSellCost', $result);
     }
 }
