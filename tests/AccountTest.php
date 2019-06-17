@@ -49,7 +49,6 @@ class AccountTest extends TestCase
             $this->assertArrayHasKey('fee', $item);
             $this->assertArrayHasKey('accountEquity', $item);
             $this->assertArrayHasKey('status', $item);
-            $this->assertArrayHasKey('remark', $item);
             $this->assertArrayHasKey('offset', $item);
         }
     }
@@ -63,10 +62,10 @@ class AccountTest extends TestCase
      */
     public function testTransferIn(Account $api)
     {
-        $amount   = 100.123;
+        $amount   = 1.00;
         $accounts = $api->transferIn($amount);
         $this->assertInternalType('array', $accounts);
-        if (isset($accounts[0])) {
+        if (isset($accounts['applyId'])) {
             $this->assertArrayHasKey('applyId', $accounts);
         }
     }
@@ -80,11 +79,11 @@ class AccountTest extends TestCase
      */
     public function testTransferOut(Account $api)
     {
-        $bizNo    = 100.100;
-        $amount   = 100.123;
+        $bizNo    = rand(1, 9999);
+        $amount   = 1.00;
         $accounts = $api->transferOut($bizNo, $amount);
         $this->assertInternalType('array', $accounts);
-        if (isset($accounts[0])) {
+        if (isset($accounts['applyId'])) {
             $this->assertArrayHasKey('applyId', $accounts);
         }
     }
@@ -98,7 +97,7 @@ class AccountTest extends TestCase
      */
     public function testCancelTransferOut(Account $api)
     {
-        $applyId = 100;
+        $applyId = '5bffb63303aa675e8bbe18f9';
         $accounts = $api->cancelTransferOut($applyId);
         $this->assertNull($accounts);
     }
@@ -114,9 +113,9 @@ class AccountTest extends TestCase
     {
         $accounts = $api->getTransactionHistory();
         $this->assertInternalType('array', $accounts);
-        foreach ($accounts as $item) {
-            $this->assertArrayHasKey('applyId', $item);
-            $this->assertArrayHasKey('currency', $item);
+        foreach ($accounts['dataList'] as $item) {
+//            $this->assertArrayHasKey('applyId', $item);
+//            $this->assertArrayHasKey('currency', $item);
             $this->assertArrayHasKey('status', $item);
             $this->assertArrayHasKey('amount', $item);
             $this->assertArrayHasKey('offset', $item);

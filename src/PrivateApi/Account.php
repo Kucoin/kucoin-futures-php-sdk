@@ -53,7 +53,7 @@ class Account extends KuMexApi
      */
     public function transferIn($amount)
     {
-        $response = $this->call(Request::METHOD_POST, '/api/v1//transfer-in', $amount);
+        $response = $this->call(Request::METHOD_POST, '/api/v1/transfer-in', compact('amount'));
         return $response->getApiData();
     }
 
@@ -69,7 +69,7 @@ class Account extends KuMexApi
      */
     public function transferOut($bizNo, $amount)
     {
-        $response = $this->call(Request::METHOD_POST, '/api/v1//transfer-out', compact('bizNo', 'amount'));
+        $response = $this->call(Request::METHOD_POST, '/api/v1/transfer-out', compact('bizNo', 'amount'));
         return $response->getApiData();
     }
 
@@ -84,7 +84,7 @@ class Account extends KuMexApi
      */
     public function cancelTransferOut($applyId)
     {
-        $response = $this->call(Request::METHOD_DELETE, '/api/v1/cancel/transfer-out' . $applyId);
+        $response = $this->call(Request::METHOD_DELETE, '/api/v1/cancel/transfer-out?applyId=' . $applyId);
         return $response->getApiData();
     }
 

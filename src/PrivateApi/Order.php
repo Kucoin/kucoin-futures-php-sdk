@@ -146,7 +146,7 @@ class Order extends KuMexApi
      */
     public function getOpenOrderStatistics($symbol = null)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/openOrderStatistics', $symbol);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/openOrderStatistics', compact('symbol'));
         return $response->getApiData();
     }
 }

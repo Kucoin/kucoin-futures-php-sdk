@@ -18,7 +18,7 @@ class WithdrawalTest extends TestCase
      */
     public function testGetQuotas(Withdrawal $api)
     {
-        $data = $api->getQuotas('BTC');
+        $data = $api->getQuotas('XBT');
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('limitAmount', $data);
         $this->assertArrayHasKey('withdrawMinFee', $data);
@@ -42,7 +42,7 @@ class WithdrawalTest extends TestCase
     public function testApply(Withdrawal $api)
     {
         $params = [
-            'currency' => 'BTC',
+            'currency' => 'XBT',
             'address'  => '1BcTdvq6Qdh7GnviHTYHq4tBvU32FfUbGz',
             'amount'   => 0.3,
             'remark'   => 'test apply withdrawal',

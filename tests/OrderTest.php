@@ -23,11 +23,12 @@ class OrderTest extends TestCase
             'clientOid' => uniqid(),
             'type'      => 'limit',
             'side'      => 'buy',
-            'symbol'    => 'BTC-USDT',
+            'symbol'    => 'XBTUSDM',
+            'leverage'  => 2,
             'remark'    => '\中文备注 ',
 
             'price' => 100,
-            'size'  => 0.001,
+            'size'  => 1,
         ];
         $data = $api->create($order);
         $this->assertInternalType('array', $data);
@@ -49,10 +50,11 @@ class OrderTest extends TestCase
             'clientOid' => uniqid(),
             'type'      => 'market',
             'side'      => 'buy',
-            'symbol'    => 'BTC-USDT',
+            'symbol'    => 'XBTUSDM',
+            'leverage'  => 2,
             'remark'    => 'Test Order ' . time(),
 
-            'size' => 0.001,
+            'size'      => 1,
         ];
         $data = $api->create($order);
         $this->assertInternalType('array', $data);
@@ -69,34 +71,23 @@ class OrderTest extends TestCase
      */
     public function testGetList(Order $api)
     {
-        $data = $api->getList(['symbol' => 'BTC-USDT'], ['currentPage' => 1, 'pageSize' => 10]);
+        $data = $api->getList(['symbol' => 'XBTUSDM'], ['currentPage' => 1, 'pageSize' => 10]);
         $this->assertPagination($data);
         foreach ($data['items'] as $item) {
             $this->assertArrayHasKey('symbol', $item);
             $this->assertArrayHasKey('hidden', $item);
-            $this->assertArrayHasKey('opType', $item);
-            $this->assertArrayHasKey('fee', $item);
-            $this->assertArrayHasKey('channel', $item);
-            $this->assertArrayHasKey('feeCurrency', $item);
             $this->assertArrayHasKey('type', $item);
             $this->assertArrayHasKey('iceberg', $item);
             $this->assertArrayHasKey('createdAt', $item);
-            $this->assertArrayHasKey('visibleSize', $item);
-            $this->assertArrayHasKey('price', $item);
             $this->assertArrayHasKey('stopTriggered', $item);
-            $this->assertArrayHasKey('funds', $item);
             $this->assertArrayHasKey('id', $item);
             $this->assertArrayHasKey('timeInForce', $item);
             $this->assertArrayHasKey('side', $item);
             $this->assertArrayHasKey('dealSize', $item);
-            $this->assertArrayHasKey('cancelAfter', $item);
-            $this->assertArrayHasKey('dealFunds', $item);
             $this->assertArrayHasKey('stp', $item);
             $this->assertArrayHasKey('postOnly', $item);
-            $this->assertArrayHasKey('stopPrice', $item);
             $this->assertArrayHasKey('size', $item);
             $this->assertArrayHasKey('stop', $item);
-            $this->assertArrayHasKey('cancelExist', $item);
         }
     }
 
@@ -109,36 +100,25 @@ class OrderTest extends TestCase
      */
     public function testGetDetail(Order $api)
     {
-        $data = $api->getList(['symbol' => 'BTC-USDT'], ['currentPage' => 1, 'pageSize' => 10]);
+        $data = $api->getList(['symbol' => 'XBTUSDM'], ['currentPage' => 1, 'pageSize' => 10]);
         $this->assertPagination($data);
         $orders = $data['items'];
         if (isset($orders[0])) {
             $order = $api->getDetail($orders[0]['id']);
             $this->assertArrayHasKey('symbol', $order);
             $this->assertArrayHasKey('hidden', $order);
-            $this->assertArrayHasKey('opType', $order);
-            $this->assertArrayHasKey('fee', $order);
-            $this->assertArrayHasKey('channel', $order);
-            $this->assertArrayHasKey('feeCurrency', $order);
             $this->assertArrayHasKey('type', $order);
             $this->assertArrayHasKey('iceberg', $order);
             $this->assertArrayHasKey('createdAt', $order);
-            $this->assertArrayHasKey('visibleSize', $order);
-            $this->assertArrayHasKey('price', $order);
             $this->assertArrayHasKey('stopTriggered', $order);
-            $this->assertArrayHasKey('funds', $order);
             $this->assertArrayHasKey('id', $order);
             $this->assertArrayHasKey('timeInForce', $order);
             $this->assertArrayHasKey('side', $order);
             $this->assertArrayHasKey('dealSize', $order);
-            $this->assertArrayHasKey('cancelAfter', $order);
-            $this->assertArrayHasKey('dealFunds', $order);
             $this->assertArrayHasKey('stp', $order);
             $this->assertArrayHasKey('postOnly', $order);
-            $this->assertArrayHasKey('stopPrice', $order);
             $this->assertArrayHasKey('size', $order);
             $this->assertArrayHasKey('stop', $order);
-            $this->assertArrayHasKey('cancelExist', $order);
         }
     }
 
@@ -151,8 +131,9 @@ class OrderTest extends TestCase
      */
     public function testCancel($api)
     {
-        $result = $api->cancel('5c1b6bcf03aa670b44027723');
-        var_dump($result);
+        $result = $api->cancel('5d07352009931f18c139fd2b');
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('cancelledOrderIds', $result['data']);
     }
 
     /**
@@ -164,7 +145,7 @@ class OrderTest extends TestCase
      */
     public function testBatchCancel($api)
     {
-        $result = $api->batchCancel('BTC-USDT');
+        $result = $api->batchCancel('XBTUSDM');
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('cancelledOrderIds', $result);
     }
@@ -179,32 +160,21 @@ class OrderTest extends TestCase
     public function testGetRecentList(Order $api)
     {
         $items = $api->getRecentDoneOrders();
-        foreach ($items as $item) {
-            $this->assertArrayHasKey('symbol', $item);
-            $this->assertArrayHasKey('hidden', $item);
-            $this->assertArrayHasKey('opType', $item);
-            $this->assertArrayHasKey('fee', $item);
-            $this->assertArrayHasKey('channel', $item);
-            $this->assertArrayHasKey('feeCurrency', $item);
-            $this->assertArrayHasKey('type', $item);
-            $this->assertArrayHasKey('iceberg', $item);
-            $this->assertArrayHasKey('createdAt', $item);
-            $this->assertArrayHasKey('visibleSize', $item);
-            $this->assertArrayHasKey('price', $item);
-            $this->assertArrayHasKey('stopTriggered', $item);
-            $this->assertArrayHasKey('funds', $item);
-            $this->assertArrayHasKey('id', $item);
-            $this->assertArrayHasKey('timeInForce', $item);
-            $this->assertArrayHasKey('side', $item);
-            $this->assertArrayHasKey('dealSize', $item);
-            $this->assertArrayHasKey('cancelAfter', $item);
-            $this->assertArrayHasKey('dealFunds', $item);
-            $this->assertArrayHasKey('stp', $item);
-            $this->assertArrayHasKey('postOnly', $item);
-            $this->assertArrayHasKey('stopPrice', $item);
-            $this->assertArrayHasKey('size', $item);
-            $this->assertArrayHasKey('stop', $item);
-            $this->assertArrayHasKey('cancelExist', $item);
+        foreach ($items as $order) {
+            $this->assertArrayHasKey('symbol', $order);
+            $this->assertArrayHasKey('hidden', $order);
+            $this->assertArrayHasKey('type', $order);
+            $this->assertArrayHasKey('iceberg', $order);
+            $this->assertArrayHasKey('createdAt', $order);
+            $this->assertArrayHasKey('stopTriggered', $order);
+            $this->assertArrayHasKey('id', $order);
+            $this->assertArrayHasKey('timeInForce', $order);
+            $this->assertArrayHasKey('side', $order);
+            $this->assertArrayHasKey('dealSize', $order);
+            $this->assertArrayHasKey('stp', $order);
+            $this->assertArrayHasKey('postOnly', $order);
+            $this->assertArrayHasKey('size', $order);
+            $this->assertArrayHasKey('stop', $order);
         }
     }
 

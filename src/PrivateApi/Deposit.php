@@ -23,7 +23,7 @@ class Deposit extends KuMexApi
      */
     public function getAddress($currency)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v2/deposit-addresses', $currency);
+        $response = $this->call(Request::METHOD_GET, '/api/v2/deposit-addresses', compact('currency'));
         return $response->getApiData();
     }
 

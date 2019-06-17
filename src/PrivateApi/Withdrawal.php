@@ -22,7 +22,7 @@ class Withdrawal extends KuMexApi
      */
     public function getQuotas($currency)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/withdrawals/quotas', $currency);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/withdrawals/quotas', compact('currency'));
         return $response->getApiData();
     }
 

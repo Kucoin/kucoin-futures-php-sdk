@@ -37,7 +37,7 @@ class Position extends KuMexApi
      */
     public function getDetail($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/position', $symbol);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/position', compact('symbol'));
         return $response->getApiData();
     }
 

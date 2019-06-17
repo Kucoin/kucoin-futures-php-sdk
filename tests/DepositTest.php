@@ -21,7 +21,7 @@ class DepositTest extends TestCase
     public function testGetAddress(Deposit $api)
     {
         try {
-            $address = $api->getAddress('BTC');
+            $address = $api->getAddress('XBT');
             if ($address !== null) {
                 $this->assertInternalType('array', $address);
                 $this->assertArrayHasKey('address', $address);
@@ -46,7 +46,7 @@ class DepositTest extends TestCase
      */
     public function testGetDeposits(Deposit $api)
     {
-        $data = $api->getDeposits(['currency' => 'BTC'], ['currentPage' => 1, 'pageSize' => 10]);
+        $data = $api->getDeposits(['currency' => 'XBT'], ['currentPage' => 1, 'pageSize' => 10]);
         $this->assertPagination($data);
         foreach ($data['items'] as $item) {
             $this->assertArrayHasKey('currency', $item);
