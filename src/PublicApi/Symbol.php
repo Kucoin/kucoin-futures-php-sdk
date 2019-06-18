@@ -23,7 +23,7 @@ class Symbol extends KuMexApi
      */
     public function getTicker($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/ticker', $symbol);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/ticker', compact('symbol'));
         return $response->getApiData();
     }
 
@@ -38,7 +38,7 @@ class Symbol extends KuMexApi
      */
     public function getLevel2Snapshot($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/level2/snapshot', $symbol);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level2/snapshot', compact('symbol'));
         return $response->getApiData();
     }
 
@@ -53,7 +53,7 @@ class Symbol extends KuMexApi
      */
     public function getLevel3Snapshot($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/level3/snapshot', $symbol);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level3/snapshot', compact('symbol'));
         return $response->getApiData();
     }
 
@@ -106,7 +106,7 @@ class Symbol extends KuMexApi
      */
     public function getTradeHistory($symbol)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/trade/history', $symbol);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/trade/history', compact('symbol'));
         return $response->getApiData();
     }
 }
