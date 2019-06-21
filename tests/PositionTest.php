@@ -133,7 +133,7 @@ class PositionTest extends TestCase
             'margin' => 1000,
             'bizNo' =>  '123123'
         ];
-        $data = $api->marginAppend('XBTUSDM', $params);
+        $data = $api->marginAppend($params);
         $this->assertInternalType('array', $data);
         $this->assertNull($data);
         var_dump($data);

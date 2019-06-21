@@ -14,9 +14,14 @@ use Psr\Log\LoggerInterface;
 abstract class Api
 {
     /**
+     * @var string SDK Version
+     */
+    const VERSION = '1.0.1';
+
+    /**
      * @var string
      */
-    protected static $baseUri = 'https://openapi-v2.KuMex.com';
+    protected static $baseUri = 'https://openapi-v2.kucoin.com';
 
     /**
      * @var bool
@@ -125,8 +130,8 @@ abstract class Api
     public static function getLogger()
     {
         if (self::$logger === null) {
-            self::$logger = new Logger('KuMex-sdk');
-            $handler = new RotatingFileHandler(static::getLogPath() . '/KuMex-sdk.log', 0, static::$logLevel);
+            self::$logger = new Logger('kumex-sdk');
+            $handler = new RotatingFileHandler(static::getLogPath() . '/kumex-sdk.log', 0, static::$logLevel);
             $formatter = new LineFormatter(null, null, false, true);
             $handler->setFormatter($formatter);
             self::$logger->pushHandler($handler);
@@ -192,6 +197,7 @@ abstract class Api
             );
             $headers = array_merge($headers, $authHeaders);
         }
+        $headers['User-Agent'] = 'KuMex-PHP-SDK/' . static::VERSION;
         $request->setHeaders($headers);
 
         $requestId = uniqid();

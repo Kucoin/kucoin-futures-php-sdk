@@ -53,7 +53,7 @@ class Position extends KuMexApi
      */
     public function changeAutoAppendStatus($symbol, $status)
     {
-        $response = $this->call(Request::METHOD_POST, '/api/v1/position/margin/auto-append-status',
+        $response = $this->call(Request::METHOD_POST, '/api/v1/position/margin/auto-deposit-status',
             compact('symbol', 'status')
         );
         return $response->getApiData();
@@ -79,17 +79,16 @@ class Position extends KuMexApi
     /**
      * Margin Append.
      *
-     * @param  string $symbol
      * @param  array $params
      * @return array
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException
      * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
      */
-    public function marginAppend($symbol, array $params)
+    public function marginAppend(array $params)
     {
         $response = $this->call(Request::METHOD_POST,
-            '/api/v1/position?margin/auto-append-status?symbol='.$symbol, $params
+            '/api/v1/position/margin/deposit-magrin', $params
         );
         return $response->getApiData();
     }
