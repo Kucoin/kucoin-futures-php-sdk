@@ -33,7 +33,6 @@ class OrderTest extends TestCase
         $data = $api->create($order);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('orderId', $data);
-        var_dump($data['orderId']);
     }
 
     /**
@@ -59,8 +58,6 @@ class OrderTest extends TestCase
         $data = $api->create($order);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('orderId', $data);
-
-        var_dump($data['orderId']);
     }
 
     /**
@@ -197,7 +194,8 @@ class OrderTest extends TestCase
     }
 
     /**
-     * @dataProvider apiProvider
+     * @dataProvider apiProvider.
+     *
      * @param Order $api
      * @throws \KuMex\SDK\Exceptions\BusinessException
      * @throws \KuMex\SDK\Exceptions\HttpException

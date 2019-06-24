@@ -50,7 +50,6 @@ class FillTest extends TestCase
     public function testGetRecentList(Fill $api)
     {
         $items = $api->getRecentList();
-        var_dump($items);
         foreach ($items as $item) {
             $this->assertArrayHasKey('symbol', $item);
             $this->assertArrayHasKey('side', $item);

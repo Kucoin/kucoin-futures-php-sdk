@@ -116,7 +116,6 @@ class PositionTest extends TestCase
         $data = $api->changeAutoAppendStatus('XBTUSDM', true);
         $this->assertInternalType('array', $data);
         $this->assertNull($data);
-        var_dump($data);
     }
 
     /**
@@ -136,7 +135,6 @@ class PositionTest extends TestCase
         $data = $api->marginAppend($params);
         $this->assertInternalType('array', $data);
         $this->assertNull($data);
-        var_dump($data);
     }
 
 }
