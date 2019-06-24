@@ -59,6 +59,7 @@ class OrderTest extends TestCase
         $data = $api->create($order);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('orderId', $data);
+
         var_dump($data['orderId']);
     }
 
@@ -131,9 +132,9 @@ class OrderTest extends TestCase
      */
     public function testCancel($api)
     {
-        $result = $api->cancel('5d07352009931f18c139fd2b');
+        $result = $api->cancel($this->getOrderId($api));
         $this->assertInternalType('array', $result);
-        $this->assertArrayHasKey('cancelledOrderIds', $result['data']);
+        $this->assertArrayHasKey('cancelledOrderIds', $result);
     }
 
     /**
@@ -187,11 +188,37 @@ class OrderTest extends TestCase
      */
     public function testOpenOrderStatistics($api)
     {
-        $result = $api->batchCancel('XBTUSD');
+        $result = $api->getOpenOrderStatistics('XBTUSD');
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('openOrderBuySize', $result);
         $this->assertArrayHasKey('openOrderSellSize', $result);
         $this->assertArrayHasKey('openOrderBuyCost', $result);
         $this->assertArrayHasKey('openOrderSellCost', $result);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Order $api
+     * @throws \KuMex\SDK\Exceptions\BusinessException
+     * @throws \KuMex\SDK\Exceptions\HttpException
+     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     */
+    private function getOrderId($api)
+    {
+        $order = [
+            'clientOid' => uniqid(),
+            'type'      => 'limit',
+            'side'      => 'buy',
+            'symbol'    => 'XBTUSDM',
+            'leverage'  => 2,
+            'remark'    => '\中文备注 ',
+
+            'price' => 100,
+            'size'  => 1,
+        ];
+        $data = $api->create($order);
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('orderId', $data);
+        return $data['orderId'];
     }
 }

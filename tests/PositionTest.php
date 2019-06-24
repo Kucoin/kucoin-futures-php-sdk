@@ -19,7 +19,7 @@ class PositionTest extends TestCase
     public function testGetList(Position $api)
     {
         $data = $api->getList();
-        $this->assertPagination($data);
+//        $this->assertPagination($data);
         foreach ($data as $item) {
             $this->assertArrayHasKey('id', $item);
             $this->assertArrayHasKey('symbol', $item);
