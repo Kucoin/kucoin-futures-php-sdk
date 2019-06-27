@@ -70,7 +70,7 @@ class WebSocketFeedTest extends TestCase
     public function testSubscribePublicChannel(WebSocketFeed $api)
     {
         $query = ['connectId' => uniqid('', true),];
-        $channel = ['topic' => '/market/ticker:KCS-BTC'];
+        $channel = ['topic' => '/market/ticker:XBTUSDM'];
 
         $options = [
 //            'tls' => [
@@ -101,8 +101,8 @@ class WebSocketFeedTest extends TestCase
     {
         $query = ['connectId' => uniqid('', true),];
         $channels = [
-            ['topic' => '/market/ticker:KCS-BTC'],
-            ['topic' => '/market/ticker:ETH-BTC'],
+            ['topic' => '/market/ticker:XBTUSDM'],
+            ['topic' => '/market/ticker:XBTUSDM'],
         ];
 
         $options = [
@@ -125,6 +125,37 @@ class WebSocketFeedTest extends TestCase
         }, $options);
     }
 
+
+    /**
+     * @dataProvider apiProvider
+     * @param WebSocketFeed $api
+     * @throws \Exception|\Throwable
+     */
+    public function testUnsubscribePublicChannel(WebSocketFeed $api)
+    {
+        $query = ['connectId' => uniqid('', true),];
+        $channel = ['topic' => '/market/ticker:XBTUSDM'];
+
+        $options = [
+//            'tls' => [
+//                'verify_peer' => false,
+//            ],
+        ];
+        $api->subscribePublicChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
+            $this->assertInternalType('array', $message);
+            $this->assertArrayHasKey('type', $message);
+            $this->assertEquals('message', $message['type']);
+
+            // Dynamic output
+            fputs(STDIN, print_r($message, true));
+
+            // Stop for phpunit
+            $loop->stop();
+        }, function ($code, $reason) {
+            echo "OnClose: {$code} {$reason}\n";
+        }, $options);
+    }
+
     /**
      * @dataProvider apiProvider
      * @param WebSocketFeed $api
@@ -133,7 +164,7 @@ class WebSocketFeedTest extends TestCase
     public function testSubscribePrivateChannel(WebSocketFeed $api)
     {
         $query = ['connectId' => uniqid('', true),];
-        $channel = ['topic' => '/market/match:KCS-BTC'];
+        $channel = ['topic' => '/market/match:XBTUSDM'];
 
         $options = [
 //            'tls' => [
@@ -163,8 +194,8 @@ class WebSocketFeedTest extends TestCase
     {
         $query = ['connectId' => uniqid('', true),];
         $channels = [
-            ['topic' => '/market/match:KCS-BTC'],
-            ['topic' => '/market/match:ETH-BTC'],
+            ['topic' => '/market/match:XBTUSDM'],
+            ['topic' => '/market/match:XBTUSDM'],
         ];
 
         $options = [
