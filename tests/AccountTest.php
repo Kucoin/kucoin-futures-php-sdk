@@ -46,7 +46,6 @@ class AccountTest extends TestCase
             $this->assertArrayHasKey('time', $item);
             $this->assertArrayHasKey('type', $item);
             $this->assertArrayHasKey('amount', $item);
-            $this->assertArrayHasKey('fee', $item);
             $this->assertArrayHasKey('accountEquity', $item);
             $this->assertArrayHasKey('status', $item);
             $this->assertArrayHasKey('offset', $item);
@@ -62,7 +61,7 @@ class AccountTest extends TestCase
      */
     public function testTransferIn(Account $api)
     {
-        $amount   = 1.00;
+        $amount   = 0.1;
         $accounts = $api->transferIn($amount);
         $this->assertInternalType('array', $accounts);
         if (isset($accounts['applyId'])) {
@@ -80,7 +79,7 @@ class AccountTest extends TestCase
     public function testTransferOut(Account $api)
     {
         $bizNo    = rand(1, 9999);
-        $amount   = 1.00;
+        $amount   = 0.1;
         $accounts = $api->transferOut($bizNo, $amount);
         $this->assertInternalType('array', $accounts);
         if (isset($accounts['applyId'])) {
@@ -97,7 +96,7 @@ class AccountTest extends TestCase
      */
     public function testCancelTransferOut(Account $api)
     {
-        $applyId = '5bffb63303aa675e8bbe18f9';
+        $applyId = $this->getTransferId($api);
         $accounts = $api->cancelTransferOut($applyId);
         $this->assertNull($accounts);
     }
@@ -120,6 +119,22 @@ class AccountTest extends TestCase
             $this->assertArrayHasKey('amount', $item);
             $this->assertArrayHasKey('offset', $item);
         }
+    }
+
+    /**
+     * @dataProvider apiProvider.
+     *
+     * @param Account $api
+     * @throws \KuMex\SDK\Exceptions\BusinessException
+     * @throws \KuMex\SDK\Exceptions\HttpException
+     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     */
+    private function getTransferId($api)
+    {
+        $amount   = 0.1;
+        $accounts = $api->transferIn($amount);
+        $this->assertInternalType('array', $accounts);
+        return $accounts['applyId'];
     }
 
 }

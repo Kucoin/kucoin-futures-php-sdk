@@ -25,9 +25,7 @@ class SymbolTest extends TestCase
         $this->assertArrayHasKey('symbol', $data);
         $this->assertArrayHasKey('size', $data);
         $this->assertArrayHasKey('price', $data);
-        $this->assertArrayHasKey('bestBid', $data);
         $this->assertArrayHasKey('bestBidSize', $data);
-        $this->assertArrayHasKey('bestAsk', $data);
         $this->assertArrayHasKey('bestAskSize', $data);
         $this->assertArrayHasKey('ts', $data);
     }
@@ -43,11 +41,10 @@ class SymbolTest extends TestCase
     {
         $data = $api->getLevel2Snapshot('XBTUSDM');
         $this->assertInternalType('array', $data);
-        foreach ($data['data'] as $item) {
-            $this->assertArrayHasKey('sequence', $item);
-            $this->assertArrayHasKey('symbol', $item);
-            $this->assertArrayHasKey('change', $item);
-        }
+        $this->assertArrayHasKey('sequence', $data);
+        $this->assertArrayHasKey('symbol', $data);
+        $this->assertArrayHasKey('asks', $data);
+        $this->assertArrayHasKey('bids', $data);
     }
 
     /**
@@ -59,13 +56,12 @@ class SymbolTest extends TestCase
      */
     public function testGetLevel3Snapshot(Symbol $api)
     {
-        $data = $api->getLevel3Snapshot('XBTUSD');
+        $data = $api->getLevel3Snapshot('XBTUSDM');
         $this->assertInternalType('array', $data);
-        $item = $data['data'];
-        $this->assertArrayHasKey('symbol', $item);
-        $this->assertArrayHasKey('sequence', $item);
-        $this->assertArrayHasKey('bids', $item);
-        $this->assertArrayHasKey('asks', $item);
+        $this->assertArrayHasKey('sequence', $data);
+        $this->assertArrayHasKey('symbol', $data);
+        $this->assertArrayHasKey('asks', $data);
+        $this->assertArrayHasKey('bids', $data);
     }
 
     /**
@@ -77,13 +73,12 @@ class SymbolTest extends TestCase
      */
     public function testGetLevel2Message(Symbol $api)
     {
-        $data = $api->getLevel2Message('XBTUSD', 1, 100);
+        $data = $api->getLevel2Message('XBTUSDM', 1, 100);
         $this->assertInternalType('array', $data);
-        foreach ($data['data'] as $item) {
+        foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);
             $this->assertArrayHasKey('sequence', $item);
-            $this->assertArrayHasKey('orderId', $item);
-            $this->assertArrayHasKey('type', $item);
+            $this->assertArrayHasKey('change', $item);
         }
     }
 
@@ -96,9 +91,9 @@ class SymbolTest extends TestCase
      */
     public function testGetLevel3Message(Symbol $api)
     {
-        $data = $api->getLevel3Message('XBTUSD', 1, 100);
+        $data = $api->getLevel3Message('XBTUSDM', 1, 100);
         $this->assertInternalType('array', $data);
-        foreach ($data['data'] as $item) {
+        foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);
             $this->assertArrayHasKey('sequence', $item);
             $this->assertArrayHasKey('orderId', $item);
@@ -117,12 +112,13 @@ class SymbolTest extends TestCase
     {
         $data = $api->getTradeHistory('XBTUSDM');
         $this->assertInternalType('array', $data);
-        $item = $data['data'];
-        $this->assertArrayHasKey('sequence', $item);
-        $this->assertArrayHasKey('tradeId', $item);
-        $this->assertArrayHasKey('takerOrderId', $item);
-        $this->assertArrayHasKey('makerOrderId', $item);
-        $this->assertArrayHasKey('price', $item);
+        foreach ($data as $item) {
+            $this->assertArrayHasKey('sequence', $item);
+            $this->assertArrayHasKey('tradeId', $item);
+            $this->assertArrayHasKey('takerOrderId', $item);
+            $this->assertArrayHasKey('makerOrderId', $item);
+            $this->assertArrayHasKey('price', $item);
+        }
     }
 
 }

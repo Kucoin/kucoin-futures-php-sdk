@@ -26,16 +26,12 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('forceTaker', $item);
             $this->assertArrayHasKey('orderId', $item);
             $this->assertArrayHasKey('fee', $item);
-            $this->assertArrayHasKey('feeCurrency', $item);
             $this->assertArrayHasKey('liquidity', $item);
-            $this->assertArrayHasKey('type', $item);
             $this->assertArrayHasKey('feeRate', $item);
-            $this->assertArrayHasKey('counterOrderId', $item);
             $this->assertArrayHasKey('createdAt', $item);
             $this->assertArrayHasKey('size', $item);
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('price', $item);
-            $this->assertArrayHasKey('funds', $item);
             $this->assertArrayHasKey('tradeId', $item);
         }
     }
@@ -56,16 +52,12 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('forceTaker', $item);
             $this->assertArrayHasKey('orderId', $item);
             $this->assertArrayHasKey('fee', $item);
-            $this->assertArrayHasKey('feeCurrency', $item);
             $this->assertArrayHasKey('liquidity', $item);
-            $this->assertArrayHasKey('type', $item);
             $this->assertArrayHasKey('feeRate', $item);
-            $this->assertArrayHasKey('counterOrderId', $item);
             $this->assertArrayHasKey('createdAt', $item);
             $this->assertArrayHasKey('size', $item);
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('price', $item);
-            $this->assertArrayHasKey('funds', $item);
             $this->assertArrayHasKey('tradeId', $item);
         }
     }
