@@ -114,7 +114,7 @@ class IndexTest extends TestCase
      */
     public function testGetCurrentFundingRate(Index $api)
     {
-        $data = $api->getCurrentFundingRate('.XBTUSDFPI8H');
+        $data = $api->getCurrentFundingRate('.XBTUSDMFPI8H');
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('symbol', $data);
         $this->assertArrayHasKey('granularity', $data);

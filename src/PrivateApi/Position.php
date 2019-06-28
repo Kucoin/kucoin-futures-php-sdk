@@ -88,7 +88,7 @@ class Position extends KuMexApi
     public function marginAppend(array $params)
     {
         $response = $this->call(Request::METHOD_POST,
-            '/api/v1/position/margin/deposit-magrin', $params
+            '/api/v1/position/margin/deposit-margin', $params
         );
         return $response->getApiData();
     }
