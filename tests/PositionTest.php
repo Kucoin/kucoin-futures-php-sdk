@@ -114,7 +114,7 @@ class PositionTest extends TestCase
     public function testChangeAutoAppendStatus(Position $api)
     {
         $data = $api->changeAutoAppendStatus('XBTUSDM', true);
-        $this->assertInternalType('array', $data);
+//        $this->assertInternalType('array', $data);
         $this->assertNull($data);
     }
 
@@ -133,7 +133,7 @@ class PositionTest extends TestCase
             'bizNo' =>  '123123'
         ];
         $data = $api->marginAppend($params);
-        $this->assertInternalType('array', $data);
+//        $this->assertInternalType('array', $data);
         $this->assertNull($data);
     }
 
