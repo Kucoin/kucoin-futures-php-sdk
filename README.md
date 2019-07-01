@@ -172,17 +172,12 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Account::create() | YES | https://docs.kumex.com/#create-an-account |
-| KuMex\SDK\PrivateApi\Account::getList() | YES | https://docs.kumex.com/#list-accounts |
-| KuMex\SDK\PrivateApi\Account::getDetail() | YES | https://docs.kumex.com/#get-an-account |
-| KuMex\SDK\PrivateApi\Account::getLedgers() | YES | https://docs.kumex.com/#get-account-ledgers |
-| KuMex\SDK\PrivateApi\Account::getHolds() | YES | https://docs.kumex.com/#get-holds |
-| KuMex\SDK\PrivateApi\Account::innerTransfer() | YES | https://docs.kumex.com/#inner-transfer |
-| KuMex\SDK\PrivateApi\Account::getSubAccountUsers() | YES | https://docs.kumex.com/#get-user-info-of-all-sub-accounts |
-| KuMex\SDK\PrivateApi\Account::getSubAccountDetail() | YES | https://docs.kumex.com/#get-account-balance-of-a-sub-account |
-| KuMex\SDK\PrivateApi\Account::getSubAccountList() | YES | https://docs.kumex.com/#get-the-aggregated-balance-of-all-sub-accounts-of-the-current-user |
-| KuMex\SDK\PrivateApi\Account::subTransfer() | YES | https://docs.kumex.com/#transfer-between-master-account-and-sub-account |
-
+| KuMex\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kumex.com/#account |
+| KuMex\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kumex.com/#get-transaction-history |
+| KuMex\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kumex.com/#transfer-funds-from-kucoin-main-account-to-kumex-account |
+| KuMex\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kumex.com/##transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuMex\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kumex.com/#cancel-transfer-out-request |
+| KuMex\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kumex.com/#get-transfer-out-request-records |
 </details>
 
 <details>
@@ -190,10 +185,8 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Deposit::createAddress() | YES | https://docs.kumex.com/#create-deposit-address |
 | KuMex\SDK\PrivateApi\Deposit::getAddress() | YES | https://docs.kumex.com/#get-deposit-address |
 | KuMex\SDK\PrivateApi\Deposit::getDeposits() | YES | https://docs.kumex.com/#get-deposit-list |
-| KuMex\SDK\PrivateApi\Deposit::getV1Deposits() | YES | https://docs.kumex.com/#get-v1-historical-deposits-list |
 
 </details>
 
@@ -202,8 +195,9 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Fill::getList() | YES | https://docs.kumex.com/#list-fills |
+| KuMex\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kumex.com/#list-fills |
 | KuMex\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kumex.com/#recent-fills |
+| KuMex\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#active-order-value-calculation |
 
 </details>
 
@@ -214,11 +208,13 @@ go(function () {
 | -------- | -------- | -------- |
 | KuMex\SDK\PrivateApi\Order::create() | YES | https://docs.kumex.com/#place-a-new-order |
 | KuMex\SDK\PrivateApi\Order::cancel() | YES | https://docs.kumex.com/#cancel-an-order |
-| KuMex\SDK\PrivateApi\Order::cancelAll() | YES | https://docs.kumex.com/#cancel-all-orders |
-| KuMex\SDK\PrivateApi\Order::getList() | YES | https://docs.kumex.com/#list-orders |
-| KuMex\SDK\PrivateApi\Order::getV1List() | YES | https://docs.kumex.com/#get-v1-historical-orders-list |
-| KuMex\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#get-an-order |
-| KuMex\SDK\PrivateApi\Order::getRecentList() | YES | https://docs.kumex.com/#recent-orders |
+| KuMex\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kumex.com/#cancel-all-orders |
+| KuMex\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kumex.com/#list-orders |
+| KuMex\SDK\PrivateApi\Order::getList() | YES | https://docs.kumex.com/#get-v1-historical-orders-list |
+| KuMex\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kumex.com/#get-an-order |
+| KuMex\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kumex.com/#recent-orders |
+| KuMex\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#recent-orders |
+| KuMex\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#recent-orders |
 
 </details>
 
@@ -243,20 +239,8 @@ go(function () {
 | -------- | -------- | -------- |
 | KuMex\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kumex.com/#get-withdrawal-quotas |
 | KuMex\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kumex.com/#get-withdrawals-list |
-| KuMex\SDK\PrivateApi\Withdrawal::getV1List() | YES | https://docs.kumex.com/#get-v1-historical-withdrawals-list |
 | KuMex\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kumex.com/#apply-withdraw |
 | KuMex\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.kumex.com/#cancel-withdrawal |
-
-</details>
-
-<details>
-<summary>KuMex\SDK\PublicApi\Currency</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMex\SDK\PublicApi\Currency::getList() | NO | https://docs.kumex.com/#get-currencies |
-| KuMex\SDK\PublicApi\Currency::getDetail() | NO | https://docs.kumex.com/#get-currency-detail |
-| KuMex\SDK\PublicApi\Currency::getPrices() | NO | https://docs.kumex.com/#get-fiat-price |
 
 </details>
 
@@ -265,16 +249,12 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PublicApi\Symbol::getList() | NO | https://docs.kumex.com/#get-symbols-list |
 | KuMex\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kumex.com/#get-ticker |
-| KuMex\SDK\PublicApi\Symbol::getAllTickers() | NO | https://docs.kumex.com/#get-all-tickers |
-| KuMex\SDK\PublicApi\Symbol::getAggregatedPartOrderBook() | NO | https://docs.kumex.com/#get-part-order-book-aggregated |
-| KuMex\SDK\PublicApi\Symbol::getAggregatedFullOrderBook() | NO | https://docs.kumex.com/#get-full-order-book-aggregated |
-| KuMex\SDK\PublicApi\Symbol::getAtomicFullOrderBook() | NO | https://docs.kumex.com/#get-full-order-book-atomic |
-| KuMex\SDK\PublicApi\Symbol::getTradeHistories() | NO | https://docs.kumex.com/#get-trade-histories |
-| KuMex\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kumex.com/#get-klines |
-| KuMex\SDK\PublicApi\Symbol::get24HStats() | NO | https://docs.kumex.com/#get-24hr-stats |
-| KuMex\SDK\PublicApi\Symbol::getMarkets() | NO | https://docs.kumex.com/#get-market-list |
+| KuMex\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kumex.com/#get-full-order-book-level-2 |
+| KuMex\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kumex.com/#get-full-order-book-level-3 |
+| KuMex\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kumex.com/##level-2-pulling-messages |
+| KuMex\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kumex.com/##level-3-pulling-messages |
+| KuMex\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kumex.com/#get-trade-histories |
 
 </details>
 
@@ -292,7 +272,7 @@ go(function () {
 
 ```shell
 # Add your API configuration items into the environmental variable first
-export API_BASE_URI=https://openapi-v2.kumex.com
+export API_BASE_URI=https://api.kumex.com
 export API_KEY=key
 export API_SECRET=secret
 export API_PASSPHRASE=passphrase
