@@ -123,30 +123,4 @@ class IndexTest extends TestCase
         $this->assertArrayHasKey('predictedValue', $data);
     }
 
-    /**
-     *
-     * @dataProvider apiProvider
-     * @param Index $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
-     */
-    public function testGetFundingHistory(Index $api)
-    {
-        $params  =  [
-            'symbol' => 'XBTUSDM'
-        ];
-        $data = $api->getFundingHistory($params);
-        $this->assertInternalType('array', $data);
-        foreach ($data['dataList'] as $item) {
-            $this->assertArrayHasKey('symbol', $item);
-            $this->assertArrayHasKey('fundingRate', $item);
-            $this->assertArrayHasKey('timePoint', $item);
-            $this->assertArrayHasKey('markPrice', $item);
-            $this->assertArrayHasKey('positionQty', $item);
-            $this->assertArrayHasKey('positionCost', $item);
-            $this->assertArrayHasKey('funding', $item);
-        }
-    }
-
 }

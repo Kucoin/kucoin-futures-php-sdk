@@ -88,20 +88,4 @@ class Index extends KuMexApi
         $response = $this->call(Request::METHOD_GET, sprintf('/api/v1/funding-rate/%s/current', $symbol));
         return $response->getApiData();
     }
-
-    /**
-     * Get a funding-history list.
-     *
-     * @param array $params
-     * @param array $pagination
-     * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
-     */
-    public function getFundingHistory(array $params, array $pagination = [])
-    {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/funding-history', $params + $pagination);
-        return $response->getApiData();
-    }
 }
