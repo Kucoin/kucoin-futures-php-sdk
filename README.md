@@ -2,12 +2,12 @@
 # PHP SDK for KuMex API
 > The detailed document [https://docs.kumex.com](https://docs.kumex.com), in order to receive the latest API change notifications, please `Watch` this repository.
 
-[![Latest Version](https://img.shields.io/github/release/kumex/kumex-php-sdk.svg)](https://github.com/kumex/kumex-php-sdk/releases)
-[![PHP Version](https://img.shields.io/packagist/php-v/kumex/kumex-php-sdk.svg?color=green)](https://secure.php.net)
-[![Build Status](https://travis-ci.org/kumex/kumex-php-sdk.svg?branch=master)](https://travis-ci.org/kumex/kumex-php-sdk)
-[![Total Downloads](https://poser.pugx.org/kumex/kumex-php-sdk/downloads)](https://packagist.org/packages/kumex/kumex-php-sdk)
-[![License](https://poser.pugx.org/kumex/kumex-php-sdk/license)](LICENSE)
-[![Total Lines](https://tokei.rs/b1/github/kumex/kumex-php-sdk)](https://github.com/kumex/kumex-php-sdk)
+[![Latest Version](https://img.shields.io/github/release/Kucoin/kumex-php-sdk.svg)](https://github.com/kumex/kumex-php-sdk/releases)
+[![PHP Version](https://img.shields.io/packagist/php-v/Kucoin/kumex-php-sdk.svg?color=green)](https://secure.php.net)
+[![Build Status](https://travis-ci.org/Kucoin/kumex-php-sdk.svg?branch=master)](https://travis-ci.org/kumex/kumex-php-sdk)
+[![Total Downloads](https://poser.pugx.org/Kucoin/kumex-php-sdk/downloads)](https://packagist.org/packages/kumex/kumex-php-sdk)
+[![License](https://poser.pugx.org/Kucoin/kumex-php-sdk/license)](LICENSE)
+[![Total Lines](https://tokei.rs/b1/github/Kucoin/kumex-php-sdk)](https://github.com/Kucoin/kumex-php-sdk)
 
 ## Requirements
 
@@ -29,12 +29,12 @@ composer require "kucoin/kumex-php-sdk:~1.1.0"
 
 | Environment | BaseUri |
 | -------- | -------- |
-| *Production* `DEFAULT` | https://openapi-v2.kumex.com https://api.kumex.com https://api.kcs.top |
-| *Sandbox* | https://openapi-sandbox.kumex.com |
+| *Production* `DEFAULT` | https://api.kumex.com|
+| *Sandbox* | https://sandbox-api.kumex.com |
 
 ```php
 // Switch to the sandbox environment
-KuMexApi::setBaseUri('https://openapi-sandbox.kumex.com');
+KuMexApi::setBaseUri('https://sandbox-api.kumex.com');
 ```
 
 ### Debug mode & logging
