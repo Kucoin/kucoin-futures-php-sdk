@@ -50,7 +50,7 @@ class IndexTest extends TestCase
     public function testGetInterests(Index $api)
     {
         $params  =  [
-            'symbol' => '.BXBT'
+            'symbol' => '.XBTINT'
         ];
         $data = $api->getInterests($params);
         $this->assertInternalType('array', $data);
