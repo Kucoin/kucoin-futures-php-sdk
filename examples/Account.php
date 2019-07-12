@@ -7,8 +7,8 @@ use KuMex\SDK\PrivateApi\Account;
 use KuMex\SDK\Exceptions\HttpException;
 use KuMex\SDK\Exceptions\BusinessException;
 
-// Set the base uri, default "https://openapi-v2.KuMex.com" for production environment.
-// KuMexApi::setBaseUri('https://openapi-v2.KuMex.com');
+// Set the base uri, default "https://api.kumex.com" for production environment.
+// KuMexApi::setBaseUri('https://api.kumex.com');
 
 $auth = new Auth('key', 'secret', 'passphrase');
 $api = new Account($auth);

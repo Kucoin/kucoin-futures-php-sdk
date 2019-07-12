@@ -7,8 +7,8 @@ use KuMex\SDK\PrivateApi\WebSocketFeed;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\LoopInterface;
 
-// Set the base uri, default "https://openapi-v2.KuMex.com" for production environment.
-// KuMexApi::setBaseUri('https://openapi-v2.KuMex.com');
+// Set the base uri, default "https://api.kumex.com" for production environment.
+// KuMexApi::setBaseUri('https://api.kumex.com');
 
 $auth = null;
 // Need to pass the Auth parameter when subscribing to a private channel($api->subscribePrivateChannel()).

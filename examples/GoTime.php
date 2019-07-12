@@ -5,8 +5,8 @@ use KuMex\SDK\Http\SwooleHttp;
 use KuMex\SDK\KuMexApi;
 use KuMex\SDK\PublicApi\Time;
 
-// Set the base uri, default "https://openapi-v2.KuMex.com" for production environment.
-// KuMexApi::setBaseUri('https://openapi-v2.KuMex.com');
+// Set the base uri, default "https://api.kumex.com" for production environment.
+// KuMexApi::setBaseUri('https://api.kumex.com');
 
 // Require PHP 7.1+ and Swoole 2.1.2+
 // Require running in cli mode
