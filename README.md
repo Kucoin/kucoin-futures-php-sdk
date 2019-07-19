@@ -197,8 +197,6 @@ go(function () {
 | -------- | -------- | -------- |
 | KuMex\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kumex.com/#list-fills |
 | KuMex\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kumex.com/#recent-fills |
-| KuMex\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#active-order-value-calculation |
-
 </details>
 
 <details>
