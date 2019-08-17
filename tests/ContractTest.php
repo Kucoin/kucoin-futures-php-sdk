@@ -4,9 +4,9 @@
  * Date: 2019/6/17 下午3:08
  */
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use \KuMex\SDK\PublicApi\Contract;
+use \KuMEX\SDK\PublicApi\Contract;
 
 
 class ContractTest extends TestCase
@@ -19,9 +19,9 @@ class ContractTest extends TestCase
      *
      * @depends testGetList
      * @param Contract $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetList(Contract $api)
     {
@@ -41,9 +41,9 @@ class ContractTest extends TestCase
      *
      * @depends testGetDetail
      * @param Contract $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetDetail(Contract $api)
     {

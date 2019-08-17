@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMex\SDK\Http;
+namespace KuMEX\SDK\Http;
 
-use KuMex\SDK\ApiCode;
-use KuMex\SDK\Exceptions\BusinessException;
-use KuMex\SDK\Exceptions\HttpException;
+use KuMEX\SDK\ApiCode;
+use KuMEX\SDK\Exceptions\BusinessException;
+use KuMEX\SDK\Exceptions\HttpException;
 
 class ApiResponse
 {

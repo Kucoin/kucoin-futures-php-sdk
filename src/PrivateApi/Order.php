@@ -1,25 +1,25 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMEX\SDK\PrivateApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Order
- * @package KuMex\SDK\PrivateApi
- * @see https://docs.KuMex.com/#orders
+ * @package KuMEX\SDK\PrivateApi
+ * @see https://docs.KuMEX.com/#orders
  */
-class Order extends KuMexApi
+class Order extends KuMEXApi
 {
     /**
      * Place a new order.
      *
      * @param  array $order
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function create(array $order)
     {
@@ -32,9 +32,9 @@ class Order extends KuMexApi
      *
      * @param  string $orderId
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function cancel($orderId)
     {
@@ -47,9 +47,9 @@ class Order extends KuMexApi
      *
      * @param  string|null $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function batchCancel($symbol = null)
     {
@@ -62,9 +62,9 @@ class Order extends KuMexApi
      *
      * @param  string|null $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function stopOrders($symbol = null)
     {
@@ -78,9 +78,9 @@ class Order extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getList(array $params = [], array $pagination = [])
     {
@@ -94,9 +94,9 @@ class Order extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getStopOrders(array $params = [], array $pagination = [])
     {
@@ -110,9 +110,9 @@ class Order extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getRecentDoneOrders(array $params = [], array $pagination = [])
     {
@@ -125,9 +125,9 @@ class Order extends KuMexApi
      *
      * @param  string $orderId
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getDetail($orderId)
     {
@@ -140,9 +140,9 @@ class Order extends KuMexApi
      *
      * @param  string|null $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getOpenOrderStatistics($symbol = null)
     {

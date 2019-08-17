@@ -1,5 +1,5 @@
 
-# PHP SDK for KuMex API
+# PHP SDK for KuMEX API
 > The detailed document [https://docs.kumex.com](https://docs.kumex.com), in order to receive the latest API change notifications, please `Watch` this repository.
 
 [![Latest Version](https://img.shields.io/github/release/Kucoin/kumex-php-sdk.svg)](https://github.com/Kucoin/kumex-php-sdk/releases)
@@ -34,19 +34,19 @@ composer require "kucoin/kumex-php-sdk:~1.0.0"
 
 ```php
 // Switch to the sandbox environment
-KuMexApi::setBaseUri('https://sandbox-api.kumex.com');
+KuMEXApi::setBaseUri('https://sandbox-api.kumex.com');
 ```
 
 ### Debug mode & logging
 
 ```php
-// Debug mode will record the logs of API and WebSocket to files in the directory "KuMexApi::getLogPath()" according to the minimum log level "KuMexApi::getLogLevel()".
-KuMexApi::setDebugMode(true);
+// Debug mode will record the logs of API and WebSocket to files in the directory "KuMEXApi::getLogPath()" according to the minimum log level "KuMEXApi::getLogLevel()".
+KuMEXApi::setDebugMode(true);
 
 // Logging in your code
-// KuMexApi::setLogPath('/tmp');
-// KuMexApi::setLogLevel(Monolog\Logger::DEBUG);
-KuMexApi::getLogger()->debug("I'am a debug message");
+// KuMEXApi::setLogPath('/tmp');
+// KuMEXApi::setLogLevel(Monolog\Logger::DEBUG);
+KuMEXApi::getLogger()->debug("I'am a debug message");
 ```
 
 ### Examples
@@ -55,7 +55,7 @@ KuMexApi::getLogger()->debug("I'am a debug message");
 #### Example of API `without` authentication
 
 ```php
-use KuMex\SDK\PublicApi\Time;
+use KuMEX\SDK\PublicApi\Time;
 
 $api = new Time();
 $timestamp = $api->timestamp();
@@ -65,10 +65,10 @@ var_dump($timestamp);
 #### Example of API `with` authentication
 
 ```php
-use KuMex\SDK\Auth;
-use KuMex\SDK\PrivateApi\Account;
-use KuMex\SDK\Exceptions\HttpException;
-use KuMex\SDK\Exceptions\BusinessException;
+use KuMEX\SDK\Auth;
+use KuMEX\SDK\PrivateApi\Account;
+use KuMEX\SDK\Exceptions\HttpException;
+use KuMEX\SDK\Exceptions\BusinessException;
 
 $auth = new Auth('key', 'secret', 'passphrase');
 $api = new Account($auth);
@@ -86,8 +86,8 @@ try {
 #### Example of WebSocket feed
 
 ```php
-use KuMex\SDK\Auth;
-use KuMex\SDK\PrivateApi\WebSocketFeed;
+use KuMEX\SDK\Auth;
+use KuMEX\SDK\PrivateApi\WebSocketFeed;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\LoopInterface;
 
@@ -124,11 +124,11 @@ composer require swlib/saber
 ```
 
 ```php
-use KuMex\SDK\Auth;
-use KuMex\SDK\Http\SwooleHttp;
-use KuMex\SDK\KuMexApi;
-use KuMex\SDK\PrivateApi\Order;
-use KuMex\SDK\PublicApi\Time;
+use KuMEX\SDK\Auth;
+use KuMEX\SDK\Http\SwooleHttp;
+use KuMEX\SDK\KuMEXApi;
+use KuMEX\SDK\PrivateApi\Order;
+use KuMEX\SDK\PublicApi\Time;
 
 // Require PHP 7.1+ and Swoole 2.1.2+
 // Require running in cli mode
@@ -168,100 +168,100 @@ go(function () {
 ### API list
 
 <details>
-<summary>KuMex\SDK\PrivateApi\Account</summary>
+<summary>KuMEX\SDK\PrivateApi\Account</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kumex.com/#account |
-| KuMex\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kumex.com/#get-transaction-history |
-| KuMex\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kumex.com/#transfer-funds-from-kucoin-main-account-to-kumex-account |
-| KuMex\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kumex.com/##transfer-funds-from-kumex-account-to-kucoin-main-account |
-| KuMex\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kumex.com/#cancel-transfer-out-request |
-| KuMex\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kumex.com/#get-transfer-out-request-records |
+| KuMEX\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kumex.com/#account |
+| KuMEX\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kumex.com/#get-transaction-history |
+| KuMEX\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kumex.com/#transfer-funds-from-kucoin-main-account-to-kumex-account |
+| KuMEX\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kumex.com/##transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuMEX\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kumex.com/#cancel-transfer-out-request |
+| KuMEX\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kumex.com/#get-transfer-out-request-records |
 </details>
 
 <details>
-<summary>KuMex\SDK\PrivateApi\Deposit</summary>
+<summary>KuMEX\SDK\PrivateApi\Deposit</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Deposit::getAddress() | YES | https://docs.kumex.com/#get-deposit-address |
-| KuMex\SDK\PrivateApi\Deposit::getDeposits() | YES | https://docs.kumex.com/#get-deposit-list |
-
-</details>
-
-<details>
-<summary>KuMex\SDK\PrivateApi\Fill</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kumex.com/#list-fills |
-| KuMex\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kumex.com/#recent-fills |
-</details>
-
-<details>
-<summary>KuMex\SDK\PrivateApi\Order</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Order::create() | YES | https://docs.kumex.com/#place-a-new-order |
-| KuMex\SDK\PrivateApi\Order::cancel() | YES | https://docs.kumex.com/#cancel-an-order |
-| KuMex\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kumex.com/#cancel-all-orders |
-| KuMex\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kumex.com/#list-orders |
-| KuMex\SDK\PrivateApi\Order::getList() | YES | https://docs.kumex.com/#get-v1-historical-orders-list |
-| KuMex\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kumex.com/#get-an-order |
-| KuMex\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kumex.com/#recent-orders |
-| KuMex\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#recent-orders |
-| KuMex\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#recent-orders |
+| KuMEX\SDK\PrivateApi\Deposit::getAddress() | YES | https://docs.kumex.com/#get-deposit-address |
+| KuMEX\SDK\PrivateApi\Deposit::getDeposits() | YES | https://docs.kumex.com/#get-deposit-list |
 
 </details>
 
 <details>
-<summary>KuMex\SDK\PrivateApi\WebSocketFeed</summary>
+<summary>KuMEX\SDK\PrivateApi\Fill</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\WebSocketFeed::getPublicServer() | NO | https://docs.kumex.com/#apply-connect-token |
-| KuMex\SDK\PrivateApi\WebSocketFeed::getPrivateServer() | YES | https://docs.kumex.com/#apply-connect-token |
-| KuMex\SDK\PrivateApi\WebSocketFeed::subscribePublicChannel() | NO | https://docs.kumex.com/#public-channels |
-| KuMex\SDK\PrivateApi\WebSocketFeed::subscribePublicChannels() | NO | https://docs.kumex.com/#public-channels |
-| KuMex\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannel() | YES | https://docs.kumex.com/#private-channels |
-| KuMex\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannels() | YES | https://docs.kumex.com/#private-channels |
+| KuMEX\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kumex.com/#list-fills |
+| KuMEX\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kumex.com/#recent-fills |
+</details>
+
+<details>
+<summary>KuMEX\SDK\PrivateApi\Order</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuMEX\SDK\PrivateApi\Order::create() | YES | https://docs.kumex.com/#place-a-new-order |
+| KuMEX\SDK\PrivateApi\Order::cancel() | YES | https://docs.kumex.com/#cancel-an-order |
+| KuMEX\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kumex.com/#cancel-all-orders |
+| KuMEX\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kumex.com/#list-orders |
+| KuMEX\SDK\PrivateApi\Order::getList() | YES | https://docs.kumex.com/#get-v1-historical-orders-list |
+| KuMEX\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kumex.com/#get-an-order |
+| KuMEX\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kumex.com/#recent-orders |
+| KuMEX\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#recent-orders |
+| KuMEX\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#recent-orders |
 
 </details>
 
 <details>
-<summary>KuMex\SDK\PrivateApi\Withdrawal</summary>
+<summary>KuMEX\SDK\PrivateApi\WebSocketFeed</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kumex.com/#get-withdrawal-quotas |
-| KuMex\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kumex.com/#get-withdrawals-list |
-| KuMex\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kumex.com/#apply-withdraw |
-| KuMex\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.kumex.com/#cancel-withdrawal |
+| KuMEX\SDK\PrivateApi\WebSocketFeed::getPublicServer() | NO | https://docs.kumex.com/#apply-connect-token |
+| KuMEX\SDK\PrivateApi\WebSocketFeed::getPrivateServer() | YES | https://docs.kumex.com/#apply-connect-token |
+| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePublicChannel() | NO | https://docs.kumex.com/#public-channels |
+| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePublicChannels() | NO | https://docs.kumex.com/#public-channels |
+| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannel() | YES | https://docs.kumex.com/#private-channels |
+| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannels() | YES | https://docs.kumex.com/#private-channels |
 
 </details>
 
 <details>
-<summary>KuMex\SDK\PublicApi\Symbol</summary>
+<summary>KuMEX\SDK\PrivateApi\Withdrawal</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kumex.com/#get-ticker |
-| KuMex\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kumex.com/#get-full-order-book-level-2 |
-| KuMex\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kumex.com/#get-full-order-book-level-3 |
-| KuMex\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kumex.com/##level-2-pulling-messages |
-| KuMex\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kumex.com/##level-3-pulling-messages |
-| KuMex\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kumex.com/#get-trade-histories |
+| KuMEX\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kumex.com/#get-withdrawal-quotas |
+| KuMEX\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kumex.com/#get-withdrawals-list |
+| KuMEX\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kumex.com/#apply-withdraw |
+| KuMEX\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.kumex.com/#cancel-withdrawal |
 
 </details>
 
 <details>
-<summary>KuMex\SDK\PublicApi\Time</summary>
+<summary>KuMEX\SDK\PublicApi\Symbol</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMex\SDK\PublicApi\Time::timestamp() | NO | https://docs.kumex.com/#server-time |
+| KuMEX\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kumex.com/#get-ticker |
+| KuMEX\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kumex.com/#get-full-order-book-level-2 |
+| KuMEX\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kumex.com/#get-full-order-book-level-3 |
+| KuMEX\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kumex.com/##level-2-pulling-messages |
+| KuMEX\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kumex.com/##level-3-pulling-messages |
+| KuMEX\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kumex.com/#get-trade-histories |
+
+</details>
+
+<details>
+<summary>KuMEX\SDK\PublicApi\Time</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuMEX\SDK\PublicApi\Time::timestamp() | NO | https://docs.kumex.com/#server-time |
 
 </details>
 

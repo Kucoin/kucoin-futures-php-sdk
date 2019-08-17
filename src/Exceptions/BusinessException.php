@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMex\SDK\Exceptions;
+namespace KuMEX\SDK\Exceptions;
 
-use KuMex\SDK\Http\ApiResponse;
+use KuMEX\SDK\Http\ApiResponse;
 
 class BusinessException extends \Exception
 {

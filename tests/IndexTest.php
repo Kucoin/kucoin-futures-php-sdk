@@ -4,9 +4,9 @@
  * Date: 2019/6/17 下午3:08
  */
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use \KuMex\SDK\PublicApi\Index;
+use \KuMEX\SDK\PublicApi\Index;
 
 
 class IndexTest extends TestCase
@@ -19,9 +19,9 @@ class IndexTest extends TestCase
      *
      * @dataProvider apiProvider
      * @param Index $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetList(Index $api)
     {
@@ -43,9 +43,9 @@ class IndexTest extends TestCase
      *
      * @dataProvider apiProvider
      * @param Index $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetInterests(Index $api)
     {
@@ -66,9 +66,9 @@ class IndexTest extends TestCase
      *
      * @dataProvider apiProvider
      * @param Index $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetMarkPrice(Index $api)
     {
@@ -85,9 +85,9 @@ class IndexTest extends TestCase
      *
      * @dataProvider apiProvider
      * @param Index $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetPremium(Index $api)
     {
@@ -108,9 +108,9 @@ class IndexTest extends TestCase
      *
      * @dataProvider apiProvider
      * @param Index $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetCurrentFundingRate(Index $api)
     {

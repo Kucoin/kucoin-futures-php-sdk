@@ -2,7 +2,7 @@
   "name": "kucoin/kumex-php-sdk",
   "type": "library",
   "license": "MIT",
-  "description": "PHP SDK for KuMex API",
+  "description": "PHP SDK for KuMEX API",
   "keywords": [
     "kucoin",
     "kumex",
@@ -32,12 +32,12 @@
   },
   "autoload": {
     "psr-4": {
-      "KuMex\\SDK\\": "src/"
+      "KuMEX\\SDK\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "KuMex\\SDK\\Tests\\": "tests/"
+      "KuMEX\\SDK\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",

@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMex\SDK\Exceptions;
+namespace KuMEX\SDK\Exceptions;
 
 class InvalidApiUriException extends \Exception
 {

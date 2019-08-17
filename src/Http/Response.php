@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMex\SDK\Http;
+namespace KuMEX\SDK\Http;
 
 class Response
 {

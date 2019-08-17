@@ -1,24 +1,24 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMEX\SDK\PrivateApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Withdrawal
- * @package KuMex\SDK\PrivateApi
- * @see https://docs.KuMex.com/#withdrawals
+ * @package KuMEX\SDK\PrivateApi
+ * @see https://docs.KuMEX.com/#withdrawals
  */
-class Withdrawal extends KuMexApi
+class Withdrawal extends KuMEXApi
 {
     /**
      * Get withdraw quotas
      * @param string $currency
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getQuotas($currency)
     {
@@ -31,9 +31,9 @@ class Withdrawal extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getList(array $params, array $pagination = [])
     {
@@ -45,9 +45,9 @@ class Withdrawal extends KuMexApi
      * Apply a withdrawal
      * @param array $params
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function apply(array $params)
     {
@@ -59,9 +59,9 @@ class Withdrawal extends KuMexApi
      * Cancel a withdrawal
      * @param string $withdrawId
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function cancel($withdrawId)
     {

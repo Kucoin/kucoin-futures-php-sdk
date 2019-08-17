@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use KuMex\SDK\PublicApi\Symbol;
+use KuMEX\SDK\PublicApi\Symbol;
 
 class SymbolTest extends TestCase
 {
@@ -13,9 +13,9 @@ class SymbolTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Symbol $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetTicker(Symbol $api)
     {
@@ -33,9 +33,9 @@ class SymbolTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Symbol $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetLevel2Snapshot(Symbol $api)
     {
@@ -50,9 +50,9 @@ class SymbolTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Symbol $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetLevel3Snapshot(Symbol $api)
     {
@@ -67,9 +67,9 @@ class SymbolTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Symbol $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetLevel2Message(Symbol $api)
     {
@@ -85,9 +85,9 @@ class SymbolTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Symbol $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetLevel3Message(Symbol $api)
     {
@@ -104,9 +104,9 @@ class SymbolTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Symbol $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetTradeHistory(Symbol $api)
     {

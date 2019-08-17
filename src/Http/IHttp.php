@@ -1,9 +1,9 @@
 <?php
 
-namespace KuMex\SDK\Http;
+namespace KuMEX\SDK\Http;
 
-use KuMex\SDK\Exceptions\HttpException;
-use KuMex\SDK\Exceptions\InvalidApiUriException;
+use KuMEX\SDK\Exceptions\HttpException;
+use KuMEX\SDK\Exceptions\InvalidApiUriException;
 
 interface IHttp
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use KuMex\SDK\PublicApi\Position;
+use KuMEX\SDK\PublicApi\Position;
 
 class PositionTest extends TestCase
 {
@@ -12,9 +12,9 @@ class PositionTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Position $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetList(Position $api)
     {
@@ -61,9 +61,9 @@ class PositionTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Position $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetDetail(Position $api)
     {
@@ -107,9 +107,9 @@ class PositionTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Position $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testChangeAutoAppendStatus(Position $api)
     {
@@ -121,9 +121,9 @@ class PositionTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Position $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testMarginAppend(Position $api)
     {

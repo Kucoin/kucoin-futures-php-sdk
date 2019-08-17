@@ -1,24 +1,24 @@
 <?php
 
-namespace KuMex\SDK\PublicApi;
+namespace KuMEX\SDK\PublicApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Position
- * @package KuMex\SDK\PublicApi
- * @see https://docs.KuMex.com/#symbol
+ * @package KuMEX\SDK\PublicApi
+ * @see https://docs.KuMEX.com/#symbol
  */
-class Position extends KuMexApi
+class Position extends KuMEXApi
 {
     /**
      * Get the position list of a symbol.
      *
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getList()
     {
@@ -31,9 +31,9 @@ class Position extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getDetail($symbol)
     {
@@ -47,9 +47,9 @@ class Position extends KuMexApi
      * @param  string $symbol
      * @param  boolean $status
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function changeAutoAppendStatus($symbol, $status)
     {
@@ -64,9 +64,9 @@ class Position extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getMarginAppend($symbol, $status)
     {
@@ -81,9 +81,9 @@ class Position extends KuMexApi
      *
      * @param  array $params
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function marginAppend(array $params)
     {

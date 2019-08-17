@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use KuMex\SDK\PublicApi\Time;
+use KuMEX\SDK\PublicApi\Time;
 
 class TimeTest extends TestCase
 {
@@ -12,9 +12,9 @@ class TimeTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Time $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testTimestamp(Time $api)
     {

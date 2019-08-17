@@ -1,25 +1,25 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMEX\SDK\PrivateApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Deposits
- * @package KuMex\SDK\PrivateApi
- * @see https://docs.KuMex.com/#deposits
+ * @package KuMEX\SDK\PrivateApi
+ * @see https://docs.KuMEX.com/#deposits
  */
-class Deposit extends KuMexApi
+class Deposit extends KuMEXApi
 {
     /**
      * Get deposit address of currency for deposit.
      *
      * @param  string $currency
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getAddress($currency)
     {
@@ -33,9 +33,9 @@ class Deposit extends KuMexApi
      * @param  array $params
      * @param  array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getDeposits(array $params, array $pagination = [])
     {

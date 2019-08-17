@@ -1,24 +1,24 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMEX\SDK\PrivateApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Account
- * @package KuMex\SDK\PrivateApi
- * @see https://docs.KuMex.com/#accounts
+ * @package KuMEX\SDK\PrivateApi
+ * @see https://docs.KuMEX.com/#accounts
  */
-class Account extends KuMexApi
+class Account extends KuMEXApi
 {
     /**
      * Get an account overview.
      *
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getOverview()
     {
@@ -32,9 +32,9 @@ class Account extends KuMexApi
      * @param  array $params
      * @param  array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getTransactionHistory(array $params = [], array $pagination = [])
     {
@@ -43,13 +43,13 @@ class Account extends KuMexApi
     }
 
     /**
-     * KuCoin transfer to KuMex account.
+     * KuCoin transfer to KuMEX account.
      *
      * @param  number amount
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function transferIn($amount)
     {
@@ -58,14 +58,14 @@ class Account extends KuMexApi
     }
 
     /**
-     * KuMex transfer to KuCoin account.
+     * KuMEX transfer to KuCoin account.
      *
      * @param  string bizNo
      * @param  number amount
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function transferOut($bizNo, $amount)
     {
@@ -78,9 +78,9 @@ class Account extends KuMexApi
      *
      * @param  string $applyId
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function cancelTransferOut($applyId)
     {
@@ -94,9 +94,9 @@ class Account extends KuMexApi
      * @param  array $params
      * @param  array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getTransferList(array $params = [], array $pagination = [])
     {

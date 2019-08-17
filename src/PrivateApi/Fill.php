@@ -1,16 +1,16 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMEX\SDK\PrivateApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Fill
- * @package KuMex\SDK\PrivateApi
- * @see https://docs.KuMex.com/#fills
+ * @package KuMEX\SDK\PrivateApi
+ * @see https://docs.KuMEX.com/#fills
  */
-class Fill extends KuMexApi
+class Fill extends KuMEXApi
 {
     /**
      * Get fills orders list.
@@ -18,9 +18,9 @@ class Fill extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getFills(array $params = [], array $pagination = [])
     {
@@ -32,9 +32,9 @@ class Fill extends KuMexApi
      * Get the recent orders of the latest transactions within 24 hours.
      *
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getRecentList()
     {
@@ -47,9 +47,9 @@ class Fill extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getFundingHistory(array $params, array $pagination = [])
     {
