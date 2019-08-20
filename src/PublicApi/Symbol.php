@@ -1,25 +1,25 @@
 <?php
 
-namespace KuMex\SDK\PublicApi;
+namespace KuMEX\SDK\PublicApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Symbol
- * @package KuMex\SDK\PublicApi
- * @see https://docs.KuMex.com/#symbol
+ * @package KuMEX\SDK\PublicApi
+ * @see https://docs.KuMEX.com/#symbol
  */
-class Symbol extends KuMexApi
+class Symbol extends KuMEXApi
 {
     /**
      * Get the ticker details of a symbol.
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getTicker($symbol)
     {
@@ -32,9 +32,9 @@ class Symbol extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getLevel2Snapshot($symbol)
     {
@@ -47,9 +47,9 @@ class Symbol extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getLevel3Snapshot($symbol)
     {
@@ -64,9 +64,9 @@ class Symbol extends KuMexApi
      * @param  number $start
      * @param  number $end
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getLevel2Message($symbol, $start, $end)
     {
@@ -83,9 +83,9 @@ class Symbol extends KuMexApi
      * @param  number $start
      * @param  number $end
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getLevel3Message($symbol, $start, $end)
     {
@@ -100,9 +100,9 @@ class Symbol extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getTradeHistory($symbol)
     {

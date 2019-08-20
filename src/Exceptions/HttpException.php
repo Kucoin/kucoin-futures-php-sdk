@@ -1,9 +1,9 @@
 <?php
 
-namespace KuMex\SDK\Exceptions;
+namespace KuMEX\SDK\Exceptions;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\Http\Response;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\Http\Response;
 
 class HttpException extends \Exception
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use KuMex\SDK\ApiCode;
-use KuMex\SDK\Exceptions\BusinessException;
-use KuMex\SDK\PrivateApi\Account;
+use KuMEX\SDK\ApiCode;
+use KuMEX\SDK\Exceptions\BusinessException;
+use KuMEX\SDK\PrivateApi\Account;
 
 class AccountTest extends TestCase
 {
@@ -15,8 +15,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetOverview(Account $api)
     {
@@ -35,8 +35,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetTransactionHistory(Account $api)
     {
@@ -56,8 +56,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testTransferIn(Account $api)
     {
@@ -73,8 +73,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testTransferOut(Account $api)
     {
@@ -91,8 +91,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testCancelTransferOut(Account $api)
     {
@@ -105,8 +105,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetTransferList(Account $api)
     {
@@ -125,9 +125,9 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider.
      *
      * @param Account $api
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     private function getTransferId($api)
     {

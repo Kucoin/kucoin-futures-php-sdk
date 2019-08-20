@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMex\SDK\Tests;
+namespace KuMEX\SDK\Tests;
 
-use KuMex\SDK\Auth;
-use KuMex\SDK\Http\GuzzleHttp;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Auth;
+use KuMEX\SDK\Http\GuzzleHttp;
+use KuMEX\SDK\KuMEXApi;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
@@ -13,16 +13,16 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     public function apiProvider()
     {
-        $apiKey           = "5d27fad1ef83c7206c39ea94";
-        $apiSecret        = "8428e2a7-dd18-4c71-acd1-feface4088fd";
-        $apiPassPhrase    = "123456789";
-        $apiBaseUri       = "https://sandbox-api.kumex.com";
+        $apiKey           = getenv('API_KEY');
+        $apiSecret        = getenv('API_SECRET');
+        $apiPassPhrase    = getenv('API_PASSPHRASE');
+        $apiBaseUri       = getenv('API_BASE_URI');
         $apiSkipVerifyTls = (bool)getenv('API_SKIP_VERIFY_TLS');
         $apiDebugMode     = (bool)getenv('API_DEBUG_MODE');
-        KuMexApi::setSkipVerifyTls($apiSkipVerifyTls);
-        KuMexApi::setDebugMode($apiDebugMode);
+        KuMEXApi::setSkipVerifyTls($apiSkipVerifyTls);
+        KuMEXApi::setDebugMode($apiDebugMode);
         if ($apiBaseUri) {
-            KuMexApi::setBaseUri($apiBaseUri);
+            KuMEXApi::setBaseUri($apiBaseUri);
         }
 
         $auth = new Auth($apiKey, $apiSecret, $apiPassPhrase);

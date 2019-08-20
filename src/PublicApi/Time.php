@@ -1,23 +1,23 @@
 <?php
 
-namespace KuMex\SDK\PublicApi;
+namespace KuMEX\SDK\PublicApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Time
- * @package KuMex\SDK\PublicApi
- * @see https://docs.KuMex.com/#time
+ * @package KuMEX\SDK\PublicApi
+ * @see https://docs.KuMEX.com/#time
  */
-class Time extends KuMexApi
+class Time extends KuMEXApi
 {
     /**
      * Get the timestamp of Server in milliseconds
      * @return int
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function timestamp()
     {

@@ -1,12 +1,12 @@
 <?php
 include '../vendor/autoload.php';
 
-use KuMex\SDK\Http\SwooleHttp;
-use KuMex\SDK\KuMexApi;
-use KuMex\SDK\PublicApi\Time;
+use KuMEX\SDK\Http\SwooleHttp;
+use KuMEX\SDK\KuMEXApi;
+use KuMEX\SDK\PublicApi\Time;
 
 // Set the base uri, default "https://api.kumex.com" for production environment.
-// KuMexApi::setBaseUri('https://api.kumex.com');
+// KuMEXApi::setBaseUri('https://api.kumex.com');
 
 // Require PHP 7.1+ and Swoole 2.1.2+
 // Require running in cli mode

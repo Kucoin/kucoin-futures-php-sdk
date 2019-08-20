@@ -1,11 +1,11 @@
 <?php
 
-namespace KuMex\SDK;
+namespace KuMEX\SDK;
 
-use KuMex\SDK\Http\GuzzleHttp;
-use KuMex\SDK\Http\IHttp;
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\Http\Response;
+use KuMEX\SDK\Http\GuzzleHttp;
+use KuMEX\SDK\Http\IHttp;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\Http\Response;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -197,7 +197,7 @@ abstract class Api
             );
             $headers = array_merge($headers, $authHeaders);
         }
-        $headers['User-Agent'] = 'KuMex-PHP-SDK/' . static::VERSION;
+        $headers['User-Agent'] = 'KuMEX-PHP-SDK/' . static::VERSION;
         $request->setHeaders($headers);
 
         $requestId = uniqid();

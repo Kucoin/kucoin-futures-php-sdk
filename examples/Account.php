@@ -1,14 +1,14 @@
 <?php
 include '../vendor/autoload.php';
 
-use KuMex\SDK\Auth;
-use KuMex\SDK\KuMexApi;
-use KuMex\SDK\PrivateApi\Account;
-use KuMex\SDK\Exceptions\HttpException;
-use KuMex\SDK\Exceptions\BusinessException;
+use KuMEX\SDK\Auth;
+use KuMEX\SDK\KuMEXApi;
+use KuMEX\SDK\PrivateApi\Account;
+use KuMEX\SDK\Exceptions\HttpException;
+use KuMEX\SDK\Exceptions\BusinessException;
 
 // Set the base uri, default "https://api.kumex.com" for production environment.
-// KuMexApi::setBaseUri('https://api.kumex.com');
+// KuMEXApi::setBaseUri('https://api.kumex.com');
 
 $auth = new Auth('key', 'secret', 'passphrase');
 $api = new Account($auth);

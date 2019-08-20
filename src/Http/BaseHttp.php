@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMex\SDK\Http;
+namespace KuMEX\SDK\Http;
 
 abstract class BaseHttp implements IHttp
 {

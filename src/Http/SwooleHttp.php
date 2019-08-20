@@ -1,9 +1,9 @@
 <?php
 
-namespace KuMex\SDK\Http;
+namespace KuMEX\SDK\Http;
 
-use KuMex\SDK\Exceptions\HttpException;
-use KuMex\SDK\Exceptions\InvalidApiUriException;
+use KuMEX\SDK\Exceptions\HttpException;
+use KuMEX\SDK\Exceptions\InvalidApiUriException;
 use Swlib\Http\ContentType;
 use Swlib\Http\Exception\RequestException;
 use Swlib\Saber;

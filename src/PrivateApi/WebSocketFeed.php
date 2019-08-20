@@ -1,11 +1,11 @@
 <?php
 
-namespace KuMex\SDK\PrivateApi;
+namespace KuMEX\SDK\PrivateApi;
 
-use KuMex\SDK\Exceptions\BusinessException;
-use KuMex\SDK\Exceptions\NoAvailableWebSocketServerException;
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Exceptions\BusinessException;
+use KuMEX\SDK\Exceptions\NoAvailableWebSocketServerException;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\Factory;
 use React\Socket\Connector as SocketConnector;
@@ -14,18 +14,18 @@ use Ratchet\RFC6455\Messaging\MessageInterface;
 
 /**
  * Class WebSocketFeed
- * @package KuMex\SDK\PublicApi
- * @see https://docs.KuMex.com/#websocket-feed
+ * @package KuMEX\SDK\PublicApi
+ * @see https://docs.KuMEX.com/#websocket-feed
  */
-class WebSocketFeed extends KuMexApi
+class WebSocketFeed extends KuMEXApi
 {
     /**
      * Get the server list and temporary token.
      *
      * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getPublicBullet()
     {
@@ -37,9 +37,9 @@ class WebSocketFeed extends KuMexApi
      * Get the server list and authorized token.
      *
      * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getPrivateBullet()
     {

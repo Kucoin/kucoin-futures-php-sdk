@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMex\SDK;
+namespace KuMEX\SDK;
 
-use KuMex\SDK\Http\ApiResponse;
+use KuMEX\SDK\Http\ApiResponse;
 
-abstract class KuMexApi extends Api
+abstract class KuMEXApi extends Api
 {
     /**
      * Call an API

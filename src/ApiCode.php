@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMex\SDK;
+namespace KuMEX\SDK;
 
 class ApiCode
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace KuMex\SDK\PublicApi;
+namespace KuMEX\SDK\PublicApi;
 
-use KuMex\SDK\Http\Request;
-use KuMex\SDK\KuMexApi;
+use KuMEX\SDK\Http\Request;
+use KuMEX\SDK\KuMEXApi;
 
 /**
  * Class Index
- * @package KuMex\SDK\PublicApi
- * @see https://docs.KuMex.com/#index
+ * @package KuMEX\SDK\PublicApi
+ * @see https://docs.KuMEX.com/#index
  */
-class Index extends KuMexApi
+class Index extends KuMEXApi
 {
     /**
      * Get a list of index.
@@ -18,9 +18,9 @@ class Index extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getList(array $params, array $pagination = [])
     {
@@ -33,9 +33,9 @@ class Index extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getMarkPrice($symbol)
     {
@@ -48,9 +48,9 @@ class Index extends KuMexApi
      *
      * @param  array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getInterests(array $pagination = [])
     {
@@ -64,9 +64,9 @@ class Index extends KuMexApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getPremium(array $params, array $pagination = [])
     {
@@ -79,9 +79,9 @@ class Index extends KuMexApi
      *
      * @param  string $symbol
      * @return array
-     * @throws \KuMex\SDK\Exceptions\BusinessException
-     * @throws \KuMex\SDK\Exceptions\HttpException
-     * @throws \KuMex\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
     public function getCurrentFundingRate($symbol)
     {
