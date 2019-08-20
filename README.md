@@ -29,7 +29,7 @@ composer require "kucoin/kumex-php-sdk:~1.0.5"
 
 | Environment | BaseUri |
 | -------- | -------- |
-| *Production* `DEFAULT` | https://api.kumex.com https://api.kumex.top|
+| *Production* `DEFAULT` | https://api.kumex.com https://api.kumex.top |
 | *Sandbox* | https://sandbox-api.kumex.com |
 
 ```php
