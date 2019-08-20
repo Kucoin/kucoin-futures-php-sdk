@@ -20,7 +20,7 @@
 > Install package via [Composer](https://getcomposer.org/).
 
 ```shell
-composer require "kucoin/kumex-php-sdk:~1.0.0"
+composer require "kucoin/kumex-php-sdk:~1.0.5"
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ composer require "kucoin/kumex-php-sdk:~1.0.0"
 
 | Environment | BaseUri |
 | -------- | -------- |
-| *Production* `DEFAULT` | https://api.kumex.com|
+| *Production* `DEFAULT` | https://api.kumex.com https://api.kumex.top|
 | *Sandbox* | https://sandbox-api.kumex.com |
 
 ```php
