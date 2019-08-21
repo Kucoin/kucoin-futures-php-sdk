@@ -28,8 +28,10 @@ composer require "kucoin/kumex-php-sdk:~1.0.5"
 ### Choose environment
 
 | Environment | BaseUri |
-| -------- | -------- |
-| *Production* `DEFAULT` | https://api.kumex.com https://api.kumex.top |
+|    -------- | -------- |
+| *Production* | https://api.kumex.com `DEFAULT` | 
+|              | https://api.kumex.top |
+| | |--------  | -------- |
 | *Sandbox* | https://sandbox-api.kumex.com |
 
 ```php
@@ -214,6 +216,16 @@ go(function () {
 | KuMEX\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#recent-orders |
 | KuMEX\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#recent-orders |
 
+</details>
+<details>
+<summary>KuMEX\SDK\PrivateApi\Position</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuMEX\SDK\PrivateApi\Position::getList() | YES | https://docs.kumex.com/cn/#8ac5d40a0e |
+| KuMEX\SDK\PrivateApi\Position::getDetail() | YES | https://docs.kumex.com/cn/#844f298257 |
+| KuMEX\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES | https://docs.kumex.com/cn/#ea38e3e686 |
+| KuMEX\SDK\PrivateApi\Position::marginAppend() | YES | https://docs.kumex.com/cn/#a98204e576 |
 </details>
 
 <details>

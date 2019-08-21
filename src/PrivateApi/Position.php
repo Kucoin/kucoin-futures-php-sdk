@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMEX\SDK\PublicApi;
+namespace KuMEX\SDK\PrivateApi;
 
 use KuMEX\SDK\Http\Request;
 use KuMEX\SDK\KuMEXApi;
@@ -61,6 +61,8 @@ class Position extends KuMEXApi
 
     /**
      * Get whether to automatically add margin status.
+     *
+     * @deprecated
      *
      * @param  string $symbol
      * @return array
