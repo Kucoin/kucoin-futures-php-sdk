@@ -29,10 +29,8 @@ composer require "kucoin/kumex-php-sdk:~1.0.6"
 
 | Environment | BaseUri |
 |    -------- | -------- |
-| *Production* | https://api.kumex.com `DEFAULT` | 
-|              | https://api.kumex.top |
-| | |--------  | -------- |
-| *Sandbox* | https://sandbox-api.kumex.com |
+| *Production* | `https://api.kumex.com (DEFAULT)` `https://api.kumex.top` | 
+| *Sandbox* | `https://sandbox-api.kumex.com` |
 
 ```php
 // Switch to the sandbox environment
@@ -177,7 +175,7 @@ go(function () {
 | KuMEX\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kumex.com/#account |
 | KuMEX\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kumex.com/#get-transaction-history |
 | KuMEX\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kumex.com/#transfer-funds-from-kucoin-main-account-to-kumex-account |
-| KuMEX\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kumex.com/##transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuMEX\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kumex.com/#transfer-funds-from-kumex-account-to-kucoin-main-account |
 | KuMEX\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kumex.com/#cancel-transfer-out-request |
 | KuMEX\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kumex.com/#get-transfer-out-request-records |
 </details>
@@ -197,7 +195,7 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kumex.com/#list-fills |
+| KuMEX\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kumex.com/#get-fills |
 | KuMEX\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kumex.com/#recent-fills |
 </details>
 
@@ -206,15 +204,15 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Order::create() | YES | https://docs.kumex.com/#place-a-new-order |
+| KuMEX\SDK\PrivateApi\Order::create() | YES | https://docs.kumex.com/#place-an-order |
 | KuMEX\SDK\PrivateApi\Order::cancel() | YES | https://docs.kumex.com/#cancel-an-order |
-| KuMEX\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kumex.com/#cancel-all-orders |
-| KuMEX\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kumex.com/#list-orders |
-| KuMEX\SDK\PrivateApi\Order::getList() | YES | https://docs.kumex.com/#get-v1-historical-orders-list |
-| KuMEX\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kumex.com/#get-an-order |
-| KuMEX\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kumex.com/#recent-orders |
-| KuMEX\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#recent-orders |
-| KuMEX\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#recent-orders |
+| KuMEX\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kumex.com/#limit-order-mass-cancelation |
+| KuMEX\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kumex.com/#stop-order-mass-cancelation |
+| KuMEX\SDK\PrivateApi\Order::getList() | YES | https://docs.kumex.com/#get-order-list |
+| KuMEX\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kumex.com/#get-untriggered-stop-order-list |
+| KuMEX\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kumex.com/#get-list-of-orders-completed-in-24h |
+| KuMEX\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kumex.com/#get-details-of-a-single-order |
+| KuMEX\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kumex.com/#active-order-value-calculation |
 
 </details>
 <details>
@@ -247,9 +245,9 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kumex.com/#get-withdrawal-quotas |
-| KuMEX\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kumex.com/#get-withdrawals-list |
-| KuMEX\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kumex.com/#apply-withdraw |
+| KuMEX\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kumex.com/#get-withdrawal-limit |
+| KuMEX\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kumex.com/#get-withdrawal-list |
+| KuMEX\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kumex.com/#withdraw-funds |
 | KuMEX\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.kumex.com/#cancel-withdrawal |
 
 </details>
