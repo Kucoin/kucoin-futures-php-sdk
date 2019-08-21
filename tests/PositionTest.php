@@ -2,7 +2,7 @@
 
 namespace KuMEX\SDK\Tests;
 
-use KuMEX\SDK\PublicApi\Position;
+use KuMEX\SDK\PrivateApi\Position;
 
 class PositionTest extends TestCase
 {
