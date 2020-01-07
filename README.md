@@ -20,7 +20,7 @@
 > Install package via [Composer](https://getcomposer.org/).
 
 ```shell
-composer require "kucoin/kumex-php-sdk:~1.0.6"
+composer require "kucoin/kumex-php-sdk:~1.0.0"
 ```
 
 ## Usage
