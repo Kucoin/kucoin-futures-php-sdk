@@ -42,10 +42,11 @@ class WithdrawalTest extends TestCase
     public function testApply(Withdrawal $api)
     {
         $params = [
-            'currency' => 'XBT',
+            'currency' => 'USDT',
             'address'  => '1BcTdvq6Qdh7GnviHTYHq4tBvU32FfUbGz',
             'amount'   => 0.3,
             'remark'   => 'test apply withdrawal',
+            'chain'    => 'OMNI'
         ];
         $data = $api->apply($params);
         $this->assertInternalType('array', $data);

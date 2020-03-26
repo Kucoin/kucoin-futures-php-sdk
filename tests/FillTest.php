@@ -33,6 +33,8 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('price', $item);
             $this->assertArrayHasKey('tradeId', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
+            $this->assertArrayHasKey('tradeTime', $item);
         }
     }
 
@@ -60,6 +62,8 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('price', $item);
             $this->assertArrayHasKey('tradeId', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
+            $this->assertArrayHasKey('tradeTime', $item);
         }
     }
 
@@ -87,6 +91,7 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('positionQty', $item);
             $this->assertArrayHasKey('positionCost', $item);
             $this->assertArrayHasKey('funding', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
         }
     }
 }
