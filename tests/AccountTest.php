@@ -21,7 +21,6 @@ class AccountTest extends TestCase
     public function testGetOverview(Account $api)
     {
         $accounts = $api->getOverview(['currency' => 'XBT']);
-        var_dump($accounts);
         $this->assertInternalType('array', $accounts);
         $this->assertArrayHasKey('accountEquity', $accounts);
         $this->assertArrayHasKey('unrealisedPNL', $accounts);
@@ -54,21 +53,22 @@ class AccountTest extends TestCase
     }
 
     /**
+     * @deprecated
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
      * @throws \KuMEX\SDK\Exceptions\HttpException
      * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
-    public function testTransferIn(Account $api)
-    {
-        $amount   = 0.1;
-        $accounts = $api->transferIn($amount);
-        $this->assertInternalType('array', $accounts);
-        if (isset($accounts['applyId'])) {
-            $this->assertArrayHasKey('applyId', $accounts);
-        }
-    }
+//    public function testTransferIn(Account $api)
+//    {
+//        $amount   = 0.1;
+//        $accounts = $api->transferIn($amount);
+//        $this->assertInternalType('array', $accounts);
+//        if (isset($accounts['applyId'])) {
+//            $this->assertArrayHasKey('applyId', $accounts);
+//        }
+//    }
 
     /**
      * @dataProvider apiProvider
@@ -132,8 +132,9 @@ class AccountTest extends TestCase
      */
     private function getTransferId($api)
     {
+        $bizNo = '10000000001';
         $amount   = 0.1;
-        $accounts = $api->transferIn($amount);
+        $accounts = $api->transferOut($bizNo, $amount);
         $this->assertInternalType('array', $accounts);
         return $accounts['applyId'];
     }

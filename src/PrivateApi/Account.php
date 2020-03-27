@@ -43,6 +43,8 @@ class Account extends KuMEXApi
     }
 
     /**
+     * @deprecated
+     *
      * KuCoin transfer to KuMEX account.
      *
      * @param  number amount

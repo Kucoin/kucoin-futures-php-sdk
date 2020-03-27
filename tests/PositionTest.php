@@ -29,7 +29,7 @@ class PositionTest extends TestCase
             $this->assertArrayHasKey('realLeverage', $item);
             $this->assertArrayHasKey('crossMode', $item);
             $this->assertArrayHasKey('delevPercentage', $item);
-            $this->assertArrayHasKey('openingTimestamp', $item);
+//            $this->assertArrayHasKey('openingTimestamp', $item);
             $this->assertArrayHasKey('currentTimestamp', $item);
             $this->assertArrayHasKey('currentQty', $item);
             $this->assertArrayHasKey('currentCost', $item);
