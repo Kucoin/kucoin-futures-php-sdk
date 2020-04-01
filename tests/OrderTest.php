@@ -86,6 +86,10 @@ class OrderTest extends TestCase
             $this->assertArrayHasKey('postOnly', $item);
             $this->assertArrayHasKey('size', $item);
             $this->assertArrayHasKey('stop', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
+            $this->assertArrayHasKey('status', $item);
+            $this->assertArrayHasKey('updatedAt', $item);
+            $this->assertArrayHasKey('orderTime', $item);
         }
     }
 
@@ -117,6 +121,10 @@ class OrderTest extends TestCase
             $this->assertArrayHasKey('postOnly', $order);
             $this->assertArrayHasKey('size', $order);
             $this->assertArrayHasKey('stop', $order);
+            $this->assertArrayHasKey('settleCurrency', $order);
+            $this->assertArrayHasKey('status', $order);
+            $this->assertArrayHasKey('updatedAt', $order);
+            $this->assertArrayHasKey('orderTime', $order);
         }
     }
 
@@ -185,7 +193,7 @@ class OrderTest extends TestCase
      */
     public function testOpenOrderStatistics($api)
     {
-        $result = $api->getOpenOrderStatistics('XBTUSD');
+        $result = $api->getOpenOrderStatistics('XBTUSDM');
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('openOrderBuySize', $result);
         $this->assertArrayHasKey('openOrderSellSize', $result);
