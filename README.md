@@ -176,6 +176,7 @@ go(function () {
 | KuMEX\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kumex.com/#get-transaction-history |
 | KuMEX\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kumex.com/#transfer-funds-from-kucoin-main-account-to-kumex-account |
 | KuMEX\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kumex.com/#transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuMEX\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kumex.com/#transfer-funds-from-kumex-account-to-kucoin-main-account |
 | KuMEX\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kumex.com/#cancel-transfer-out-request |
 | KuMEX\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kumex.com/#get-transfer-out-request-records |
 </details>
