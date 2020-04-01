@@ -19,6 +19,7 @@ class FillTest extends TestCase
     public function testGetList(Fill $api)
     {
         $data = $api->getFills([], ['currentPage' => 1, 'pageSize' => 10]);
+        var_dump($data);
         $this->assertPagination($data);
         foreach ($data['items'] as $item) {
             $this->assertArrayHasKey('symbol', $item);
@@ -33,6 +34,8 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('price', $item);
             $this->assertArrayHasKey('tradeId', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
+            $this->assertArrayHasKey('tradeTime', $item);
         }
     }
 
@@ -60,6 +63,8 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('stop', $item);
             $this->assertArrayHasKey('price', $item);
             $this->assertArrayHasKey('tradeId', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
+            $this->assertArrayHasKey('tradeTime', $item);
         }
     }
 
@@ -87,6 +92,7 @@ class FillTest extends TestCase
             $this->assertArrayHasKey('positionQty', $item);
             $this->assertArrayHasKey('positionCost', $item);
             $this->assertArrayHasKey('funding', $item);
+            $this->assertArrayHasKey('settleCurrency', $item);
         }
     }
 }

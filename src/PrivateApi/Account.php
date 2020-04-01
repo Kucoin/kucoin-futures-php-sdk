@@ -20,9 +20,9 @@ class Account extends KuMEXApi
      * @throws \KuMEX\SDK\Exceptions\HttpException
      * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
-    public function getOverview()
+    public function getOverview(array $params = [])
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/account-overview');
+        $response = $this->call(Request::METHOD_GET, '/api/v1/account-overview', $params);
         return $response->getApiData();
     }
 
@@ -43,6 +43,8 @@ class Account extends KuMEXApi
     }
 
     /**
+     * @deprecated
+     *
      * KuCoin transfer to KuMEX account.
      *
      * @param  number amount
@@ -101,6 +103,23 @@ class Account extends KuMEXApi
     public function getTransferList(array $params = [], array $pagination = [])
     {
         $response = $this->call(Request::METHOD_GET, '/api/v1/transfer-list', $params + $pagination);
+        return $response->getApiData();
+    }
+
+    /**
+     * KuMEX transfer to KuCoin account.
+     *
+     * @param  string bizNo
+     * @param  number amount
+     * @param  string currency
+     * @return array
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     */
+    public function transferOutV2($bizNo, $amount, $currency)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v2/transfer-out', compact('bizNo', 'amount', 'currency'));
         return $response->getApiData();
     }
 }

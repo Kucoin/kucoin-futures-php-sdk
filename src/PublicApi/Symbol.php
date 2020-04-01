@@ -77,6 +77,8 @@ class Symbol extends KuMEXApi
     }
 
     /**
+     * @deprecated
+     *
      * Get the level3 message of a symbol.
      *
      * @param  string $symbol
