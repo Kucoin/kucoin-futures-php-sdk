@@ -21,10 +21,10 @@
         </whitelist>
     </filter>
     <php>
-        <env name="API_KEY" value="5d27fad1ef83c7206c39ea94" force="false"/>
-        <env name="API_SECRET" value="8428e2a7-dd18-4c71-acd1-feface4088fd" force="false"/>
-        <env name="API_PASSPHRASE" value="123456789" force="false"/>
-        <env name="API_BASE_URI" value="https://sandbox-api.kumex.com" force="false"/>
+        <env name="API_KEY" value="key" force="false"/>
+        <env name="API_SECRET" value="secret" force="false"/>
+        <env name="API_PASSPHRASE" value="passphrase" force="false"/>
+        <env name="API_BASE_URI" value="https://api.kumex.com" force="false"/>
         <env name="API_SKIP_VERIFY_TLS" value="0" force="false"/>
     </php>
 </phpunit>
