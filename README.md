@@ -221,10 +221,10 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Position::getList() | YES | https://docs.kumex.com/cn/#8ac5d40a0e |
-| KuMEX\SDK\PrivateApi\Position::getDetail() | YES | https://docs.kumex.com/cn/#844f298257 |
-| KuMEX\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES | https://docs.kumex.com/cn/#ea38e3e686 |
-| KuMEX\SDK\PrivateApi\Position::marginAppend() | YES | https://docs.kumex.com/cn/#a98204e576 |
+| KuMEX\SDK\PrivateApi\Position::getList() | YES | https://docs.kumex.com/#get-position-list |
+| KuMEX\SDK\PrivateApi\Position::getDetail() | YES | https://docs.kumex.com/#get-position-details |
+| KuMEX\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES | https://docs.kumex.com/#enable-disable-of-auto-deposit-margin |
+| KuMEX\SDK\PrivateApi\Position::marginAppend() | YES | https://docs.kumex.com/#add-margin-manually |
 </details>
 
 <details>
