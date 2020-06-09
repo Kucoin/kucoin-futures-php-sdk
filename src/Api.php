@@ -179,7 +179,7 @@ abstract class Api
     /**
      * @param array $headers
      */
-    public static function setCustomHeades(array $headers)
+    public static function setCustomHeaders(array $headers)
     {
         self::$customHeaders = $headers;
     }
@@ -187,7 +187,7 @@ abstract class Api
     /**
      * @return array
      */
-    public static function getCustomHeades()
+    public static function getCustomHeaders()
     {
         return self::$customHeaders;
     }
