@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Fill
  * @package KuMEX\SDK\PrivateApi
- * @see https://docs.KuMEX.com/#fills
+ * @see https://docs.kucoin.com/futures/#fills
  */
 class Fill extends KuMEXApi
 {

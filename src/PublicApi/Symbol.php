@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Symbol
  * @package KuMEX\SDK\PublicApi
- * @see https://docs.KuMEX.com/#symbol
+ * @see https://docs.kucoin.com/futures/#symbol-2
  */
 class Symbol extends KuMEXApi
 {

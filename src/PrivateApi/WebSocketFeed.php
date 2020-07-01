@@ -6,27 +6,46 @@ use KuMEX\SDK\Exceptions\BusinessException;
 use KuMEX\SDK\Exceptions\NoAvailableWebSocketServerException;
 use KuMEX\SDK\Http\Request;
 use KuMEX\SDK\KuMEXApi;
+use Ratchet\Client\Connector as RatchetConnector;
 use Ratchet\Client\WebSocket;
+use Ratchet\RFC6455\Messaging\MessageInterface;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 use React\Socket\Connector as SocketConnector;
-use Ratchet\Client\Connector as RatchetConnector;
-use Ratchet\RFC6455\Messaging\MessageInterface;
 
 /**
  * Class WebSocketFeed
  * @package KuMEX\SDK\PublicApi
- * @see https://docs.KuMEX.com/#websocket-feed
+ * @see https://docs.kucoin.com/futures/#websocket-2
  */
 class WebSocketFeed extends KuMEXApi
 {
-
     /** @var LoopInterface */
-    public $loop = null;
+    protected $loop;
 
     /**
-     * Get the server list and temporary token.
-     *
+     * Get the event loop instance, default return Factory::create()
+     * @return LoopInterface
+     */
+    public function getLoop()
+    {
+        if ($this->loop === null) {
+            $this->loop = Factory::create();
+        }
+        return $this->loop;
+    }
+
+    /**
+     * Set the event loop instance
+     * @param LoopInterface $loop
+     */
+    public function setLoop(LoopInterface $loop)
+    {
+        $this->loop = $loop;
+    }
+
+    /**
+     * Get the server list and temporary token
      * @return array
      * @throws \KuMEX\SDK\Exceptions\HttpException
      * @throws \KuMEX\SDK\Exceptions\BusinessException
@@ -39,8 +58,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Get the server list and authorized token.
-     *
+     * Get the server list and authorized token
      * @return array
      * @throws \KuMEX\SDK\Exceptions\HttpException
      * @throws \KuMEX\SDK\Exceptions\BusinessException
@@ -53,8 +71,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Get the url of WebSocket.
-     *
+     * Get the url of WebSocket
      * @param bool $private
      * @param array $params
      * @return array
@@ -75,8 +92,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Get the url of WebSocket for public channels.
-     *
+     * Get the url of WebSocket for public channels
      * @param array $params
      * @return array
      * @throws NoAvailableWebSocketServerException
@@ -87,8 +103,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Get the url of WebSocket for private channels.
-     *
+     * Get the url of WebSocket for private channels
      * @param array $params
      * @return array
      * @throws NoAvailableWebSocketServerException
@@ -99,8 +114,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Subscribe multiple channels by url.
-     *
+     * Subscribe multiple channels by url
      * @param array $server
      * @param array $channels
      * @param callable $onMessage
@@ -114,7 +128,7 @@ class WebSocketFeed extends KuMEXApi
             $options['tls']['verify_peer'] = !static::isSkipVerifyTls();
         }
 
-        $loop = $this->loop === null ? Factory::create() : $this->loop;
+        $loop = $this->getLoop();
         $reactConnector = new SocketConnector($loop, $options);
         $connector = new RatchetConnector($loop, $reactConnector);
         /**
@@ -187,8 +201,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Subscribe multiple public channels.
-     *
+     * Subscribe multiple public channels
      * @param array $query The query of websocket url
      * @param array $channels
      * @param callable $onMessage
@@ -217,8 +230,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Subscribe multiple private channels.
-     *
+     * Subscribe multiple private channels
      * @param array $query The query of websocket url
      * @param array $channels
      * @param callable $onMessage
@@ -247,8 +259,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Subscribe one public channel.
-     *
+     * Subscribe one public channel
      * @param array $query The query of websocket url
      * @param array $channel
      * @param callable $onMessage
@@ -262,8 +273,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Subscribe one private channel.
-     *
+     * Subscribe one private channel
      * @param array $query The query of websocket url
      * @param array $channel
      * @param callable $onMessage
@@ -277,8 +287,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Create message for ping.
-     *
+     * Create message for ping
      * @param string $id
      * @return array
      */
@@ -288,8 +297,7 @@ class WebSocketFeed extends KuMEXApi
     }
 
     /**
-     * Create message for unsubscribe.
-     *
+     * Create message for unsubscribe
      * @param string $topic
      * @param bool $privateChannel
      * @param bool $response

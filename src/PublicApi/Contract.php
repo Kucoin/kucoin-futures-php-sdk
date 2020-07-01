@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Contract
  * @package KuMEX\SDK\PublicApi
- * @see https://docs.KuMEX.com/#contracts
+ * @see https://docs.kucoin.com/futures/#get-open-contract-list
  */
 class Contract extends KuMEXApi
 {

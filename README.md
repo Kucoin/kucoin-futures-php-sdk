@@ -87,14 +87,23 @@ try {
 
 ```php
 use KuMEX\SDK\Auth;
+use KuMEX\SDK\KuMEXApi;
 use KuMEX\SDK\PrivateApi\WebSocketFeed;
 use Ratchet\Client\WebSocket;
+use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 
 $auth = null;
 // Need to pass the Auth parameter when subscribing to a private channel($api->subscribePrivateChannel()).
 // $auth = new Auth('key', 'secret', 'passphrase');
 $api = new WebSocketFeed($auth);
+
+// Use a custom event loop instance if you like
+//$loop = Factory::create();
+//$loop->addPeriodicTimer(1, function () {
+//    var_dump(date('Y-m-d H:i:s'));
+//});
+//$api->setLoop($loop);
 
 $query = ['connectId' => uniqid('', true)];
 $channels = [

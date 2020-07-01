@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Position
  * @package KuMEX\SDK\PublicApi
- * @see https://docs.KuMEX.com/#symbol
+ * @see https://docs.kucoin.com/futures/#positions
  */
 class Position extends KuMEXApi
 {

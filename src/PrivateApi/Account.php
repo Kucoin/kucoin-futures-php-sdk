@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Account
  * @package KuMEX\SDK\PrivateApi
- * @see https://docs.KuMEX.com/#accounts
+ * @see https://docs.kucoin.com/futures/#account
  */
 class Account extends KuMEXApi
 {

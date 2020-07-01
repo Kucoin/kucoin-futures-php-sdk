@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Withdrawal
  * @package KuMEX\SDK\PrivateApi
- * @see https://docs.KuMEX.com/#withdrawals
+ * @see https://docs.kucoin.com/futures/#withdrawal
  */
 class Withdrawal extends KuMEXApi
 {
