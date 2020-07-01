@@ -21,7 +21,7 @@ abstract class Api
     /**
      * @var string
      */
-    protected static $baseUri = 'https://api.kumex.com';
+    protected static $baseUri = 'https://api-futures.kucoin.com';
 
     /**
      * @var bool

@@ -111,4 +111,29 @@ class Symbol extends KuMEXApi
         $response = $this->call(Request::METHOD_GET, '/api/v1/trade/history', compact('symbol'));
         return $response->getApiData();
     }
+
+    /**
+     * Get KLines for a symbol. Data are returned in grouped buckets based on granularity.
+     *
+     * The granularity (granularity parameter of K-line) represents the number of minutes,
+     * the available granularity scope is: 1,5,15,30,60,120,240,480,720,1440,10080.
+     *
+     * @param string $symbol
+     * @param int $from
+     * @param int $to
+     * @param int $granularity
+     * @return array
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getKLines($symbol, $from, $to, $granularity)
+    {
+        $response = $this->call(
+            Request::METHOD_GET,
+            '/api/v1/kline/query',
+            compact('symbol', 'from', 'to', 'granularity')
+        );
+        return $response->getApiData();
+    }
 }
