@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Deposits
  * @package KuMEX\SDK\PrivateApi
- * @see https://docs.KuMEX.com/#deposits
+ * @see https://docs.kucoin.com/futures/#deposit
  */
 class Deposit extends KuMEXApi
 {

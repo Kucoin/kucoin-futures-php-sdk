@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Index
  * @package KuMEX\SDK\PublicApi
- * @see https://docs.KuMEX.com/#index
+ * @see https://docs.kucoin.com/futures/#index
  */
 class Index extends KuMEXApi
 {

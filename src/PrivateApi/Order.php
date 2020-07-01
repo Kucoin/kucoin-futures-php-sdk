@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Order
  * @package KuMEX\SDK\PrivateApi
- * @see https://docs.KuMEX.com/#orders
+ * @see https://docs.kucoin.com/futures/#orders
  */
 class Order extends KuMEXApi
 {

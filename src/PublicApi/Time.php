@@ -8,7 +8,7 @@ use KuMEX\SDK\KuMEXApi;
 /**
  * Class Time
  * @package KuMEX\SDK\PublicApi
- * @see https://docs.KuMEX.com/#time
+ * @see https://docs.kucoin.com/futures/#time
  */
 class Time extends KuMEXApi
 {
