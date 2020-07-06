@@ -58,6 +58,21 @@ class Symbol extends KuMEXApi
     }
 
     /**
+     * Get the snapshot details of a symbol.
+     *
+     * @param  string $symbol
+     * @return array
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getV2Level3Snapshot($symbol)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v2/level3/snapshot', compact('symbol'));
+        return $response->getApiData();
+    }
+
+    /**
      * Get the level2 message of a symbol.
      *
      * @param  string $symbol

@@ -71,6 +71,24 @@ class SymbolTest extends TestCase
      * @throws \KuMEX\SDK\Exceptions\HttpException
      * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
      */
+    public function testGetV2Level3Snapshot(Symbol $api)
+    {
+        $data = $api->getV2Level3Snapshot('XBTUSDM');
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('sequence', $data);
+        $this->assertArrayHasKey('symbol', $data);
+        $this->assertArrayHasKey('asks', $data);
+        $this->assertArrayHasKey('bids', $data);
+        $this->assertArrayHasKey('ts', $data);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Symbol $api
+     * @throws \KuMEX\SDK\Exceptions\BusinessException
+     * @throws \KuMEX\SDK\Exceptions\HttpException
+     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     */
     public function testGetLevel2Message(Symbol $api)
     {
         $data = $api->getLevel2Message('XBTUSDM', 1, 100);
