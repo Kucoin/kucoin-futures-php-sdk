@@ -23,10 +23,10 @@ $api = new WebSocketFeed($auth);
 //});
 //$api->setLoop($loop);
 
-$query = ['connectId' => uniqid('', true)];
+$query    = ['connectId' => uniqid('', true)];
 $channels = [
-    ['topic' => '/market/ticker:KCS-BTC'], // Subscribe multiple channels
-    ['topic' => '/market/ticker:ETH-BTC'],
+    ['topic' => '/contractMarket/ticker:XBTUSDM'], // Subscribe multiple channels
+    ['topic' => '/contractMarket/ticker:XBTUSDTM'],
 ];
 
 $api->subscribePublicChannels($query, $channels, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {

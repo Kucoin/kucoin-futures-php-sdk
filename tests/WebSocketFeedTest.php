@@ -70,7 +70,7 @@ class WebSocketFeedTest extends TestCase
     public function testSubscribePublicChannel(WebSocketFeed $api)
     {
         $query = ['connectId' => uniqid('', true),];
-        $channel = ['topic' => '/market/ticker:XBTUSDM'];
+        $channel = ['topic' => '/contractMarket/ticker:XBTUSDM'];
 
         $options = [
 //            'tls' => [
@@ -80,6 +80,7 @@ class WebSocketFeedTest extends TestCase
         $api->subscribePublicChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
             $this->assertInternalType('array', $message);
             $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('channelType', $message);
             $this->assertEquals('message', $message['type']);
 
             // Dynamic output
@@ -101,8 +102,8 @@ class WebSocketFeedTest extends TestCase
     {
         $query = ['connectId' => uniqid('', true),];
         $channels = [
-            ['topic' => '/market/ticker:XBTUSDM'],
-            ['topic' => '/market/ticker:XBTUSDM'],
+            ['topic' => '/contractMarket/ticker:XBTUSDM'],
+            ['topic' => '/contractMarket/ticker:XBTUSDM'],
         ];
 
         $options = [
@@ -113,6 +114,7 @@ class WebSocketFeedTest extends TestCase
         $api->subscribePublicChannels($query, $channels, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
             $this->assertInternalType('array', $message);
             $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('channelType', $message);
             $this->assertEquals('message', $message['type']);
 
             // Dynamic output
@@ -134,7 +136,7 @@ class WebSocketFeedTest extends TestCase
     public function testUnsubscribePublicChannel(WebSocketFeed $api)
     {
         $query = ['connectId' => uniqid('', true),];
-        $channel = ['topic' => '/market/ticker:XBTUSDM'];
+        $channel = ['topic' => '/contractMarket/ticker:XBTUSDM'];
 
         $options = [
 //            'tls' => [
@@ -144,6 +146,7 @@ class WebSocketFeedTest extends TestCase
         $api->subscribePublicChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
             $this->assertInternalType('array', $message);
             $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('channelType', $message);
             $this->assertEquals('message', $message['type']);
 
             // Dynamic output
@@ -164,7 +167,7 @@ class WebSocketFeedTest extends TestCase
     public function testSubscribePrivateChannel(WebSocketFeed $api)
     {
         $query = ['connectId' => uniqid('', true),];
-        $channel = ['topic' => '/market/match:XBTUSDM'];
+        $channel = ['topic' => '/contract/position:XBTUSDM'];
 
         $options = [
 //            'tls' => [
@@ -174,6 +177,7 @@ class WebSocketFeedTest extends TestCase
         $api->subscribePrivateChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
             $this->assertInternalType('array', $message);
             $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('channelType', $message);
             $this->assertEquals('message', $message['type']);
             // Dynamic output
             fputs(STDIN, print_r($message, true));
@@ -194,8 +198,8 @@ class WebSocketFeedTest extends TestCase
     {
         $query = ['connectId' => uniqid('', true),];
         $channels = [
-            ['topic' => '/market/match:XBTUSDM'],
-            ['topic' => '/market/match:XBTUSDM'],
+            ['topic' => '/contract/position:XBTUSDM'],
+            ['topic' => '/contract/position:XBTUSDM'],
         ];
 
         $options = [
@@ -206,6 +210,7 @@ class WebSocketFeedTest extends TestCase
         $api->subscribePrivateChannels($query, $channels, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
             $this->assertInternalType('array', $message);
             $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('channelType', $message);
             $this->assertEquals('message', $message['type']);
             // Dynamic output
             fputs(STDIN, print_r($message, true));

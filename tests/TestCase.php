@@ -8,7 +8,12 @@ use KuMEX\SDK\KuMEXApi;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-    protected $apiClass = 'Must be declared in the subclass';
+    protected function setUp()
+    {
+        parent::setUp();
+    }
+
+    protected $apiClass    = 'Must be declared in the subclass';
     protected $apiWithAuth = false;
 
     public function apiProvider()

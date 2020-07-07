@@ -270,6 +270,7 @@ go(function () {
 | KuMEX\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kucoin.com/futures/#get-ticker |
 | KuMEX\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-2 |
 | KuMEX\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3 |
+| KuMEX\SDK\PublicApi\Symbol::getV2Level3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3-v2 |
 | KuMEX\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kucoin.com/futures/##level-2-pulling-messages |
 | KuMEX\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages |
 | KuMEX\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories |
@@ -283,6 +284,15 @@ go(function () {
 | API | Authentication | Description |
 | -------- | -------- | -------- |
 | KuMEX\SDK\PublicApi\Time::timestamp() | NO | https://docs.kucoin.com/futures/#server-time |
+
+</details>
+
+<details>
+<summary>KuMEX\SDK\PublicApi\Status</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuMEX\SDK\PublicApi\Status::status() | NO | https://docs.kucoin.com/futures/#get-the-service-status |
 
 </details>
 
