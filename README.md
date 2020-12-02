@@ -1,5 +1,11 @@
+# DEPRECATED(弃用)
+
+This repo is deprecated, no longer actively maintained.
+
+---
 
 # PHP SDK for KuMEX API
+
 > The detailed document [https://docs.kucoin.com/futures/](https://docs.kucoin.com/futures/), in order to receive the latest API change notifications, please `Watch` this repository.
 
 [![Latest Version](https://img.shields.io/github/release/Kucoin/kumex-php-sdk.svg)](https://github.com/Kucoin/kumex-php-sdk/releases)
@@ -29,8 +35,8 @@ composer require "kucoin/kumex-php-sdk:~1.0.0"
 
 | Environment | BaseUri |
 |    -------- | -------- |
-| *Production* | `https://api-futures.kucoin.com (DEFAULT)` `https://api-futures.kucoin.io` | 
-| *Sandbox* | `https://api-sandbox-futures.kucoin.com (DEFAULT)` `https://api-sandbox-futures.kucoin.io` | 
+| *Production* | `https://api-futures.kucoin.com (DEFAULT)` `https://api-futures.kucoin.io` |
+| *Sandbox* | `https://api-sandbox-futures.kucoin.com (DEFAULT)` `https://api-sandbox-futures.kucoin.io` |
 
 ```php
 // Switch to the sandbox environment
