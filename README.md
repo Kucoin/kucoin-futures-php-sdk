@@ -1,10 +1,6 @@
-# DEPRECATED(弃用)
-
-This repo is deprecated, no longer actively maintained.
-
----
-
 # PHP SDK for KuMEX API
+
+**Note:** This library isn't actively maintained. Please refer to the [kucoin-futures-python-sdk](https://github.com/Kucoin/kucoin-futures-python-sdk) for an up-to-date client implementation.
 
 > The detailed document [https://docs.kucoin.com/futures/](https://docs.kucoin.com/futures/), in order to receive the latest API change notifications, please `Watch` this repository.
 
