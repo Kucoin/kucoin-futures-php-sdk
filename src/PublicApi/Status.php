@@ -1,23 +1,23 @@
 <?php
 
-namespace KuMEX\SDK\PublicApi;
+namespace KuCoin\Futures\SDK\PublicApi;
 
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\KuMEXApi;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
 
 /**
  * Class Time
- * @package KuMEX\SDK\PublicApi
+ * @package KuCoin\Futures\SDK\PublicApi
  * @see https://docs.kucoin.com/futures/#get-the-service-status
  */
-class Status extends KuMEXApi
+class Status extends KuCoinFuturesApi
 {
     /**
      * Get the timestamp of Server in milliseconds
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function status()
     {

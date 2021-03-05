@@ -1,11 +1,11 @@
 <?php
 
-namespace KuMEX\SDK;
+namespace KuCoin\Futures\SDK;
 
-use KuMEX\SDK\Http\GuzzleHttp;
-use KuMEX\SDK\Http\IHttp;
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\Http\Response;
+use KuCoin\Futures\SDK\Http\GuzzleHttp;
+use KuCoin\Futures\SDK\Http\IHttp;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\Http\Response;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;

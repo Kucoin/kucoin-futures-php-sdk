@@ -1,4 +1,4 @@
-# PHP SDK for KuMEX API
+# PHP SDK for KuCoin Futures API
 
 **Note:** This library isn't actively maintained. Please refer to the [kucoin-futures-python-sdk](https://github.com/Kucoin/kucoin-futures-python-sdk) for an up-to-date client implementation.
 
@@ -9,7 +9,6 @@
 [![Build Status](https://travis-ci.org/Kucoin/kumex-php-sdk.svg?branch=master)](https://travis-ci.org/Kucoin/kumex-php-sdk)
 [![Total Downloads](https://poser.pugx.org/Kucoin/kumex-php-sdk/downloads)](https://packagist.org/packages/Kucoin/kumex-php-sdk)
 [![License](https://poser.pugx.org/Kucoin/kumex-php-sdk/license)](LICENSE)
-[![Total Lines](https://tokei.rs/b1/github/Kucoin/kumex-php-sdk)](https://github.com/Kucoin/kumex-php-sdk)
 
 ## Requirements
 
@@ -22,7 +21,7 @@
 > Install package via [Composer](https://getcomposer.org/).
 
 ```shell
-composer require "kucoin/kumex-php-sdk:~1.0.0"
+composer require "kucoin/kucoin-futures-php-sdk:~1.0.0"
 ```
 
 ## Usage
@@ -31,24 +30,26 @@ composer require "kucoin/kumex-php-sdk:~1.0.0"
 
 | Environment | BaseUri |
 |    -------- | -------- |
-| *Production* | `https://api-futures.kucoin.com (DEFAULT)` `https://api-futures.kucoin.io` |
-| *Sandbox* | `https://api-sandbox-futures.kucoin.com (DEFAULT)` `https://api-sandbox-futures.kucoin.io` |
+| *Production* | `https://api-futures.kucoin.com (DEFAULT)` `https://api-futures.kucoin.cc` |
+| *Sandbox* | `https://api-sandbox-futures.kucoin.com (DEFAULT)` `https://api-sandbox-futures.kucoin.cc` |
 
 ```php
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
 // Switch to the sandbox environment
-KuMEXApi::setBaseUri('https://api-sandbox-futures.kucoin.com');
+KuCoinFuturesApi::setBaseUri('https://api-sandbox-futures.kucoin.com');
 ```
 
 ### Debug mode & logging
 
 ```php
-// Debug mode will record the logs of API and WebSocket to files in the directory "KuMEXApi::getLogPath()" according to the minimum log level "KuMEXApi::getLogLevel()".
-KuMEXApi::setDebugMode(true);
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
+// Debug mode will record the logs of API and WebSocket to files in the directory "KuCoinFuturesApi::getLogPath()" according to the minimum log level "KuCoinFuturesApi::getLogLevel()".
+KuCoinFuturesApi::setDebugMode(true);
 
 // Logging in your code
-// KuMEXApi::setLogPath('/tmp');
-// KuMEXApi::setLogLevel(Monolog\Logger::DEBUG);
-KuMEXApi::getLogger()->debug("I'am a debug message");
+// KuCoinFuturesApi::setLogPath('/tmp');
+// KuCoinFuturesApi::setLogLevel(Monolog\Logger::DEBUG);
+KuCoinFuturesApi::getLogger()->debug("I'm a debug message");
 ```
 
 ### Examples
@@ -57,7 +58,7 @@ KuMEXApi::getLogger()->debug("I'am a debug message");
 #### Example of API `without` authentication
 
 ```php
-use KuMEX\SDK\PublicApi\Time;
+use KuCoin\Futures\SDK\PublicApi\Time;
 
 $api = new Time();
 $timestamp = $api->timestamp();
@@ -66,13 +67,21 @@ var_dump($timestamp);
 
 #### Example of API `with` authentication
 
-```php
-use KuMEX\SDK\Auth;
-use KuMEX\SDK\PrivateApi\Account;
-use KuMEX\SDK\Exceptions\HttpException;
-use KuMEX\SDK\Exceptions\BusinessException;
+##### **Note**
+To reinforce the security of the API, KuCoin upgraded the API key to version 2.0, the validation logic has also been changed. It is recommended to create(https://www.kucoin.com/account/api) and update your API key to version 2.0. The API key of version 1.0 will be still valid until May 1, 2021
 
-$auth = new Auth('key', 'secret', 'passphrase');
+
+```php
+use KuCoin\Futures\SDK\Auth;
+use KuCoin\Futures\SDK\PrivateApi\Account;
+use KuCoin\Futures\SDK\Exceptions\HttpException;
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
+
+// Auth version v2 (recommend)
+$auth = new Auth('key', 'secret', 'passphrase', Auth::API_KEY_VERSION_V2);
+// Auth version v1
+// $auth = new Auth('key', 'secret', 'passphrase');
+
 $api = new Account($auth);
 
 try {
@@ -88,15 +97,18 @@ try {
 #### Example of WebSocket feed
 
 ```php
-use KuMEX\SDK\Auth;
-use KuMEX\SDK\KuMEXApi;
-use KuMEX\SDK\PrivateApi\WebSocketFeed;
+use KuCoin\Futures\SDK\Auth;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
+use KuCoin\Futures\SDK\PrivateApi\WebSocketFeed;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 
 $auth = null;
 // Need to pass the Auth parameter when subscribing to a private channel($api->subscribePrivateChannel()).
+// Auth version v2 (recommend)
+// $auth = new Auth('key', 'secret', 'passphrase', Auth::API_KEY_VERSION_V2);
+// Auth version v1
 // $auth = new Auth('key', 'secret', 'passphrase');
 $api = new WebSocketFeed($auth);
 
@@ -135,23 +147,26 @@ composer require swlib/saber
 ```
 
 ```php
-use KuMEX\SDK\Auth;
-use KuMEX\SDK\Http\SwooleHttp;
-use KuMEX\SDK\KuMEXApi;
-use KuMEX\SDK\PrivateApi\Order;
-use KuMEX\SDK\PublicApi\Time;
+use KuCoin\Futures\SDK\Auth;
+use KuCoin\Futures\SDK\Http\SwooleHttp;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
+use KuCoin\Futures\SDK\PrivateApi\Order;
+use KuCoin\Futures\SDK\PublicApi\Time;
 
 // Require PHP 7.1+ and Swoole 2.1.2+
 // Require running in cli mode
 
 go(function () {
-    $api = new Time(null, new SwooleHttp));
+    $api = new Time(null, new SwooleHttp);
     $timestamp = $api->timestamp();
     var_dump($timestamp);
 });
 
 go(function () {
-    $auth = new Auth('key', 'secret', 'passphrase');
+    // Auth version v2 (recommend)
+    $auth = new Auth('key', 'secret', 'passphrase', Auth::API_KEY_VERSION_V2);
+    // Auth version v1
+    // $auth = new Auth('key', 'secret', 'passphrase');
     $api = new Order($auth, new SwooleHttp);
     // Create 50 orders CONCURRENTLY in 1 second
     for ($i = 0; $i < 50; $i++) {
@@ -179,122 +194,122 @@ go(function () {
 ### API list
 
 <details>
-<summary>KuMEX\SDK\PrivateApi\Account</summary>
+<summary>KuCoin\Futures\SDK\PrivateApi\Account</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kucoin.com/futures/#account |
-| KuMEX\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kucoin.com/futures/#get-transaction-history |
-| KuMEX\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kucoin-main-account-to-kumex-account |
-| KuMEX\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kumex-account-to-kucoin-main-account |
-| KuMEX\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kumex-account-to-kucoin-main-account |
-| KuMEX\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kucoin.com/futures/#cancel-transfer-out-request |
-| KuMEX\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kucoin.com/futures/#get-transfer-out-request-records |
+| KuCoin\Futures\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kucoin.com/futures/#account |
+| KuCoin\Futures\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kucoin.com/futures/#get-transaction-history |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kucoin-main-account-to-kumex-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kucoin.com/futures/#cancel-transfer-out-request |
+| KuCoin\Futures\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kucoin.com/futures/#get-transfer-out-request-records |
 </details>
 
 <details>
-<summary>KuMEX\SDK\PrivateApi\Deposit</summary>
+<summary>KuCoin\Futures\SDK\PrivateApi\Deposit</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Deposit::getAddress() | YES | https://docs.kucoin.com/futures/#get-deposit-address |
-| KuMEX\SDK\PrivateApi\Deposit::getDeposits() | YES | https://docs.kucoin.com/futures/#get-deposit-list |
-
-</details>
-
-<details>
-<summary>KuMEX\SDK\PrivateApi\Fill</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kucoin.com/futures/#get-fills |
-| KuMEX\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kucoin.com/futures/#recent-fills |
-</details>
-
-<details>
-<summary>KuMEX\SDK\PrivateApi\Order</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Order::create() | YES | https://docs.kucoin.com/futures/#place-an-order |
-| KuMEX\SDK\PrivateApi\Order::cancel() | YES | https://docs.kucoin.com/futures/#cancel-an-order |
-| KuMEX\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kucoin.com/futures/#limit-order-mass-cancelation |
-| KuMEX\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kucoin.com/futures/#stop-order-mass-cancelation |
-| KuMEX\SDK\PrivateApi\Order::getList() | YES | https://docs.kucoin.com/futures/#get-order-list |
-| KuMEX\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kucoin.com/futures/#get-untriggered-stop-order-list |
-| KuMEX\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kucoin.com/futures/#get-list-of-orders-completed-in-24h |
-| KuMEX\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kucoin.com/futures/#get-details-of-a-single-order |
-| KuMEX\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kucoin.com/futures/#active-order-value-calculation |
-
-</details>
-<details>
-<summary>KuMEX\SDK\PrivateApi\Position</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Position::getList() | YES | https://docs.kucoin.com/futures/#get-position-list |
-| KuMEX\SDK\PrivateApi\Position::getDetail() | YES | https://docs.kucoin.com/futures/#get-position-details |
-| KuMEX\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES | https://docs.kucoin.com/futures/#enable-disable-of-auto-deposit-margin |
-| KuMEX\SDK\PrivateApi\Position::marginAppend() | YES | https://docs.kucoin.com/futures/#add-margin-manually |
-</details>
-
-<details>
-<summary>KuMEX\SDK\PrivateApi\WebSocketFeed</summary>
-
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\WebSocketFeed::getPublicServer() | NO | https://docs.kucoin.com/futures/#apply-connect-token |
-| KuMEX\SDK\PrivateApi\WebSocketFeed::getPrivateServer() | YES | https://docs.kucoin.com/futures/#apply-connect-token |
-| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePublicChannel() | NO | https://docs.kucoin.com/futures/#public-channels |
-| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePublicChannels() | NO | https://docs.kucoin.com/futures/#public-channels |
-| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannel() | YES | https://docs.kucoin.com/futures/#private-channels |
-| KuMEX\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannels() | YES | https://docs.kucoin.com/futures/#private-channels |
+| KuCoin\Futures\SDK\PrivateApi\Deposit::getAddress() | YES | https://docs.kucoin.com/futures/#get-deposit-address |
+| KuCoin\Futures\SDK\PrivateApi\Deposit::getDeposits() | YES | https://docs.kucoin.com/futures/#get-deposit-list |
 
 </details>
 
 <details>
-<summary>KuMEX\SDK\PrivateApi\Withdrawal</summary>
+<summary>KuCoin\Futures\SDK\PrivateApi\Fill</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kucoin.com/futures/#get-withdrawal-limit |
-| KuMEX\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kucoin.com/futures/#get-withdrawal-list |
-| KuMEX\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kucoin.com/futures/#withdraw-funds |
-| KuMEX\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.kucoin.com/futures/#cancel-withdrawal |
+| KuCoin\Futures\SDK\PrivateApi\Fill::getFills() | YES | https://docs.kucoin.com/futures/#get-fills |
+| KuCoin\Futures\SDK\PrivateApi\Fill::getRecentList() | YES | https://docs.kucoin.com/futures/#recent-fills |
+</details>
+
+<details>
+<summary>KuCoin\Futures\SDK\PrivateApi\Order</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuCoin\Futures\SDK\PrivateApi\Order::create() | YES | https://docs.kucoin.com/futures/#place-an-order |
+| KuCoin\Futures\SDK\PrivateApi\Order::cancel() | YES | https://docs.kucoin.com/futures/#cancel-an-order |
+| KuCoin\Futures\SDK\PrivateApi\Order::batchCancel() | YES | https://docs.kucoin.com/futures/#limit-order-mass-cancelation |
+| KuCoin\Futures\SDK\PrivateApi\Order::stopOrders() | YES | https://docs.kucoin.com/futures/#stop-order-mass-cancelation |
+| KuCoin\Futures\SDK\PrivateApi\Order::getList() | YES | https://docs.kucoin.com/futures/#get-order-list |
+| KuCoin\Futures\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kucoin.com/futures/#get-untriggered-stop-order-list |
+| KuCoin\Futures\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kucoin.com/futures/#get-list-of-orders-completed-in-24h |
+| KuCoin\Futures\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kucoin.com/futures/#get-details-of-a-single-order |
+| KuCoin\Futures\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kucoin.com/futures/#active-order-value-calculation |
+
+</details>
+<details>
+<summary>KuCoin\Futures\SDK\PrivateApi\Position</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuCoin\Futures\SDK\PrivateApi\Position::getList() | YES | https://docs.kucoin.com/futures/#get-position-list |
+| KuCoin\Futures\SDK\PrivateApi\Position::getDetail() | YES | https://docs.kucoin.com/futures/#get-position-details |
+| KuCoin\Futures\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES | https://docs.kucoin.com/futures/#enable-disable-of-auto-deposit-margin |
+| KuCoin\Futures\SDK\PrivateApi\Position::marginAppend() | YES | https://docs.kucoin.com/futures/#add-margin-manually |
+</details>
+
+<details>
+<summary>KuCoin\Futures\SDK\PrivateApi\WebSocketFeed</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuCoin\Futures\SDK\PrivateApi\WebSocketFeed::getPublicServer() | NO | https://docs.kucoin.com/futures/#apply-connect-token |
+| KuCoin\Futures\SDK\PrivateApi\WebSocketFeed::getPrivateServer() | YES | https://docs.kucoin.com/futures/#apply-connect-token |
+| KuCoin\Futures\SDK\PrivateApi\WebSocketFeed::subscribePublicChannel() | NO | https://docs.kucoin.com/futures/#public-channels |
+| KuCoin\Futures\SDK\PrivateApi\WebSocketFeed::subscribePublicChannels() | NO | https://docs.kucoin.com/futures/#public-channels |
+| KuCoin\Futures\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannel() | YES | https://docs.kucoin.com/futures/#private-channels |
+| KuCoin\Futures\SDK\PrivateApi\WebSocketFeed::subscribePrivateChannels() | YES | https://docs.kucoin.com/futures/#private-channels |
 
 </details>
 
 <details>
-<summary>KuMEX\SDK\PublicApi\Symbol</summary>
+<summary>KuCoin\Futures\SDK\PrivateApi\Withdrawal</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kucoin.com/futures/#get-ticker |
-| KuMEX\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-2 |
-| KuMEX\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3 |
-| KuMEX\SDK\PublicApi\Symbol::getV2Level3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3-v2 |
-| KuMEX\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kucoin.com/futures/##level-2-pulling-messages |
-| KuMEX\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages |
-| KuMEX\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories |
-| KuMEX\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
+| KuCoin\Futures\SDK\PrivateApi\Withdrawal::getQuotas() | YES | https://docs.kucoin.com/futures/#get-withdrawal-limit |
+| KuCoin\Futures\SDK\PrivateApi\Withdrawal::getList() | YES | https://docs.kucoin.com/futures/#get-withdrawal-list |
+| KuCoin\Futures\SDK\PrivateApi\Withdrawal::apply() | YES | https://docs.kucoin.com/futures/#withdraw-funds |
+| KuCoin\Futures\SDK\PrivateApi\Withdrawal::cancel() | YES | https://docs.kucoin.com/futures/#cancel-withdrawal |
 
 </details>
 
 <details>
-<summary>KuMEX\SDK\PublicApi\Time</summary>
+<summary>KuCoin\Futures\SDK\PublicApi\Symbol</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PublicApi\Time::timestamp() | NO | https://docs.kucoin.com/futures/#server-time |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kucoin.com/futures/#get-ticker |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-2 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getV2Level3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3-v2 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kucoin.com/futures/##level-2-pulling-messages |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
 
 </details>
 
 <details>
-<summary>KuMEX\SDK\PublicApi\Status</summary>
+<summary>KuCoin\Futures\SDK\PublicApi\Time</summary>
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuMEX\SDK\PublicApi\Status::status() | NO | https://docs.kucoin.com/futures/#get-the-service-status |
+| KuCoin\Futures\SDK\PublicApi\Time::timestamp() | NO | https://docs.kucoin.com/futures/#server-time |
+
+</details>
+
+<details>
+<summary>KuCoin\Futures\SDK\PublicApi\Status</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuCoin\Futures\SDK\PublicApi\Status::status() | NO | https://docs.kucoin.com/futures/#get-the-service-status |
 
 </details>
 
@@ -307,6 +322,8 @@ export API_BASE_URI=https://api-futures.kucoin.com
 export API_KEY=key
 export API_SECRET=secret
 export API_PASSPHRASE=passphrase
+export API_KEY_VERSION=2
+export API_DEBUG_MODE=1
 
 composer test
 ```

@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMEX\SDK\Exceptions;
+namespace KuCoin\Futures\SDK\Exceptions;
 
-use KuMEX\SDK\Http\ApiResponse;
+use KuCoin\Futures\SDK\Http\ApiResponse;
 
 class BusinessException extends \Exception
 {

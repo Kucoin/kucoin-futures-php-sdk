@@ -1,9 +1,9 @@
 <?php
 
-namespace KuMEX\SDK\Http;
+namespace KuCoin\Futures\SDK\Http;
 
-use KuMEX\SDK\Exceptions\HttpException;
-use KuMEX\SDK\Exceptions\InvalidApiUriException;
+use KuCoin\Futures\SDK\Exceptions\HttpException;
+use KuCoin\Futures\SDK\Exceptions\InvalidApiUriException;
 
 interface IHttp
 {

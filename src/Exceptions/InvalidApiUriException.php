@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMEX\SDK\Exceptions;
+namespace KuCoin\Futures\SDK\Exceptions;
 
 class InvalidApiUriException extends \Exception
 {

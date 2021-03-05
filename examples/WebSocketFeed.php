@@ -1,15 +1,15 @@
 <?php
 include '../vendor/autoload.php';
 
-use KuMEX\SDK\Auth;
-use KuMEX\SDK\KuMEXApi;
-use KuMEX\SDK\PrivateApi\WebSocketFeed;
+use KuCoin\Futures\SDK\Auth;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
+use KuCoin\Futures\SDK\PrivateApi\WebSocketFeed;
 use Ratchet\Client\WebSocket;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 
 // Set the base uri, default "https://api.kumex.com" for production environment.
-// KuMEXApi::setBaseUri('https://api.kumex.com');
+// KuCoinFuturesApi::setBaseUri('https://api.kumex.com');
 
 $auth = null;
 // Need to pass the Auth parameter when subscribing to a private channel($api->subscribePrivateChannel()).

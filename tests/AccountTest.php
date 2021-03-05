@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMEX\SDK\Tests;
+namespace KuCoin\Futures\SDK\Tests;
 
-use KuMEX\SDK\ApiCode;
-use KuMEX\SDK\Exceptions\BusinessException;
-use KuMEX\SDK\PrivateApi\Account;
+use KuCoin\Futures\SDK\ApiCode;
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
+use KuCoin\Futures\SDK\PrivateApi\Account;
 
 class AccountTest extends TestCase
 {
@@ -15,8 +15,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetOverview(Account $api)
     {
@@ -35,8 +35,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetTransactionHistory(Account $api)
     {
@@ -57,8 +57,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
 //    public function testTransferIn(Account $api)
 //    {
@@ -74,8 +74,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testTransferOut(Account $api)
     {
@@ -92,8 +92,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testCancelTransferOut(Account $api)
     {
@@ -106,8 +106,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetTransferList(Account $api)
     {
@@ -126,9 +126,9 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider.
      *
      * @param Account $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     private function getTransferId($api)
     {
@@ -144,8 +144,8 @@ class AccountTest extends TestCase
      * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testTransferOutV2(Account $api)
     {

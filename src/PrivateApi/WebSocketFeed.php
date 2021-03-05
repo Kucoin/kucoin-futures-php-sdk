@@ -1,11 +1,11 @@
 <?php
 
-namespace KuMEX\SDK\PrivateApi;
+namespace KuCoin\Futures\SDK\PrivateApi;
 
-use KuMEX\SDK\Exceptions\BusinessException;
-use KuMEX\SDK\Exceptions\NoAvailableWebSocketServerException;
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\KuMEXApi;
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
+use KuCoin\Futures\SDK\Exceptions\NoAvailableWebSocketServerException;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
 use Ratchet\Client\Connector as RatchetConnector;
 use Ratchet\Client\WebSocket;
 use Ratchet\RFC6455\Messaging\MessageInterface;
@@ -15,10 +15,10 @@ use React\Socket\Connector as SocketConnector;
 
 /**
  * Class WebSocketFeed
- * @package KuMEX\SDK\PublicApi
+ * @package KuCoin\Futures\SDK\PublicApi
  * @see https://docs.kucoin.com/futures/#websocket-2
  */
-class WebSocketFeed extends KuMEXApi
+class WebSocketFeed extends KuCoinFuturesApi
 {
     /** @var LoopInterface */
     protected $loop;
@@ -47,9 +47,9 @@ class WebSocketFeed extends KuMEXApi
     /**
      * Get the server list and temporary token
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getPublicBullet()
     {
@@ -60,9 +60,9 @@ class WebSocketFeed extends KuMEXApi
     /**
      * Get the server list and authorized token
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getPrivateBullet()
     {

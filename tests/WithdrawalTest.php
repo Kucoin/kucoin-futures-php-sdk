@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMEX\SDK\Tests;
+namespace KuCoin\Futures\SDK\Tests;
 
-use KuMEX\SDK\PrivateApi\Withdrawal;
+use KuCoin\Futures\SDK\PrivateApi\Withdrawal;
 
 class WithdrawalTest extends TestCase
 {
@@ -12,9 +12,9 @@ class WithdrawalTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Withdrawal $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetQuotas(Withdrawal $api)
     {
@@ -35,9 +35,9 @@ class WithdrawalTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Withdrawal $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testApply(Withdrawal $api)
     {
@@ -58,9 +58,9 @@ class WithdrawalTest extends TestCase
      * @dataProvider apiProvider
      * @param Withdrawal $api
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetList(Withdrawal $api)
     {
@@ -91,9 +91,9 @@ class WithdrawalTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Withdrawal $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testCancel(Withdrawal $api)
     {

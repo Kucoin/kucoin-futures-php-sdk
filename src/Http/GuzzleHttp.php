@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMEX\SDK\Http;
+namespace KuCoin\Futures\SDK\Http;
 
 use GuzzleHttp\Client;
-use KuMEX\SDK\Exceptions\HttpException;
-use KuMEX\SDK\Exceptions\InvalidApiUriException;
+use KuCoin\Futures\SDK\Exceptions\HttpException;
+use KuCoin\Futures\SDK\Exceptions\InvalidApiUriException;
 
 class GuzzleHttp extends BaseHttp
 {

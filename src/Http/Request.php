@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMEX\SDK\Http;
+namespace KuCoin\Futures\SDK\Http;
 
 class Request
 {

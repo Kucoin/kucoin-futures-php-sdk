@@ -1,9 +1,9 @@
 <?php
 
-namespace KuMEX\SDK\Tests;
+namespace KuCoin\Futures\SDK\Tests;
 
-use KuMEX\SDK\Exceptions\BusinessException;
-use KuMEX\SDK\PrivateApi\Deposit;
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
+use KuCoin\Futures\SDK\PrivateApi\Deposit;
 
 class DepositTest extends TestCase
 {
@@ -14,9 +14,9 @@ class DepositTest extends TestCase
      * @dataProvider apiProvider
      * @param Deposit $api
      * @return array|string
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetAddress(Deposit $api)
     {
@@ -41,9 +41,9 @@ class DepositTest extends TestCase
      * @dataProvider apiProvider
      * @param Deposit $api
      * @return array|string
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetDeposits(Deposit $api)
     {
