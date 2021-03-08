@@ -1,14 +1,14 @@
 <?php
 include '../vendor/autoload.php';
 
-use KuMEX\SDK\Auth;
-use KuMEX\SDK\KuMEXApi;
-use KuMEX\SDK\PrivateApi\Account;
-use KuMEX\SDK\Exceptions\HttpException;
-use KuMEX\SDK\Exceptions\BusinessException;
+use KuCoin\Futures\SDK\Auth;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
+use KuCoin\Futures\SDK\PrivateApi\Account;
+use KuCoin\Futures\SDK\Exceptions\HttpException;
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
 
-// Set the base uri, default "https://api.kumex.com" for production environment.
-// KuMEXApi::setBaseUri('https://api.kumex.com');
+// Set the base uri, default "https://api-futures.kucoin.com" for production environment.
+// KuCoinFuturesApi::setBaseUri('https://api-futures.kucoin.com');
 
 $auth = new Auth('key', 'secret', 'passphrase');
 $api = new Account($auth);

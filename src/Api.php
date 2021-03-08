@@ -1,11 +1,11 @@
 <?php
 
-namespace KuMEX\SDK;
+namespace KuCoin\Futures\SDK;
 
-use KuMEX\SDK\Http\GuzzleHttp;
-use KuMEX\SDK\Http\IHttp;
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\Http\Response;
+use KuCoin\Futures\SDK\Http\GuzzleHttp;
+use KuCoin\Futures\SDK\Http\IHttp;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\Http\Response;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -140,8 +140,8 @@ abstract class Api
     public static function getLogger()
     {
         if (self::$logger === null) {
-            self::$logger = new Logger('kumex-sdk');
-            $handler = new RotatingFileHandler(static::getLogPath() . '/kumex-sdk.log', 0, static::$logLevel);
+            self::$logger = new Logger('kucoin-futures-sdk');
+            $handler = new RotatingFileHandler(static::getLogPath() . '/kucoin-futures.log', 0, static::$logLevel);
             $formatter = new LineFormatter(null, null, false, true);
             $handler->setFormatter($formatter);
             self::$logger->pushHandler($handler);
@@ -223,7 +223,7 @@ abstract class Api
             );
             $headers = array_merge($headers, $authHeaders);
         }
-        $headers['User-Agent'] = 'KuMEX-PHP-SDK/' . static::VERSION;
+        $headers['User-Agent'] = 'KuCoin-Futures-PHP-SDK/' . static::VERSION;
 
         if (self::$customHeaders) {
             $headers = array_merge($headers, self::$customHeaders);

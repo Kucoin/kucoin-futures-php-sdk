@@ -4,9 +4,9 @@
  * Date: 2019/6/17 下午3:08
  */
 
-namespace KuMEX\SDK\Tests;
+namespace KuCoin\Futures\SDK\Tests;
 
-use \KuMEX\SDK\PublicApi\Contract;
+use \KuCoin\Futures\SDK\PublicApi\Contract;
 
 
 class ContractTest extends TestCase
@@ -19,9 +19,9 @@ class ContractTest extends TestCase
      *
      * @depends testGetList
      * @param Contract $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetList(Contract $api)
     {
@@ -41,9 +41,9 @@ class ContractTest extends TestCase
      *
      * @depends testGetDetail
      * @param Contract $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetDetail(Contract $api)
     {

@@ -1,16 +1,16 @@
 <?php
 
-namespace KuMEX\SDK\PrivateApi;
+namespace KuCoin\Futures\SDK\PrivateApi;
 
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\KuMEXApi;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
 
 /**
  * Class Fill
- * @package KuMEX\SDK\PrivateApi
+ * @package KuCoin\Futures\SDK\PrivateApi
  * @see https://docs.kucoin.com/futures/#fills
  */
-class Fill extends KuMEXApi
+class Fill extends KuCoinFuturesApi
 {
     /**
      * Get fills orders list.
@@ -18,9 +18,9 @@ class Fill extends KuMEXApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getFills(array $params = [], array $pagination = [])
     {
@@ -32,9 +32,9 @@ class Fill extends KuMEXApi
      * Get the recent orders of the latest transactions within 24 hours.
      *
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getRecentList()
     {
@@ -47,9 +47,9 @@ class Fill extends KuMEXApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getFundingHistory(array $params, array $pagination = [])
     {

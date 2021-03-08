@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMEX\SDK;
+namespace KuCoin\Futures\SDK;
 
-use KuMEX\SDK\Http\ApiResponse;
+use KuCoin\Futures\SDK\Http\ApiResponse;
 
-abstract class KuMEXApi extends Api
+abstract class KuCoinFuturesApi extends Api
 {
     /**
      * Call an API

@@ -2,9 +2,9 @@
 include '../vendor/autoload.php';
 
 use Swoole\Event;
-use KuMEX\SDK\KuMEXApi;
-use KuMEX\SDK\PublicApi\Time;
-use KuMEX\SDK\Http\SwooleHttp;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
+use KuCoin\Futures\SDK\PublicApi\Time;
+use KuCoin\Futures\SDK\Http\SwooleHttp;
 
 $maxCount = 100;
 $start = microtime(true);

@@ -1,9 +1,9 @@
 <?php
 
-namespace KuMEX\SDK\Exceptions;
+namespace KuCoin\Futures\SDK\Exceptions;
 
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\Http\Response;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\Http\Response;
 
 class HttpException extends \Exception
 {

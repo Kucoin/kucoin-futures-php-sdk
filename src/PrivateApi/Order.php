@@ -1,25 +1,25 @@
 <?php
 
-namespace KuMEX\SDK\PrivateApi;
+namespace KuCoin\Futures\SDK\PrivateApi;
 
-use KuMEX\SDK\Http\Request;
-use KuMEX\SDK\KuMEXApi;
+use KuCoin\Futures\SDK\Http\Request;
+use KuCoin\Futures\SDK\KuCoinFuturesApi;
 
 /**
  * Class Order
- * @package KuMEX\SDK\PrivateApi
+ * @package KuCoin\Futures\SDK\PrivateApi
  * @see https://docs.kucoin.com/futures/#orders
  */
-class Order extends KuMEXApi
+class Order extends KuCoinFuturesApi
 {
     /**
      * Place a new order.
      *
      * @param  array $order
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function create(array $order)
     {
@@ -32,9 +32,9 @@ class Order extends KuMEXApi
      *
      * @param  string $orderId
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function cancel($orderId)
     {
@@ -47,9 +47,9 @@ class Order extends KuMEXApi
      *
      * @param  string|null $symbol
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function batchCancel($symbol = null)
     {
@@ -62,9 +62,9 @@ class Order extends KuMEXApi
      *
      * @param  string|null $symbol
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function stopOrders($symbol = null)
     {
@@ -78,9 +78,9 @@ class Order extends KuMEXApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getList(array $params = [], array $pagination = [])
     {
@@ -94,9 +94,9 @@ class Order extends KuMEXApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getStopOrders(array $params = [], array $pagination = [])
     {
@@ -110,9 +110,9 @@ class Order extends KuMEXApi
      * @param array $params
      * @param array $pagination
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getRecentDoneOrders(array $params = [], array $pagination = [])
     {
@@ -125,9 +125,9 @@ class Order extends KuMEXApi
      *
      * @param  string $orderId
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getDetail($orderId)
     {
@@ -140,9 +140,9 @@ class Order extends KuMEXApi
      *
      * @param  string|null $symbol
      * @return array
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getOpenOrderStatistics($symbol = null)
     {

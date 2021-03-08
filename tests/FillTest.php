@@ -1,8 +1,8 @@
 <?php
 
-namespace KuMEX\SDK\Tests;
+namespace KuCoin\Futures\SDK\Tests;
 
-use KuMEX\SDK\PrivateApi\Fill;
+use KuCoin\Futures\SDK\PrivateApi\Fill;
 
 class FillTest extends TestCase
 {
@@ -12,9 +12,9 @@ class FillTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Fill $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetList(Fill $api)
     {
@@ -42,9 +42,9 @@ class FillTest extends TestCase
     /**
      * @dataProvider apiProvider
      * @param Fill $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetRecentList(Fill $api)
     {
@@ -73,9 +73,9 @@ class FillTest extends TestCase
      *
      * @dataProvider apiProvider
      * @param Fill $api
-     * @throws \KuMEX\SDK\Exceptions\BusinessException
-     * @throws \KuMEX\SDK\Exceptions\HttpException
-     * @throws \KuMEX\SDK\Exceptions\InvalidApiUriException
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function testGetFundingHistory(Fill $api)
     {

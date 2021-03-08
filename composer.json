@@ -1,18 +1,18 @@
 {
-  "name": "kucoin/kumex-php-sdk",
+  "name": "kucoin/kucoin-futures-php-sdk",
   "type": "library",
   "license": "MIT",
-  "description": "PHP SDK for KuMEX API",
+  "description": "PHP SDK for Kucoin futures API",
   "keywords": [
     "kucoin",
     "kumex",
     "api",
     "sdk"
   ],
-  "homepage": "https://github.com/Kucoin/kumex-php-sdk",
+  "homepage": "https://github.com/Kucoin/kucoin-futures-php-sdk",
   "support": {
-    "source": "https://github.com/Kucoin/kumex-php-sdk",
-    "issues": "https://github.com/Kucoin/kumex-php-sdk/issues"
+    "source": "https://github.com/Kucoin/kucoin-futures-php-sdk",
+    "issues": "https://github.com/Kucoin/kucoin-futures-php-sdk/issues"
   },
   "authors": [
     {
@@ -32,12 +32,12 @@
   },
   "autoload": {
     "psr-4": {
-      "KuMEX\\SDK\\": "src/"
+      "KuCoin\\Futures\\SDK\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "KuMEX\\SDK\\Tests\\": "tests/"
+      "KuCoin\\Futures\\SDK\\Tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",

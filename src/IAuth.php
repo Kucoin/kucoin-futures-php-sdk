@@ -1,6 +1,6 @@
 <?php
 
-namespace KuMEX\SDK;
+namespace KuCoin\Futures\SDK;
 
 interface IAuth
 {

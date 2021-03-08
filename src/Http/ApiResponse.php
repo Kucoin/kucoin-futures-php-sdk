@@ -1,10 +1,10 @@
 <?php
 
-namespace KuMEX\SDK\Http;
+namespace KuCoin\Futures\SDK\Http;
 
-use KuMEX\SDK\ApiCode;
-use KuMEX\SDK\Exceptions\BusinessException;
-use KuMEX\SDK\Exceptions\HttpException;
+use KuCoin\Futures\SDK\ApiCode;
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
+use KuCoin\Futures\SDK\Exceptions\HttpException;
 
 class ApiResponse
 {
