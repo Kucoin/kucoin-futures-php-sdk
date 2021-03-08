@@ -1,14 +1,12 @@
 # PHP SDK for KuCoin Futures API
 
-**Note:** This library isn't actively maintained. Please refer to the [kucoin-futures-python-sdk](https://github.com/Kucoin/kucoin-futures-python-sdk) for an up-to-date client implementation.
-
 > The detailed document [https://docs.kucoin.com/futures/](https://docs.kucoin.com/futures/), in order to receive the latest API change notifications, please `Watch` this repository.
 
-[![Latest Version](https://img.shields.io/github/release/Kucoin/kumex-php-sdk.svg)](https://github.com/Kucoin/kumex-php-sdk/releases)
-[![PHP Version](https://img.shields.io/packagist/php-v/Kucoin/kumex-php-sdk.svg?color=green)](https://secure.php.net)
-[![Build Status](https://travis-ci.org/Kucoin/kumex-php-sdk.svg?branch=master)](https://travis-ci.org/Kucoin/kumex-php-sdk)
-[![Total Downloads](https://poser.pugx.org/Kucoin/kumex-php-sdk/downloads)](https://packagist.org/packages/Kucoin/kumex-php-sdk)
-[![License](https://poser.pugx.org/Kucoin/kumex-php-sdk/license)](LICENSE)
+[![Latest Version](https://img.shields.io/github/release/Kucoin/kucoin-futures-php-sdk.svg)](https://github.com/Kucoin/kucoin-futures-php-sdk/releases)
+[![PHP Version](https://img.shields.io/packagist/php-v/Kucoin/kucoin-futures-php-sdk.svg?color=green)](https://secure.php.net)
+[![Build Status](https://travis-ci.org/Kucoin/kucoin-futures-php-sdk.svg?branch=master)](https://travis-ci.org/Kucoin/kucoin-futures-php-sdk)
+[![Total Downloads](https://poser.pugx.org/Kucoin/kucoin-futures-php-sdk/downloads)](https://packagist.org/packages/Kucoin/kucoin-futures-php-sdk)
+[![License](https://poser.pugx.org/Kucoin/kucoin-futures-php-sdk/license)](LICENSE)
 
 ## Requirements
 
@@ -200,9 +198,9 @@ go(function () {
 | -------- | -------- | -------- |
 | KuCoin\Futures\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kucoin.com/futures/#account |
 | KuCoin\Futures\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kucoin.com/futures/#get-transaction-history |
-| KuCoin\Futures\SDK\PrivateApi\Account::transferIn() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kucoin-main-account-to-kumex-account |
-| KuCoin\Futures\SDK\PrivateApi\Account::transferOut() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kumex-account-to-kucoin-main-account |
-| KuCoin\Futures\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.com/futures/#transfer-funds-from-kumex-account-to-kucoin-main-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferIn() | YES |`deprecated`|
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOut() | YES | `deprecated` https://docs.kucoin.cc/futures/#transfer-funds-to-kucoin-main-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.cc/futures/#transfer-funds-to-kucoin-main-account-2 |
 | KuCoin\Futures\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kucoin.com/futures/#cancel-transfer-out-request |
 | KuCoin\Futures\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kucoin.com/futures/#get-transfer-out-request-records |
 </details>

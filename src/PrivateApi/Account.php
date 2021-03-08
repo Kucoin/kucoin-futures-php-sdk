@@ -45,7 +45,7 @@ class Account extends KuCoinFuturesApi
     /**
      * @deprecated
      *
-     * KuCoin transfer to KuMEX account.
+     * KuCoin transfer to kuCoin futures account.
      *
      * @param  number amount
      * @return array
@@ -60,7 +60,7 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * KuMEX transfer to KuCoin account.
+     * kuCoin futures transfer to KuCoin account.
      *
      * @param  string bizNo
      * @param  number amount
@@ -107,7 +107,7 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * KuMEX transfer to KuCoin account.
+     * kuCoin futures transfer to KuCoin account.
      *
      * @param  string bizNo
      * @param  number amount
