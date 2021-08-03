@@ -3,10 +3,10 @@
 > The detailed document [https://docs.kucoin.com/futures/](https://docs.kucoin.com/futures/), in order to receive the latest API change notifications, please `Watch` this repository.
 
 [![Latest Version](https://img.shields.io/github/release/Kucoin/kucoin-futures-php-sdk.svg)](https://github.com/Kucoin/kucoin-futures-php-sdk/releases)
-[![PHP Version](https://img.shields.io/packagist/php-v/Kucoin/kucoin-futures-php-sdk.svg?color=green)](https://secure.php.net)
+[![PHP Version](https://img.shields.io/packagist/php-v/kucoin/kucoin-futures-php-sdk.svg?color=green)](https://secure.php.net)
 [![Build Status](https://travis-ci.org/Kucoin/kucoin-futures-php-sdk.svg?branch=master)](https://travis-ci.org/Kucoin/kucoin-futures-php-sdk)
-[![Total Downloads](https://poser.pugx.org/Kucoin/kucoin-futures-php-sdk/downloads)](https://packagist.org/packages/Kucoin/kucoin-futures-php-sdk)
-[![License](https://poser.pugx.org/Kucoin/kucoin-futures-php-sdk/license)](LICENSE)
+[![Total Downloads](https://poser.pugx.org/kucoin/kucoin-futures-php-sdk/downloads)](https://packagist.org/packages/kucoin/kucoin-futures-php-sdk)
+[![License](https://poser.pugx.org/kucoin/kucoin-futures-php-sdk/license)](LICENSE)
 
 ## Requirements
 
