@@ -221,4 +221,138 @@ class WebSocketFeedTest extends TestCase
             echo "OnClose: {$code} {$reason}\n";
         }, $options);
     }
+
+    /**
+     * @dataProvider apiProvider
+     * @param WebSocketFeed $api
+     * @throws \Throwable
+     */
+    public function testSubscribeLevel3v2(WebSocketFeed $api)
+    {
+        $query = ['connectId' => uniqid('t_', false),];
+        $channel = ['topic' => '/contractMarket/level3v2:XBTUSDM'];
+
+        $options = [];
+        $api->subscribePublicChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
+            // Dynamic output
+            fwrite(STDIN, print_r($message, true));
+
+            $this->assertInternalType('array', $message);
+            $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('topic', $message);
+            $this->assertArrayHasKey('subject', $message);
+            $this->assertArrayHasKey('data', $message);
+            $this->assertInternalType('array', $message['data']);
+            $this->assertArrayHasKey('symbol', $message['data']);
+            $this->assertArrayHasKey('sequence', $message['data']);
+            $this->assertArrayHasKey('orderId', $message['data']);
+
+            // Stop for phpunit
+            $loop->stop();
+        }, function ($code, $reason) {
+            echo "OnClose: {$code} {$reason}\n";
+        }, $options);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param WebSocketFeed $api
+     * @throws \Throwable
+     */
+    public function testSubscribeTickerV2(WebSocketFeed $api)
+    {
+        $query = ['connectId' => uniqid('t_', false),];
+        $channel = ['topic' => '/contractMarket/tickerV2:XBTUSDM'];
+
+        $options = [];
+        $api->subscribePublicChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
+            // Dynamic output
+            fwrite(STDIN, print_r($message, true));
+
+            $this->assertInternalType('array', $message);
+            $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('topic', $message);
+            $this->assertArrayHasKey('subject', $message);
+            $this->assertArrayHasKey('data', $message);
+            $this->assertArrayHasKey('symbol', $message['data']);
+            $this->assertArrayHasKey('sequence', $message['data']);
+            $this->assertArrayHasKey('bestBidSize', $message['data']);
+            $this->assertArrayHasKey('bestBidPrice', $message['data']);
+            $this->assertArrayHasKey('bestAskPrice', $message['data']);
+            $this->assertArrayHasKey('bestAskSize', $message['data']);
+            $this->assertArrayHasKey('ts', $message['data']);
+            // Stop for phpunit
+            $loop->stop();
+        }, function ($code, $reason) {
+            echo "OnClose: {$code} {$reason}\n";
+        }, $options);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param WebSocketFeed $api
+     * @throws \Throwable
+     */
+    public function testSubscribeTradeOrders(WebSocketFeed $api)
+    {
+        $query = ['connectId' => uniqid('t_', false),];
+        $channel = ['topic' => '/contractMarket/tradeOrders:XBTUSDM'];
+
+        $options = [];
+        $api->subscribePrivateChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
+            // Dynamic output
+            fwrite(STDIN, print_r($message, true));
+
+            $this->assertInternalType('array', $message);
+            $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('topic', $message);
+            $this->assertArrayHasKey('subject', $message);
+            $this->assertArrayHasKey('data', $message);
+            // Stop for phpunit
+            $loop->stop();
+        }, function ($code, $reason) {
+            echo "OnClose: {$code} {$reason}\n";
+        }, $options);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param WebSocketFeed $api
+     * @throws \Throwable
+     */
+    public function testSubscribeWalletAvailableBalanceChange(WebSocketFeed $api)
+    {
+        $query = ['connectId' => uniqid('t_', false),];
+        $channel = ['topic' => '/contractAccount/wallet'];
+
+        $options = [];
+        $api->subscribePrivateChannel($query, $channel, function (array $message, WebSocket $ws, LoopInterface $loop) use ($api) {
+            // Dynamic output
+            fwrite(STDIN, print_r($message, true));
+
+            $this->assertInternalType('array', $message);
+            $this->assertArrayHasKey('type', $message);
+            $this->assertArrayHasKey('topic', $message);
+            $this->assertArrayHasKey('subject', $message);
+            $this->assertArrayHasKey('data', $message);
+
+            if ($message['subject'] === 'availableBalance.change') {
+                $this->assertArrayHasKey('currency', $message['data']);
+                $this->assertArrayHasKey('holdBalance', $message['data']);
+                $this->assertArrayHasKey('availableBalance', $message['data']);
+                $this->assertArrayHasKey('timestamp', $message['data']);
+            }
+
+            if ($message['subject'] === 'withdrawHold.change') {
+                $this->assertArrayHasKey('currency', $message['data']);
+                $this->assertArrayHasKey('withdrawHold', $message['data']);
+                $this->assertArrayHasKey('timestamp', $message['data']);
+            }
+
+            // Stop for phpunit
+            $loop->stop();
+        }, function ($code, $reason) {
+            echo "OnClose: {$code} {$reason}\n";
+        }, $options);
+    }
 }

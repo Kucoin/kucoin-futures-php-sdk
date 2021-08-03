@@ -290,6 +290,8 @@ go(function () {
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20 | NO | https://docs.kucoin.center/futures/cn/#level-2-2 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100 | NO | https://docs.kucoin.center/futures/cn/#level-2-2 |
 
 </details>
 

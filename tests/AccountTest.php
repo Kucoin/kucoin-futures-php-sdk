@@ -149,14 +149,26 @@ class AccountTest extends TestCase
      */
     public function testTransferOutV2(Account $api)
     {
-        $bizNo    = rand(1, 9999);
-        $amount   = 0.1;
-        $currency = 'XBT';
-        $accounts = $api->transferOutV2($bizNo, $amount, $currency);
-        $this->assertInternalType('array', $accounts);
-        if (isset($accounts['applyId'])) {
-            $this->assertArrayHasKey('applyId', $accounts);
-        }
-    }
+        $bizNo = uniqid('t_', false);
+        $amount = 0.01;
+        $currency = 'USDT';
+        $data = $api->transferOutV2($bizNo, $amount, $currency);
 
+        $this->assertInternalType('array', $data);
+
+        $this->assertArrayHasKey('applyId', $data);
+        $this->assertArrayHasKey('bizNo', $data);
+        $this->assertArrayHasKey('payAccountType', $data);
+        $this->assertArrayHasKey('payTag', $data);
+        $this->assertArrayHasKey('remark', $data);
+        $this->assertArrayHasKey('recAccountType', $data);
+        $this->assertArrayHasKey('recTag', $data);
+        $this->assertArrayHasKey('recRemark', $data);
+        $this->assertArrayHasKey('recSystem', $data);
+        $this->assertArrayHasKey('status', $data);
+        $this->assertArrayHasKey('currency', $data);
+        $this->assertArrayHasKey('amount', $data);
+        $this->assertArrayHasKey('fee', $data);
+        $this->assertArrayHasKey('sn', $data);
+    }
 }
