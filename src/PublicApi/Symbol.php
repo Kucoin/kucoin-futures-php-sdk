@@ -151,4 +151,32 @@ class Symbol extends KuCoinFuturesApi
         );
         return $response->getApiData();
     }
+
+    /**
+     * Get the depth20 of level2.
+     * @param string $symbol
+     * @return mixed
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getLevel2Depth20($symbol)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level2/depth20', ['symbol' => $symbol]);
+        return $response->getApiData();
+    }
+
+    /**
+     * Get the depth100 of level2.
+     * @param string $symbol
+     * @return mixed
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getLevel2Depth100($symbol)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/level2/depth100', ['symbol' => $symbol]);
+        return $response->getApiData();
+    }
 }

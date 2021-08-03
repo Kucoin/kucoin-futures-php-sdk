@@ -139,4 +139,41 @@ class SymbolTest extends TestCase
         }
     }
 
+    /**
+     * @dataProvider apiProvider
+     * @param Symbol $api
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetLevel2Depth20(Symbol $api)
+    {
+        $data = $api->getLevel2Depth20('XBTUSDM');
+
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('symbol', $data);
+        $this->assertArrayHasKey('sequence', $data);
+        $this->assertArrayHasKey('asks', $data);
+        $this->assertInternalType('array', $data['asks']);
+        $this->assertInternalType('array', $data['bids']);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Symbol $api
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetLevel2Depth100(Symbol $api)
+    {
+        $data = $api->getLevel2Depth100('XBTUSDM');
+
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('symbol', $data);
+        $this->assertArrayHasKey('sequence', $data);
+        $this->assertArrayHasKey('asks', $data);
+        $this->assertInternalType('array', $data['asks']);
+        $this->assertInternalType('array', $data['bids']);
+    }
 }

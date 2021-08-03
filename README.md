@@ -28,8 +28,8 @@ composer require "kucoin/kucoin-futures-php-sdk:~1.0.0"
 
 | Environment | BaseUri |
 |    -------- | -------- |
-| *Production* | `https://api-futures.kucoin.com (DEFAULT)` `https://api-futures.kucoin.cc` |
-| *Sandbox* | `https://api-sandbox-futures.kucoin.com (DEFAULT)` `https://api-sandbox-futures.kucoin.cc` |
+| *Production* | `https://api-futures.kucoin.com` |
+| *Sandbox* | `https://api-sandbox-futures.kucoin.com` |
 
 ```php
 use KuCoin\Futures\SDK\KuCoinFuturesApi;
@@ -199,8 +199,8 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\Account::getOverview() | YES | https://docs.kucoin.com/futures/#account |
 | KuCoin\Futures\SDK\PrivateApi\Account::getTransactionHistory() | YES | https://docs.kucoin.com/futures/#get-transaction-history |
 | KuCoin\Futures\SDK\PrivateApi\Account::transferIn() | YES |`deprecated`|
-| KuCoin\Futures\SDK\PrivateApi\Account::transferOut() | YES | `deprecated` https://docs.kucoin.cc/futures/#transfer-funds-to-kucoin-main-account |
-| KuCoin\Futures\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.cc/futures/#transfer-funds-to-kucoin-main-account-2 |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOut() | YES | `deprecated` https://docs.kucoin.com/futures/#transfer-funds-to-kucoin-main-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.com/futures/#transfer-funds-to-kucoin-main-account-2 |
 | KuCoin\Futures\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kucoin.com/futures/#cancel-transfer-out-request |
 | KuCoin\Futures\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kucoin.com/futures/#get-transfer-out-request-records |
 </details>
@@ -290,6 +290,8 @@ go(function () {
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20 | NO | https://docs.kucoin.com/futures/cn/#level-2-2 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100 | NO | https://docs.kucoin.com/futures/cn/#level-2-2 |
 
 </details>
 

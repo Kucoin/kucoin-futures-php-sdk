@@ -8,8 +8,8 @@ use Ratchet\Client\WebSocket;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 
-// Set the base uri, default "https://api.kumex.com" for production environment.
-// KuCoinFuturesApi::setBaseUri('https://api.kumex.com');
+// Set the base uri, default "https://api-futures.kucoin.com" for production environment.
+// KuCoinFuturesApi::setBaseUri('https://api-futures.kucoin.com');
 
 $auth = null;
 // Need to pass the Auth parameter when subscribing to a private channel($api->subscribePrivateChannel()).
