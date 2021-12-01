@@ -4,12 +4,6 @@ namespace KuCoin\Futures\SDK\Tests;
 
 use KuCoin\Futures\SDK\PrivateApi\RiskLimitLevel;
 
-
-/**
- * Class RiskLimitLevel
- * @package KuCoin\Futures\SDK\PrivateApi
- * @see https://docs.kucoin.com/futures/#obtain-futures-risk-limit-level
- */
 class RiskLimitLevelTest extends TestCase
 {
     protected $apiClass    = RiskLimitLevel::class;
