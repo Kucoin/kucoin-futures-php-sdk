@@ -28,7 +28,7 @@ class RiskLimitLevel extends KuCoinFuturesApi
     }
 
     /**
-     * Adjust Risk Limit Level
+     * Adjust risk Limit Level
      *
      * @param $symbol
      * @param $level
