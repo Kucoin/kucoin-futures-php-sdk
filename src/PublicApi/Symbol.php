@@ -179,19 +179,4 @@ class Symbol extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v1/level2/depth100', ['symbol' => $symbol]);
         return $response->getApiData();
     }
-
-    /**
-     * Get the risk limit level of a symbol.
-     *
-     * @param $symbol
-     * @return mixed|null
-     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
-     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-     */
-    public function getRiskLimitLevel($symbol)
-    {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/contracts/risk-limit/' . $symbol);
-        return $response->getApiData();
-    }
 }
