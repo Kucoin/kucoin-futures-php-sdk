@@ -278,6 +278,14 @@ go(function () {
 </details>
 
 <details>
+<summary>KuCoin\Futures\SDK\PrivateApi\RiskLimitLevel</summary>
+
+| API | Authentication | Description |
+| -------- | -------- | -------- |
+| KuCoin\Futures\SDK\PrivateApi\Withdrawal::changeRiskLimitLevel() | YES | https://docs.kucoin.com/futures/#adjust-risk-limit-level |
+</details>
+
+<details>
 <summary>KuCoin\Futures\SDK\PublicApi\Symbol</summary>
 
 | API | Authentication | Description |
@@ -292,6 +300,7 @@ go(function () {
 | KuCoin\Futures\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20 | NO | https://docs.kucoin.com/futures/cn/#level-2-2 |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100 | NO | https://docs.kucoin.com/futures/cn/#level-2-2 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getRiskLimitLevel | NO | https://docs.kucoin.com/futures/#obtain-futures-risk-limit-level |
 
 </details>
 
