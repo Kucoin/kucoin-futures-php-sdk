@@ -282,7 +282,7 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuCoin\Futures\SDK\PrivateApi\RiskLimitLevel::getRiskLimitLevel | NO | https://docs.kucoin.com/futures/#obtain-futures-risk-limit-level |
+| KuCoin\Futures\SDK\PrivateApi\RiskLimitLevel::getRiskLimitLevel | YES | https://docs.kucoin.com/futures/#obtain-futures-risk-limit-level |
 | KuCoin\Futures\SDK\PrivateApi\RiskLimitLevel::changeRiskLimitLevel() | YES | https://docs.kucoin.com/futures/#adjust-risk-limit-level |
 
 </details>
