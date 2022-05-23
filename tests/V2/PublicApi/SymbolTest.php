@@ -9,7 +9,7 @@ class SymbolTest extends TestCase
 {
     protected $apiClass = Symbol::class;
 
-    protected $apiWithAuth = true;
+    protected $apiWithAuth = false;
 
     /**
      * @dataProvider apiProvider

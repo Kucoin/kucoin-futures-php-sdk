@@ -19,7 +19,7 @@
 > Install package via [Composer](https://getcomposer.org/).
 
 ```shell
-composer require "kucoin/kucoin-futures-php-sdk:~1.0.0"
+composer require "kucoin/kucoin-futures-php-sdk:~2.0.0"
 ```
 
 ## Usage
