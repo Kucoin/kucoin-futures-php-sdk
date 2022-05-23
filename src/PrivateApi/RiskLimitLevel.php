@@ -13,13 +13,15 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class RiskLimitLevel extends KuCoinFuturesApi
 {
     /**
-     * Get the risk limit level of a symbol.
-     *
      * @param $symbol
      * @return mixed|null
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2RiskLimitLevel instead
+     *
+     * Get the risk limit level of a symbol.
+     *
      */
     public function getRiskLimitLevel($symbol)
     {

@@ -13,14 +13,16 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class Fill extends KuCoinFuturesApi
 {
     /**
-     * Get fills orders list.
-     *
      * @param array $params
      * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getHistoricalTrades instead
+     *
+     * Get fills orders list.
+     *
      */
     public function getFills(array $params = [], array $pagination = [])
     {
@@ -29,27 +31,33 @@ class Fill extends KuCoinFuturesApi
     }
 
     /**
-     * Get the recent orders of the latest transactions within 24 hours.
      *
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getHistoricalTrades instead
+     *
+     * Get the recent orders of the latest transactions within 24 hours.
+     *
      */
     public function getRecentList()
     {
         $response = $this->call(Request::METHOD_GET, '/api/v1/recentFills');
         return $response->getApiData();
     }
+
     /**
-     * Get a funding-history list.
-     *
      * @param array $params
      * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2FundingHistory instead
+     *
+     * Get a funding-history list.
+     *
      */
     public function getFundingHistory(array $params, array $pagination = [])
     {

@@ -13,12 +13,14 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class Account extends KuCoinFuturesApi
 {
     /**
-     * Get an account overview.
-     *
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2Overview instead
+     *
+     * Get an account overview.
+     *
      */
     public function getOverview(array $params = [])
     {
@@ -27,14 +29,16 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * Get a transaction history of accounts.
-     *
-     * @param  array $params
-     * @param  array $pagination
+     * @param array $params
+     * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2TransactionHistory instead
+     *
+     * Get a transaction history of accounts.
+     *
      */
     public function getTransactionHistory(array $params = [], array $pagination = [])
     {
@@ -43,15 +47,15 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * @deprecated
-     *
-     * KuCoin transfer to kuCoin futures account.
-     *
-     * @param  number amount
+     * @param number amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated
+     *
+     * KuCoin transfer to kuCoin futures account.
+     *
      */
     public function transferIn($amount)
     {
@@ -62,8 +66,8 @@ class Account extends KuCoinFuturesApi
     /**
      * kuCoin futures transfer to KuCoin account.
      *
-     * @param  string bizNo
-     * @param  number amount
+     * @param string bizNo
+     * @param number amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -76,13 +80,15 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * Cancel an transfer out.
-     *
-     * @param  string $applyId
+     * @param string $applyId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0
+     *
+     * Cancel an transfer out.
+     *
      */
     public function cancelTransferOut($applyId)
     {
@@ -91,14 +97,16 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * Get a transfer list.
-     *
-     * @param  array $params
-     * @param  array $pagination
+     * @param array $params
+     * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use V2 Account.getV2TransferList instead
+     *
+     * Get a transfer list.
+     *
      */
     public function getTransferList(array $params = [], array $pagination = [])
     {
@@ -107,15 +115,17 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * kuCoin futures transfer to KuCoin account.
-     *
-     * @param  string bizNo
-     * @param  number amount
-     * @param  string currency
+     * @param string bizNo
+     * @param number amount
+     * @param string currency
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use V2 Account.transferOutV2 instead
+     *
+     * kuCoin futures transfer to KuCoin account.
+     *
      */
     public function transferOutV2($bizNo, $amount, $currency)
     {

@@ -13,13 +13,15 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class Symbol extends KuCoinFuturesApi
 {
     /**
-     * Get the ticker details of a symbol.
-     *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2Ticker instead
+     *
+     * Get the ticker details of a symbol.
+     *
      */
     public function getTicker($symbol)
     {
@@ -28,13 +30,15 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * Get the snapshot details of a symbol.
-     *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getOrderBook instead
+     *
+     * Get the snapshot details of a symbol.
+     *
      */
     public function getLevel2Snapshot($symbol)
     {
@@ -45,7 +49,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the snapshot details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -60,7 +64,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the snapshot details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -73,15 +77,17 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * Get the level2 message of a symbol.
-     *
-     * @param  string $symbol
-     * @param  number $start
-     * @param  number $end
+     * @param string $symbol
+     * @param number $start
+     * @param number $end
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getOrderBook instead
+     *
+     * Get the level2 message of a symbol.
+     *
      */
     public function getLevel2Message($symbol, $start, $end)
     {
@@ -92,17 +98,17 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * @deprecated
-     *
-     * Get the level3 message of a symbol.
-     *
-     * @param  string $symbol
-     * @param  number $start
-     * @param  number $end
+     * @param string $symbol
+     * @param number $start
+     * @param number $end
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated
+     *
+     * Get the level3 message of a symbol.
+     *
      */
     public function getLevel3Message($symbol, $start, $end)
     {
@@ -113,13 +119,15 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * Get the trade history details of a symbol.
-     *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2TradeHistory instead
+     *
+     * Get the trade history details of a symbol.
+     *
      */
     public function getTradeHistory($symbol)
     {
@@ -128,11 +136,6 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * Get KLines for a symbol. Data are returned in grouped buckets based on granularity.
-     *
-     * The granularity (granularity parameter of K-line) represents the number of minutes,
-     * the available granularity scope is: 1,5,15,30,60,120,240,480,720,1440,10080.
-     *
      * @param string $symbol
      * @param int $from
      * @param int $to
@@ -141,6 +144,13 @@ class Symbol extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2KLines instead
+     *
+     * Get KLines for a symbol. Data are returned in grouped buckets based on granularity.
+     *
+     * The granularity (granularity parameter of K-line) represents the number of minutes,
+     * the available granularity scope is: 1,5,15,30,60,120,240,480,720,1440,10080.
+     *
      */
     public function getKLines($symbol, $from, $to, $granularity)
     {
@@ -153,12 +163,14 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * Get the depth20 of level2.
      * @param string $symbol
      * @return mixed
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getOrderBook instead
+     *
+     * Get the depth20 of level2.
      */
     public function getLevel2Depth20($symbol)
     {
