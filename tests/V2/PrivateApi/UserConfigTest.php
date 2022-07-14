@@ -21,14 +21,14 @@ class UserConfigTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testAdjustLeverages(UserConfig $userConfig)
+    public function testAdjustLeveragesV2(UserConfig $userConfig)
     {
-        $leverage = 2;
-        $data = $userConfig->adjustLeverages($this->testSymbol, $leverage);
+        $leverage = 5;
+        $data = $userConfig->adjustLeveragesV2($this->testSymbol, $leverage);
         $this->assertArrayHasKey('symbol', $data);
         $this->assertArrayHasKey('leverage', $data);
         $this->assertArrayHasKey('maxRiskLimit', $data);
-        $this->assertEquals(2, $data['leverage']);
+        $this->assertEquals(5, $data['leverage']);
     }
 
 
@@ -40,9 +40,9 @@ class UserConfigTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetLeverages(UserConfig $userConfig)
+    public function testGetV2Leverages(UserConfig $userConfig)
     {
-        $data = $userConfig->getLeverages();
+        $data = $userConfig->getV2Leverages();
         $this->assertTrue(is_array($data));
         foreach ($data as $datum) {
             $this->assertArrayHasKey('symbol', $datum);
@@ -60,9 +60,9 @@ class UserConfigTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetLeverage(UserConfig $userConfig)
+    public function testGetV2Leverage(UserConfig $userConfig)
     {
-        $data = $userConfig->getLeverage($this->testSymbol);
+        $data = $userConfig->getV2Leverage($this->testSymbol);
         $this->assertArrayHasKey('symbol', $data);
         $this->assertArrayHasKey('leverage', $data);
         $this->assertArrayHasKey('maxRiskLimit', $data);
@@ -79,6 +79,6 @@ class UserConfigTest extends TestCase
     public function testChangeV2AutoAppendStatus(UserConfig $userConfig)
     {
         $response = $userConfig->changeV2AutoAppendStatus($this->testSymbol, true);
-        $this->assertNull($response);
+        $this->assertTrue($response);
     }
 }

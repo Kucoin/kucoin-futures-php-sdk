@@ -47,7 +47,7 @@ class AccountTest extends TestCase
      */
     public function testTransferV2In(Account $account)
     {
-        $data = $account->transferInV2('10', 'USDT', 'MAIN');
+        $data = $account->transferInV2('1', 'USDT', 'MAIN');
         $this->assertNull($data);
     }
 
@@ -147,7 +147,7 @@ class AccountTest extends TestCase
 
         $data = $account->getV2FundingHistory($params);
         $this->assertInternalType('array', $data);
-        foreach ($data['dataList'] as $item) {
+        foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);
             $this->assertArrayHasKey('id', $item);
             $this->assertArrayHasKey('fundingRate', $item);
@@ -160,32 +160,17 @@ class AccountTest extends TestCase
         }
     }
 
-    ///**
-    // * @dataProvider apiProvider
-    // *
-    // * @param Account $account
-    // * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-    // */
-    //public function testCancelV2TransferOut(Account $account)
-    //{
-    //    $trans = $account->transferOutV2('1', 'USDT', 'MAIN');
-    //    $applyId = $trans['applyId'];
-    //    $data = $account->cancelV2TransferOut($applyId);
-    //    $this->assertNull($data);
-    //}
-
-    ///**
-    // * @dataProvider apiProvider
-    // *
-    // * @param Account $account
-    // * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-    // */
-    //public function testGetV2SubAccounts(Account $account)
-    //{
-    //    $data = $account->getV2SubAccounts();
-    //}
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Account $account
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetV2SubAccounts(Account $account)
+    {
+        $data = $account->getV2SubAccounts();
+        var_dump($data);
+    }
 }

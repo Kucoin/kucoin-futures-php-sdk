@@ -71,7 +71,7 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getHistoricalTrades($symbol, array $params = [])
+    public function getV2HistoricalTrades($symbol, array $params = [])
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/orders/historical-trades', array_merge($params, ['symbol' => $symbol]));
         return $response->getApiData();
@@ -102,7 +102,7 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getActiveOrders($symbol)
+    public function getV2ActiveOrders($symbol)
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/orders/active', ['symbol' => $symbol]);
         return $response->getApiData();
@@ -116,7 +116,7 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getAllActiveOrders()
+    public function getV2AllActiveOrders()
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/orders/all-active');
         return $response->getApiData();

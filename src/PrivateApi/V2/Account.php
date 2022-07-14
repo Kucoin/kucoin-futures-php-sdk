@@ -45,19 +45,19 @@ class Account extends KuCoinFuturesApi
     }
 
 
-    ///**
-    // * Get the list of all sub-accounts.
-    // *
-    // * @return mixed|null
-    // * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-    // */
-    //public function getV2SubAccounts()
-    //{
-    //    $response = $this->call(Request::METHOD_GET, '/api/v2/sub-accounts');
-    //    return $response->getApiData();
-    //}
+    /**
+     * Get the list of all sub-accounts.
+     *
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getV2SubAccounts()
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v2/sub-accounts');
+        return $response->getApiData();
+    }
 
     /**
      * Transfer out to KuCoin main/trading account.
@@ -72,7 +72,7 @@ class Account extends KuCoinFuturesApi
      */
     public function transferOutV2($amount, $currency, $recAccountType)
     {
-        $response = $this->call(Request::METHOD_POST, '/api/v2/transfer-out', compact('amount', 'currency', 'recAccountType'));
+        $response = $this->call(Request::METHOD_POST, '/api/v2/account/transfer-out', compact('amount', 'currency', 'recAccountType'));
         return $response->getApiData();
     }
 
@@ -83,7 +83,7 @@ class Account extends KuCoinFuturesApi
      * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+    testGetHistoricalTrades* @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getV2TransferList(array $params = [], array $pagination = [])
@@ -91,21 +91,6 @@ class Account extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v2/transfer-list', $params + $pagination);
         return $response->getApiData();
     }
-
-    ///**
-    // * Cancel an transfer out.
-    // *
-    // * @param string $applyId
-    // * @return array
-    // * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-    // */
-    //public function cancelV2TransferOut($applyId)
-    //{
-    //    $response = $this->call(Request::METHOD_DELETE, '/api/v2/cancel/transfer-out', compact('applyId'));
-    //    return $response->getApiData();
-    //}
 
     /**
      * Fund transfer into futures account.
@@ -139,18 +124,20 @@ class Account extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v2/funding-history', $params + $pagination);
         return $response->getApiData();
     }
-    ///**
-    // * Transfer between Master user and Sub-user
-    // *
-    // * @param array $params
-    // * @return mixed|null
-    // * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
-    // * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-    // */
-    //public function subTransfer(array $params)
-    //{
-    //    $response = $this->call(Request::METHOD_POST, 'api/v2/sub-transfer', $params);
-    //    return $response->getApiData();
-    //}
+
+
+    /**
+     * Transfer between Master user and Sub-user
+     *
+     * @param array $params
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function subTransfer(array $params)
+    {
+        $response = $this->call(Request::METHOD_POST, 'api/v2/sub-transfer', $params);
+        return $response->getApiData();
+    }
 }

@@ -213,9 +213,9 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::getLeverage() | YES | https://docs.kucoin.com/futures/new/#get-the-user-s-global-leverage |
-| KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::getLeverages() | YES | https://docs.kucoin.com/futures/new/#get-user-global-leverage-all-contracts |
-| KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::adjustLeverages() | YES | https://docs.kucoin.com/futures/new/#modify-the-user-s-global-leverage |
+| KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::getV2Leverage() | YES | https://docs.kucoin.com/futures/new/#get-the-user-s-global-leverage |
+| KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::getV2Leverages() | YES | https://docs.kucoin.com/futures/new/#get-user-global-leverage-all-contracts |
+| KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::adjustLeveragesV2() | YES | https://docs.kucoin.com/futures/new/#modify-the-user-s-global-leverage |
 | KuCoin\Futures\SDK\PrivateApi\V2\UserConfig::changeV2AutoAppendStatus() | YES | https://docs.kucoin.com/futures/new/#modify-the-user-39-s-auto-deposit-margin-status |
 </details>
 
@@ -227,10 +227,10 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\V2\Order::createV2() | YES | https://docs.kucoin.com/futures/new/#order-placement |
 | KuCoin\Futures\SDK\PrivateApi\V2\Order::cancelV2() | YES | https://docs.kucoin.com/futures/new/#single-order-cancellation |
 | KuCoin\Futures\SDK\PrivateApi\V2\Order::batchV2Cancel() | YES | https://docs.kucoin.com/futures/new/#batch-order-cancellation |
-| KuCoin\Futures\SDK\PrivateApi\V2\Order::getHistoricalTrades() | YES | https://docs.kucoin.com/futures/new/#query-transaction-records |
+| KuCoin\Futures\SDK\PrivateApi\V2\Order::getV2HistoricalTrades() | YES | https://docs.kucoin.com/futures/new/#query-transaction-records |
 | KuCoin\Futures\SDK\PrivateApi\V2\Order::getV2Detail() | YES | https://docs.kucoin.com/futures/new/#query-individual-order-s-details |
-| KuCoin\Futures\SDK\PrivateApi\V2\Order::getActiveOrders() | YES | https://docs.kucoin.com/futures/new/#query-active-orders |
-| KuCoin\Futures\SDK\PrivateApi\V2\Order::getAllActiveOrders() | YES | https://docs.kucoin.com/futures/new/#query-all-active-orders |
+| KuCoin\Futures\SDK\PrivateApi\V2\Order::getV2ActiveOrders() | YES | https://docs.kucoin.com/futures/new/#query-active-orders |
+| KuCoin\Futures\SDK\PrivateApi\V2\Order::getV2AllActiveOrders() | YES | https://docs.kucoin.com/futures/new/#query-all-active-orders |
 | KuCoin\Futures\SDK\PrivateApi\V2\Order::getV2List() | YES | https://docs.kucoin.com/futures/new/#query-historical-orders |
 </details>
 
@@ -279,9 +279,9 @@ go(function () {
 
 | API | Authentication | Description |
 | -------- | -------- | -------- |
-| KuCoin\Futures\SDK\PublicApi\V2\Symbol::getOrderBook() | NO | https://docs.kucoin.com/futures/new/#get-order-book |
+| KuCoin\Futures\SDK\PublicApi\V2\Symbol::getV2OrderBook() | NO | https://docs.kucoin.com/futures/new/#get-order-book |
 | KuCoin\Futures\SDK\PublicApi\V2\Symbol::getV2Ticker() | NO | https://docs.kucoin.com/futures/new/#best-maker |
-| KuCoin\Futures\SDK\PublicApi\V2\Symbol::getTickerPrice() | NO | https://docs.kucoin.com/futures/new/#get-the-latest-transaction-price |
+| KuCoin\Futures\SDK\PublicApi\V2\Symbol::getV2TickerPrice() | NO | https://docs.kucoin.com/futures/new/#get-the-latest-transaction-price |
 | KuCoin\Futures\SDK\PublicApi\V2\Symbol::getV2TradeHistory() | NO | https://docs.kucoin.com/futures/new/#get-most-recent-record |
 
 </details>

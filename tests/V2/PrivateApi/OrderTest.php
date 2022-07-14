@@ -92,9 +92,9 @@ class OrderTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetHistoricalTrades(Order $order)
+    public function testGetV2HistoricalTrades(Order $order)
     {
-        $data = $order->getHistoricalTrades('BTCUSDTM', ['startAt' => (time() - 86400) * 1000, 'endAt' => time() * 1000]);
+        $data = $order->getV2HistoricalTrades('BTCUSDTM');
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertInternalType('array', $item);
@@ -161,9 +161,9 @@ class OrderTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetActiveOrders(Order $order)
+    public function testGetV2ActiveOrders(Order $order)
     {
-        $data = $order->getActiveOrders('SHIBUSDTM');
+        $data = $order->getV2ActiveOrders('SHIBUSDTM');
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);
@@ -190,9 +190,9 @@ class OrderTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetAllActiveOrders(Order $order)
+    public function testGetV2AllActiveOrders(Order $order)
     {
-        $data = $order->getAllActiveOrders();
+        $data = $order->getV2AllActiveOrders();
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);
@@ -221,7 +221,7 @@ class OrderTest extends TestCase
      */
     public function testGetV2List(Order $order)
     {
-        $data = $order->getV2List(['symbol' => 'BTCUSDTM', 'startAt' => (time() - 86400) * 1000, 'endAt' => time() * 1000]);
+        $data = $order->getV2List(['symbol' => 'BTCUSDTM', 'start' => (time() - 86400) * 1000, 'end' => time() * 1000]);
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);

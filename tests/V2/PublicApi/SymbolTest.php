@@ -19,9 +19,9 @@ class SymbolTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetOrderBook(Symbol $symbol)
+    public function testGetV2OrderBook(Symbol $symbol)
     {
-        $data = $symbol->getOrderBook('SHIBUSDTM', 10);
+        $data = $symbol->getV2OrderBook('SHIBUSDTM', 10);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('contractId', $data);
         $this->assertArrayHasKey('symbol', $data);
@@ -69,9 +69,9 @@ class SymbolTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetTickerPrice(Symbol $symbol)
+    public function testGetV2TickerPrice(Symbol $symbol)
     {
-        $data = $symbol->getTickerPrice('SHIBUSDTM');
+        $data = $symbol->getV2TickerPrice('SHIBUSDTM');
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('ts', $data);
         $this->assertArrayHasKey('price', $data);

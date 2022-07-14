@@ -17,7 +17,7 @@ class Symbol extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getOrderBook($symbol, $limit = 500)
+    public function getV2OrderBook($symbol, $limit = 500)
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/order-book', compact('symbol', 'limit'));
         return $response->getApiData();
@@ -47,7 +47,7 @@ class Symbol extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getTickerPrice($symbol)
+    public function getV2TickerPrice($symbol)
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/ticker/price', ['symbol' => $symbol]);
         return $response->getApiData();

@@ -25,9 +25,7 @@ class PositionTest extends TestCase
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertInternalType('array', $item);
-            $this->assertArrayHasKey('id', $item);
             $this->assertArrayHasKey('symbol', $item);
-            $this->assertArrayHasKey('settleCurrency', $item);
             $this->assertArrayHasKey('qty', $item);
             $this->assertArrayHasKey('leverage', $item);
             $this->assertArrayHasKey('marginType', $item);
@@ -61,9 +59,7 @@ class PositionTest extends TestCase
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertInternalType('array', $item);
-            $this->assertArrayHasKey('id', $item);
             $this->assertArrayHasKey('symbol', $item);
-            $this->assertArrayHasKey('settleCurrency', $item);
             $this->assertArrayHasKey('qty', $item);
             $this->assertArrayHasKey('leverage', $item);
             $this->assertArrayHasKey('marginType', $item);

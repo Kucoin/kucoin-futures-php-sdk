@@ -23,7 +23,7 @@ class UserConfig extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getLeverage($symbol)
+    public function getV2Leverage($symbol)
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/user-config/leverage', ['symbol' => $symbol]);
         return $response->getApiData();
@@ -37,7 +37,7 @@ class UserConfig extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getLeverages()
+    public function getV2Leverages()
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/user-config/leverages');
         return $response->getApiData();
@@ -53,18 +53,18 @@ class UserConfig extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function adjustLeverages($symbol, $leverage)
+    public function adjustLeveragesV2($symbol, $leverage)
     {
         $response = $this->call(Request::METHOD_POST, '/api/v2/user-config/adjust-leverage', compact('symbol', 'leverage'));
         return $response->getApiData();
     }
 
     /**
-     * Modify the user's auto deposit margin status.
-     * .
-     * @param string $symbol
+     *  Modify the user's auto deposit margin status.
+     *
+     * @param $symbol
      * @param $autoDeposit
-     * @return array
+     * @return mixed|null
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
