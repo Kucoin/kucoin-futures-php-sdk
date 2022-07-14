@@ -16,17 +16,17 @@ abstract class Api
     /**
      * @var string SDK Version
      */
-    const VERSION = '1.0.20';
+    const VERSION = '2.0.0';
 
     /**
      * @var string SDK update date
      */
-    const UPDATE_DATE = '2022.03.25';
+    const UPDATE_DATE = '2022.07.14';
 
     /**
      * @var string
      */
-    protected static $baseUri = 'https://api-futures.kucoin.com';
+    protected static $baseUri = 'https://api-v2-futures.kucoin.com';
 
     /**
      * @var bool

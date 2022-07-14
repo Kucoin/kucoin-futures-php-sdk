@@ -6,6 +6,8 @@ use KuCoin\Futures\SDK\Http\Request;
 use KuCoin\Futures\SDK\KuCoinFuturesApi;
 
 /**
+ * @deprecated
+ *
  * Class Deposits
  * @package KuCoin\Futures\SDK\PrivateApi
  * @see https://docs.kucoin.com/futures/#deposit

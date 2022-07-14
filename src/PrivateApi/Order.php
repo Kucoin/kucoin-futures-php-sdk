@@ -15,11 +15,13 @@ class Order extends KuCoinFuturesApi
     /**
      * Place a new order.
      *
-     * @param  array $order
+     * @param array $order
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated  V2.0 use createV2 instead
+     *
      */
     public function create(array $order)
     {
@@ -30,11 +32,13 @@ class Order extends KuCoinFuturesApi
     /**
      * Cancel an order.
      *
-     * @param  string $orderId
+     * @param string $orderId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use cancelV2 instead
+     *
      */
     public function cancel($orderId)
     {
@@ -45,11 +49,13 @@ class Order extends KuCoinFuturesApi
     /**
      * Batch cancel orders.
      *
-     * @param  string|null $symbol
+     * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use batchV2Cancel instead
+     *
      */
     public function batchCancel($symbol = null)
     {
@@ -60,11 +66,13 @@ class Order extends KuCoinFuturesApi
     /**
      * Batch cancel stop orders.
      *
-     * @param  string|null $symbol
+     * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use batchV2Cancel instead
+     *
      */
     public function stopOrders($symbol = null)
     {
@@ -81,6 +89,8 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2List instead
+     *
      */
     public function getList(array $params = [], array $pagination = [])
     {
@@ -97,6 +107,8 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getAllActiveOrders instead
+     *
      */
     public function getStopOrders(array $params = [], array $pagination = [])
     {
@@ -123,11 +135,13 @@ class Order extends KuCoinFuturesApi
     /**
      * Get an order.
      *
-     * @param  string $orderId
+     * @param string $orderId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getV2Detail instead
+     *
      */
     public function getDetail($orderId)
     {
@@ -138,11 +152,13 @@ class Order extends KuCoinFuturesApi
     /**
      * Get open order statistics.
      *
-     * @param  string|null $symbol
+     * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated V2.0 use getHistoricalTrades instead
+     *
      */
     public function getOpenOrderStatistics($symbol = null)
     {
