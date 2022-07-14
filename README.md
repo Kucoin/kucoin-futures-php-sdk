@@ -28,7 +28,7 @@ composer require "kucoin/kucoin-futures-php-sdk:~2.0.0"
 
 | Environment | BaseUri |
 |    -------- | -------- |
-| *Production* | `https://api-futures.kucoin.com(DEFAULT)` |
+| *Production* | `https://api-v2-futures.kucoin.com(DEFAULT)` |
 | *Sandbox* | `https://api-sandbox-futures.kucoin.com` |
 
 ```php
