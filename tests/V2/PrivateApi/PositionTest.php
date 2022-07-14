@@ -107,9 +107,9 @@ class PositionTest extends TestCase
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function testGetClosePnLHistory(Position $position)
+    public function testGetV2ClosePnLHistory(Position $position)
     {
-        $data = $position->getClosePnLHistory(['symbol' => 'SHIBUSDTM']);
+        $data = $position->getV2ClosePnLHistory(['symbol' => 'SHIBUSDTM']);
         $this->assertInternalType('array', $data);
         foreach ($data as $item) {
             $this->assertArrayHasKey('symbol', $item);

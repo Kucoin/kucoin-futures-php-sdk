@@ -242,7 +242,7 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\V2\Position::getV2List() | YES | https://docs.kucoin.com/futures/new/#get-the-position-of-all-contracts |
 | KuCoin\Futures\SDK\PrivateApi\V2\Position::getV2Detail() | YES | https://docs.kucoin.com/futures/new/#get-the-position-of-a-contract |
 | KuCoin\Futures\SDK\PrivateApi\V2\Position::marginV2Append() | YES | https://docs.kucoin.com/futures/new/#increase-position-margin |
-| KuCoin\Futures\SDK\PrivateApi\V2\Position::getClosePnLHistory() | YES | https://docs.kucoin.com/futures/new/#position-pnl-history |
+| KuCoin\Futures\SDK\PrivateApi\V2\Position::getV2ClosePnLHistory() | YES | https://docs.kucoin.com/futures/new/#position-pnl-history |
 </details>
 
 <details>

@@ -60,7 +60,7 @@ class Position extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
-    public function getClosePnLHistory(array $params)
+    public function getV2ClosePnLHistory(array $params)
     {
         $response = $this->call(Request::METHOD_GET, '/api/v2/close-pnl-his', $params);
         return $response->getApiData();
