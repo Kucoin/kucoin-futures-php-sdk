@@ -21,7 +21,6 @@ class Account extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2Overview instead
      *
-     *
      */
     public function getOverview(array $params = [])
     {
@@ -51,7 +50,7 @@ class Account extends KuCoinFuturesApi
     /**
      *  KuCoin transfer to kuCoin futures account.
      *
-     * @param number amount
+     * @param string $amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -68,8 +67,8 @@ class Account extends KuCoinFuturesApi
     /**
      * kuCoin futures transfer to KuCoin account.
      *
-     * @param string bizNo
-     * @param number amount
+     * @param string $bizNo
+     * @param string $amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -120,10 +119,10 @@ class Account extends KuCoinFuturesApi
     /**
      * kuCoin futures transfer to KuCoin account.
      *
-     * @param string bizNo
-     * @param number amount
-     * @param string currency
-     * @return array
+     * @param string $bizNo
+     * @param string $amount
+     * @param string $currency
+     * @return mixed|null
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException

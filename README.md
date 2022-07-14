@@ -204,7 +204,7 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\V2\Account::transferOutV2() | YES | https://docs.kucoin.com/futures/new/#transfer-out-to-kucoin-main-trading-account |
 | KuCoin\Futures\SDK\PrivateApi\V2\Account::getV2TransferList() | YES | https://docs.kucoin.com/futures/new/#query-transfer-out-request-record |
 | KuCoin\Futures\SDK\PrivateApi\V2\Account::transferInV2() | YES | https://docs.kucoin.com/futures/new/#fund-transfer-into-futures-account |
-| KuCoin\Futures\SDK\PrivateApi\V2\Account::getV2FundingHistory() | YES |  |
+| KuCoin\Futures\SDK\PrivateApi\V2\Account::getV2FundingHistory() | YES | https://docs.kucoin.com/futures/new/#funding-fees  |
 </details>
 
 
