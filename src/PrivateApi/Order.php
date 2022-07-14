@@ -13,14 +13,14 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class Order extends KuCoinFuturesApi
 {
     /**
+     * Place a new order.
+     *
      * @param array $order
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated  V2.0 use createV2 instead
-     *
-     * Place a new order.
      *
      */
     public function create(array $order)
@@ -30,14 +30,14 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * Cancel an order.
+     *
      * @param string $orderId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use cancelV2 instead
-     *
-     * Cancel an order.
      *
      */
     public function cancel($orderId)
@@ -47,14 +47,14 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * Batch cancel orders.
+     *
      * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use batchV2Cancel instead
-     *
-     * Batch cancel orders.
      *
      */
     public function batchCancel($symbol = null)
@@ -64,14 +64,14 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * Batch cancel stop orders.
+     *
      * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use batchV2Cancel instead
-     *
-     * Batch cancel stop orders.
      *
      */
     public function stopOrders($symbol = null)
@@ -81,6 +81,8 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * List orders.
+     *
      * @param array $params
      * @param array $pagination
      * @return array
@@ -88,8 +90,6 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2List instead
-     *
-     * List orders.
      *
      */
     public function getList(array $params = [], array $pagination = [])
@@ -99,6 +99,8 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * Stop orders list.
+     *
      * @param array $params
      * @param array $pagination
      * @return array
@@ -106,8 +108,6 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getAllActiveOrders instead
-     *
-     * Stop orders list.
      *
      */
     public function getStopOrders(array $params = [], array $pagination = [])
@@ -133,6 +133,7 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * Get an order.
      *
      * @param string $orderId
      * @return array
@@ -140,8 +141,6 @@ class Order extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2Detail instead
-     *
-     * Get an order.
      *
      */
     public function getDetail($orderId)
@@ -151,14 +150,14 @@ class Order extends KuCoinFuturesApi
     }
 
     /**
+     * Get open order statistics.
+     *
      * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getHistoricalTrades instead
-     *
-     * Get open order statistics.
      *
      */
     public function getOpenOrderStatistics($symbol = null)

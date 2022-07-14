@@ -29,14 +29,14 @@ class Index extends KuCoinFuturesApi
     }
 
     /**
+     * Get mark price.
+     *
      * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2MarkPrice instead
-     *
-     * Get mark price.
      *
      */
     public function getMarkPrice($symbol)
@@ -77,14 +77,14 @@ class Index extends KuCoinFuturesApi
     }
 
     /**
+     * Get current funding rate.
+     *
      * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2FundingRate instead
-     *
-     * Get current funding rate.
      *
      */
     public function getCurrentFundingRate($symbol)

@@ -13,13 +13,13 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class Contract extends KuCoinFuturesApi
 {
     /**
+     * Get a list of contract.
+     *
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2List instead
-     *
-     * Get a list of contract.
      *
      */
     public function getList()
@@ -29,14 +29,14 @@ class Contract extends KuCoinFuturesApi
     }
 
     /**
+     * Get the details of a contract.
+     *
      * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2List instead
-     *
-     * Get the details of a contract.
      *
      */
     public function getDetail($symbol)

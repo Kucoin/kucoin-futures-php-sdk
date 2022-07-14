@@ -83,7 +83,7 @@ class Account extends KuCoinFuturesApi
      * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
-    testGetHistoricalTrades* @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      */
     public function getV2TransferList(array $params = [], array $pagination = [])
@@ -110,7 +110,7 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * Query Funding Fee Settlement History
+     * Query Funding Fee Settlement History.
      *
      * @param array $params
      * @param array $pagination
@@ -127,7 +127,7 @@ class Account extends KuCoinFuturesApi
 
 
     /**
-     * Transfer between Master user and Sub-user
+     * Transfer between Master user and Sub-user.
      *
      * @param array $params
      * @return mixed|null

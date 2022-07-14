@@ -13,13 +13,13 @@ use KuCoin\Futures\SDK\KuCoinFuturesApi;
 class Position extends KuCoinFuturesApi
 {
     /**
+     * Get the position list of a symbol.
+     *
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2List instead
-     *
-     * Get the position list of a symbol.
      *
      */
     public function getList()
@@ -29,6 +29,8 @@ class Position extends KuCoinFuturesApi
     }
 
     /**
+     * Get the position details of a symbol.
+     *
      * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
@@ -36,7 +38,6 @@ class Position extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use getV2Detail instead
      *
-     * Get the position details of a symbol.
      *
      */
     public function getDetail($symbol)
@@ -46,6 +47,8 @@ class Position extends KuCoinFuturesApi
     }
 
     /**
+     * Change auto append status.
+     *
      * @param string $symbol
      * @param boolean $status
      * @return array
@@ -53,8 +56,6 @@ class Position extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use changeV2AutoAppendStatus instead
-     *
-     * Change auto append status.
      *
      */
     public function changeAutoAppendStatus($symbol, $status)
@@ -85,13 +86,14 @@ class Position extends KuCoinFuturesApi
     }
 
     /**
+     * Margin Append.
+     *
      * @param array $params
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated V2.0 use marginV2Append instead
-     * Margin Append.
      *
      */
     public function marginAppend(array $params)
