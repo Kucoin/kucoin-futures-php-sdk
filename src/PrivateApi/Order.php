@@ -149,4 +149,19 @@ class Order extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v1/openOrderStatistics', compact('symbol'));
         return $response->getApiData();
     }
+
+    /**
+     * Get an order By ClientOid.
+     *
+     * @param $clientOid
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getDetailByClientOid($clientOid)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/orders/' . $clientOid, ['clientOid' => $clientOid]);
+        return $response->getApiData();
+    }
 }

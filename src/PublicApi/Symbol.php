@@ -75,6 +75,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the level2 message of a symbol.
      *
+     * @deprecated
      * @param  string $symbol
      * @param  number $start
      * @param  number $end

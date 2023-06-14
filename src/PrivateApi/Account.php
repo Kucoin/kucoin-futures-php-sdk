@@ -77,7 +77,7 @@ class Account extends KuCoinFuturesApi
 
     /**
      * Cancel an transfer out.
-     *
+     * @deprecated
      * @param  string $applyId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
