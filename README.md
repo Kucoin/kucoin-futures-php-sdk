@@ -204,8 +204,13 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\Account::transferIn() | YES |`deprecated`|
 | KuCoin\Futures\SDK\PrivateApi\Account::transferOut() | YES | `deprecated` https://docs.kucoin.com/futures/#transfer-funds-to-kucoin-main-account |
 | KuCoin\Futures\SDK\PrivateApi\Account::transferOutV2() | YES | https://docs.kucoin.com/futures/#transfer-funds-to-kucoin-main-account-2 |
-| KuCoin\Futures\SDK\PrivateApi\Account::cancelTransferOut() | YES | https://docs.kucoin.com/futures/#cancel-transfer-out-request |
+| KuCoin\Futures\SDK\PrivateApi\Account::cancelTransferOut() | YES | `deprecated` https://docs.kucoin.com/futures/#cancel-transfer-out-request |
 | KuCoin\Futures\SDK\PrivateApi\Account::getTransferList() | YES | https://docs.kucoin.com/futures/#get-transfer-out-request-records |
+| KuCoin\Futures\SDK\PrivateApi\Account::getSubApikey() | YES | https://docs.kucoin.com/futures/#get-sub-account-futures-api-list |
+| KuCoin\Futures\SDK\PrivateApi\Account::createSubApikey() | YES | https://docs.kucoin.com/futures/#create-futures-apis-for-sub-account |
+| KuCoin\Futures\SDK\PrivateApi\Account::modifySubApikey() | YES | https://docs.kucoin.com/futures/#modify-sub-account-futures-apis |
+| KuCoin\Futures\SDK\PrivateApi\Account::deleteSubApikey() | YES | https://docs.kucoin.com/futures/#delete-sub-account-futures-apis |
+| KuCoin\Futures\SDK\PrivateApi\Account::transferOutV3() | YES | https://docs.kucoin.com/futures/#transfer-to-main-or-trade-account |
 </details>
 
 <details>
@@ -240,6 +245,7 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\Order::getStopOrders() | YES | https://docs.kucoin.com/futures/#get-untriggered-stop-order-list |
 | KuCoin\Futures\SDK\PrivateApi\Order::getRecentDoneOrders() | YES | https://docs.kucoin.com/futures/#get-list-of-orders-completed-in-24h |
 | KuCoin\Futures\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kucoin.com/futures/#get-details-of-a-single-order |
+| KuCoin\Futures\SDK\PrivateApi\Order::getDetailByClientOid() | YES | https://docs.kucoin.com/futures/#get-details-of-a-single-order |
 | KuCoin\Futures\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kucoin.com/futures/#active-order-value-calculation |
 
 </details>
@@ -293,18 +299,18 @@ go(function () {
 <details>
 <summary>KuCoin\Futures\SDK\PublicApi\Symbol</summary>
 
-| API | Authentication | Description |
-| -------- | -------- | -------- |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kucoin.com/futures/#get-ticker |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-2 |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3 |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getV2Level3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3-v2 |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Message() | NO | https://docs.kucoin.com/futures/##level-2-pulling-messages |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories |
+| API | Authentication | Description                                                             |
+| -------- | -------- |-------------------------------------------------------------------------|
+| KuCoin\Futures\SDK\PublicApi\Symbol::getTicker() | NO | https://docs.kucoin.com/futures/#get-ticker                             |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-2            |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3            |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getV2Level3Snapshot() | NO | https://docs.kucoin.com/futures/#get-full-order-book-level-3-v2         |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Message() | NO | `deprecated` https://docs.kucoin.com/futures/##level-2-pulling-messages             |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel3Message() | NO | https://docs.kucoin.com/futures/##level-3-pulling-messages              |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getTradeHistory() | NO | https://docs.kucoin.com/futures/#get-trade-histories                    |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20 | NO | https://docs.kucoin.com/futures/cn/#level-2-2 |
-| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100 | NO | https://docs.kucoin.com/futures/cn/#level-2-2 |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20 | NO | https://docs.kucoin.com/futures/cn/#level-2-2                           |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100 | NO | https://docs.kucoin.com/futures/cn/#level-2-2                           |
 
 </details>
 
