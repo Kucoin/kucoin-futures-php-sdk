@@ -15,7 +15,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the ticker details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -30,7 +30,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the snapshot details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -45,7 +45,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the snapshot details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -60,7 +60,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the snapshot details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -75,14 +75,14 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the level2 message of a symbol.
      *
-     * @deprecated
-     * @param  string $symbol
-     * @param  number $start
-     * @param  number $end
+     * @param string $symbol
+     * @param number $start
+     * @param number $end
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated
      */
     public function getLevel2Message($symbol, $start, $end)
     {
@@ -93,17 +93,17 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
-     * @deprecated
-     *
-     * Get the level3 message of a symbol.
-     *
-     * @param  string $symbol
-     * @param  number $start
-     * @param  number $end
+     * @param string $symbol
+     * @param number $start
+     * @param number $end
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated
+     *
+     * Get the level3 message of a symbol.
+     *
      */
     public function getLevel3Message($symbol, $start, $end)
     {
@@ -116,7 +116,7 @@ class Symbol extends KuCoinFuturesApi
     /**
      * Get the trade history details of a symbol.
      *
-     * @param  string $symbol
+     * @param string $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException

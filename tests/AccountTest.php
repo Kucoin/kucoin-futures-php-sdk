@@ -8,7 +8,7 @@ use KuCoin\Futures\SDK\PrivateApi\Account;
 
 class AccountTest extends TestCase
 {
-    protected $apiClass = Account::class;
+    protected $apiClass    = Account::class;
     protected $apiWithAuth = true;
 
     /**
@@ -53,12 +53,12 @@ class AccountTest extends TestCase
     }
 
     /**
-     * @deprecated
-     * @dataProvider apiProvider
      * @param Account $api
      * @throws BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated
+     * @dataProvider apiProvider
      */
 //    public function testTransferIn(Account $api)
 //    {
@@ -79,8 +79,8 @@ class AccountTest extends TestCase
      */
     public function testTransferOut(Account $api)
     {
-        $bizNo    = rand(1, 9999);
-        $amount   = 0.1;
+        $bizNo = rand(1, 9999);
+        $amount = 0.1;
         $accounts = $api->transferOut($bizNo, $amount);
         $this->assertInternalType('array', $accounts);
         if (isset($accounts['applyId'])) {
@@ -133,7 +133,7 @@ class AccountTest extends TestCase
     private function getTransferId($api)
     {
         $bizNo = '10000000001';
-        $amount   = 0.1;
+        $amount = 0.1;
         $accounts = $api->transferOut($bizNo, $amount);
         $this->assertInternalType('array', $accounts);
         return $accounts['applyId'];
@@ -181,7 +181,7 @@ class AccountTest extends TestCase
      */
     public function testGetSubApikey(Account $api)
     {
-        $params = ['subName' => 'phpunittest','apiKey' => '647da940d35150000196a56c'];
+        $params = ['subName' => 'phpunittest', 'apiKey' => '647da940d35150000196a56c'];
         $data = $api->getSubApikey($params);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('apiKey', $data);
@@ -201,7 +201,7 @@ class AccountTest extends TestCase
      */
     public function testCreateSubApikey(Account $api)
     {
-        $params = ['subName' => 'phpunittest','passphrase' => 'phpunit2023','remark' => 'remark'];
+        $params = ['subName' => 'phpunittest', 'passphrase' => 'phpunit2023', 'remark' => 'remark'];
         $data = $api->createSubApikey($params);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('apiKey', $data);
@@ -221,7 +221,7 @@ class AccountTest extends TestCase
      */
     public function testModifySubApikey(Account $api)
     {
-        $params = ['subName' => 'phpunittest','passphrase' => 'phpunit2023','apiKey' => '647d8f588de0cc0001751b6e'];
+        $params = ['subName' => 'phpunittest', 'passphrase' => 'phpunit2023', 'apiKey' => '647d8f588de0cc0001751b6e'];
         $data = $api->modifySubApikey($params);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('apiKey', $data);
@@ -229,6 +229,7 @@ class AccountTest extends TestCase
         $this->assertArrayHasKey('permission', $data);
         $this->assertArrayHasKey('subName', $data);
     }
+
     /**
      * @dataProvider apiProvider
      * @param Account $api
@@ -238,7 +239,7 @@ class AccountTest extends TestCase
      */
     public function testDeleteSubApikey(Account $api)
     {
-        $params = ['subName' => 'phpunittest','passphrase' => 'phpunit2023','apiKey' => '647d8f588de0cc0001751b6e'];
+        $params = ['subName' => 'phpunittest', 'passphrase' => 'phpunit2023', 'apiKey' => '647d8f588de0cc0001751b6e'];
         $data = $api->deleteSubApikey($params);
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('apiKey', $data);

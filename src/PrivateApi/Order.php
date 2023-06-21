@@ -15,7 +15,7 @@ class Order extends KuCoinFuturesApi
     /**
      * Place a new order.
      *
-     * @param  array $order
+     * @param array $order
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -30,7 +30,7 @@ class Order extends KuCoinFuturesApi
     /**
      * Cancel an order.
      *
-     * @param  string $orderId
+     * @param string $orderId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -45,7 +45,7 @@ class Order extends KuCoinFuturesApi
     /**
      * Batch cancel orders.
      *
-     * @param  string|null $symbol
+     * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -60,7 +60,7 @@ class Order extends KuCoinFuturesApi
     /**
      * Batch cancel stop orders.
      *
-     * @param  string|null $symbol
+     * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -123,7 +123,7 @@ class Order extends KuCoinFuturesApi
     /**
      * Get an order.
      *
-     * @param  string $orderId
+     * @param string $orderId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -138,7 +138,7 @@ class Order extends KuCoinFuturesApi
     /**
      * Get open order statistics.
      *
-     * @param  string|null $symbol
+     * @param string|null $symbol
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
