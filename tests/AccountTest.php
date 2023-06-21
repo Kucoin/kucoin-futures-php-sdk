@@ -171,4 +171,112 @@ class AccountTest extends TestCase
         $this->assertArrayHasKey('fee', $data);
         $this->assertArrayHasKey('sn', $data);
     }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Account $api
+     * @throws BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetSubApikey(Account $api)
+    {
+        $params = ['subName' => 'phpunittest','apiKey' => '647da940d35150000196a56c'];
+        $data = $api->getSubApikey($params);
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('apiKey', $data);
+        $this->assertArrayHasKey('createdAt', $data);
+        $this->assertArrayHasKey('ipWhitelist', $data);
+        $this->assertArrayHasKey('permission', $data);
+        $this->assertArrayHasKey('remark', $data);
+        $this->assertArrayHasKey('subName', $data);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Account $api
+     * @throws BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testCreateSubApikey(Account $api)
+    {
+        $params = ['subName' => 'phpunittest','passphrase' => 'phpunit2023','remark' => 'remark'];
+        $data = $api->createSubApikey($params);
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('apiKey', $data);
+        $this->assertArrayHasKey('createdAt', $data);
+        $this->assertArrayHasKey('ipWhitelist', $data);
+        $this->assertArrayHasKey('permission', $data);
+        $this->assertArrayHasKey('remark', $data);
+        $this->assertArrayHasKey('subName', $data);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Account $api
+     * @throws BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testModifySubApikey(Account $api)
+    {
+        $params = ['subName' => 'phpunittest','passphrase' => 'phpunit2023','apiKey' => '647d8f588de0cc0001751b6e'];
+        $data = $api->modifySubApikey($params);
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('apiKey', $data);
+        $this->assertArrayHasKey('ipWhitelist', $data);
+        $this->assertArrayHasKey('permission', $data);
+        $this->assertArrayHasKey('subName', $data);
+    }
+    /**
+     * @dataProvider apiProvider
+     * @param Account $api
+     * @throws BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testDeleteSubApikey(Account $api)
+    {
+        $params = ['subName' => 'phpunittest','passphrase' => 'phpunit2023','apiKey' => '647d8f588de0cc0001751b6e'];
+        $data = $api->deleteSubApikey($params);
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('apiKey', $data);
+        $this->assertArrayHasKey('subName', $data);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Account $api
+     * @throws BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testTransferOutV3(Account $api)
+    {
+        $recAccountType = 'MAIN';
+        $amount = 0.01;
+        $currency = 'USDT';
+        $data = $api->transferOutV3($recAccountType, $amount, $currency);
+
+        $this->assertInternalType('array', $data);
+
+        $this->assertArrayHasKey('applyId', $data);
+        $this->assertArrayHasKey('bizNo', $data);
+        $this->assertArrayHasKey('payAccountType', $data);
+        $this->assertArrayHasKey('payTag', $data);
+        $this->assertArrayHasKey('remark', $data);
+        $this->assertArrayHasKey('recAccountType', $data);
+        $this->assertArrayHasKey('recTag', $data);
+        $this->assertArrayHasKey('recRemark', $data);
+        $this->assertArrayHasKey('recSystem', $data);
+        $this->assertArrayHasKey('status', $data);
+        $this->assertArrayHasKey('currency', $data);
+        $this->assertArrayHasKey('amount', $data);
+        $this->assertArrayHasKey('fee', $data);
+        $this->assertArrayHasKey('sn', $data);
+        $this->assertArrayHasKey('reason', $data);
+        $this->assertArrayHasKey('createdAt', $data);
+        $this->assertArrayHasKey('updatedAt', $data);
+    }
 }
