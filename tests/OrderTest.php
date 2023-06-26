@@ -53,7 +53,7 @@ class OrderTest extends TestCase
             'leverage'  => 2,
             'remark'    => 'Test Order ' . time(),
 
-            'size'      => 1,
+            'size' => 1,
         ];
         $data = $api->create($order);
         $this->assertInternalType('array', $data);
@@ -226,5 +226,36 @@ class OrderTest extends TestCase
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('orderId', $data);
         return $data['orderId'];
+    }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Order $api
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetDetailByClientOid(Order $api)
+    {
+        $clientOid = 'eresc138b21023a909e5ad59';
+        $order = $api->getDetailByClientOid($clientOid);
+        $this->assertArrayHasKey('symbol', $order);
+        $this->assertArrayHasKey('hidden', $order);
+        $this->assertArrayHasKey('type', $order);
+        $this->assertArrayHasKey('iceberg', $order);
+        $this->assertArrayHasKey('createdAt', $order);
+        $this->assertArrayHasKey('stopTriggered', $order);
+        $this->assertArrayHasKey('id', $order);
+        $this->assertArrayHasKey('timeInForce', $order);
+        $this->assertArrayHasKey('side', $order);
+        $this->assertArrayHasKey('dealSize', $order);
+        $this->assertArrayHasKey('stp', $order);
+        $this->assertArrayHasKey('postOnly', $order);
+        $this->assertArrayHasKey('size', $order);
+        $this->assertArrayHasKey('stop', $order);
+        $this->assertArrayHasKey('settleCurrency', $order);
+        $this->assertArrayHasKey('status', $order);
+        $this->assertArrayHasKey('updatedAt', $order);
+        $this->assertArrayHasKey('orderTime', $order);
     }
 }

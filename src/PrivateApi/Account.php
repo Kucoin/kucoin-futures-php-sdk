@@ -29,8 +29,8 @@ class Account extends KuCoinFuturesApi
     /**
      * Get a transaction history of accounts.
      *
-     * @param  array $params
-     * @param  array $pagination
+     * @param array $params
+     * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -43,11 +43,8 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * @deprecated
-     *
      * KuCoin transfer to kuCoin futures account.
-     *
-     * @param  number amount
+     * @param string amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -62,8 +59,8 @@ class Account extends KuCoinFuturesApi
     /**
      * kuCoin futures transfer to KuCoin account.
      *
-     * @param  string bizNo
-     * @param  number amount
+     * @param string bizNo
+     * @param string amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -77,12 +74,12 @@ class Account extends KuCoinFuturesApi
 
     /**
      * Cancel an transfer out.
-     *
-     * @param  string $applyId
+     * @param string $applyId
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     * @deprecated
      */
     public function cancelTransferOut($applyId)
     {
@@ -93,8 +90,8 @@ class Account extends KuCoinFuturesApi
     /**
      * Get a transfer list.
      *
-     * @param  array $params
-     * @param  array $pagination
+     * @param array $params
+     * @param array $pagination
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -108,10 +105,10 @@ class Account extends KuCoinFuturesApi
 
     /**
      * kuCoin futures transfer to KuCoin account.
-     *
-     * @param  string bizNo
-     * @param  number amount
-     * @param  string currency
+     * [It is recommended to call transferOutV3() instead]
+     * @param string bizNo
+     * @param string amount
+     * @param string currency
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -120,6 +117,83 @@ class Account extends KuCoinFuturesApi
     public function transferOutV2($bizNo, $amount, $currency)
     {
         $response = $this->call(Request::METHOD_POST, '/api/v2/transfer-out', compact('bizNo', 'amount', 'currency'));
+        return $response->getApiData();
+    }
+
+    /**
+     * Get list of Futures APIs pertaining to a sub-accounts.
+     *
+     * @param array $params
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getSubApikey(array $params)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/sub/api-key', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * Create futures APIs for sub-accounts.
+     *
+     * @param array $params
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function createSubApikey(array $params)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v1/sub/api-key', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * Modify futures APIs for sub-accounts.
+     *
+     * @param array $params
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function modifySubApikey(array $params)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v1/sub/api-key/update', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * Delete futures APIs for sub-accounts.
+     *
+     * @param array $params
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function deleteSubApikey(array $params)
+    {
+        $response = $this->call(Request::METHOD_DELETE, '/api/v1/sub/api-key', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * kuCoin futures transfer to KuCoin account.
+     *
+     * @param string recAccountType
+     * @param string amount
+     * @param string currency
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function transferOutV3($recAccountType, $amount, $currency)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v3/transfer-out', compact('recAccountType', 'amount', 'currency'));
         return $response->getApiData();
     }
 }
