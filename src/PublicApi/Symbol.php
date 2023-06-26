@@ -76,8 +76,8 @@ class Symbol extends KuCoinFuturesApi
      * Get the level2 message of a symbol.
      *
      * @param string $symbol
-     * @param number $start
-     * @param number $end
+     * @param integer $start
+     * @param integer $end
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -94,8 +94,8 @@ class Symbol extends KuCoinFuturesApi
 
     /**
      * @param string $symbol
-     * @param number $start
-     * @param number $end
+     * @param integer $start
+     * @param integer $end
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException

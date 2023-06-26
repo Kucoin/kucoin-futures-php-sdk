@@ -43,15 +43,12 @@ class Account extends KuCoinFuturesApi
     }
 
     /**
-     * @param number amount
+     * KuCoin transfer to kuCoin futures account.
+     * @param string amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
-     * @deprecated
-     *
-     * KuCoin transfer to kuCoin futures account.
-     *
      */
     public function transferIn($amount)
     {
@@ -63,7 +60,7 @@ class Account extends KuCoinFuturesApi
      * kuCoin futures transfer to KuCoin account.
      *
      * @param string bizNo
-     * @param number amount
+     * @param string amount
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
@@ -110,7 +107,7 @@ class Account extends KuCoinFuturesApi
      * kuCoin futures transfer to KuCoin account.
      * [It is recommended to use POST /api/v3/transfer-out instead]
      * @param string bizNo
-     * @param number amount
+     * @param string amount
      * @param string currency
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
@@ -187,7 +184,7 @@ class Account extends KuCoinFuturesApi
      * kuCoin futures transfer to KuCoin account.
      *
      * @param string recAccountType
-     * @param number amount
+     * @param string amount
      * @param string currency
      * @return array
      * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
