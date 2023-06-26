@@ -105,7 +105,7 @@ class Account extends KuCoinFuturesApi
 
     /**
      * kuCoin futures transfer to KuCoin account.
-     * [It is recommended to use POST /api/v3/transfer-out instead]
+     * [It is recommended to call transferOutV3() instead]
      * @param string bizNo
      * @param string amount
      * @param string currency
