@@ -93,6 +93,7 @@ class Symbol extends KuCoinFuturesApi
     }
 
     /**
+     * Get the level3 message of a symbol.
      * @param string $symbol
      * @param int $start
      * @param int $end
@@ -101,9 +102,6 @@ class Symbol extends KuCoinFuturesApi
      * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
      * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
      * @deprecated
-     *
-     * Get the level3 message of a symbol.
-     *
      */
     public function getLevel3Message($symbol, $start, $end)
     {
