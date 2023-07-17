@@ -280,4 +280,41 @@ class AccountTest extends TestCase
         $this->assertArrayHasKey('createdAt', $data);
         $this->assertArrayHasKey('updatedAt', $data);
     }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Account $api
+     * @throws BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetAccountOverviewAll(Account $api)
+    {
+        $currency = 'USDT';
+        $data = $api->getAccountOverviewAll($currency);
+        $this->assertInternalType('array', $data);
+        $this->assertInternalType('array', $data['summary']);
+        $this->assertArrayHasKey('accountEquityTotal', $data['summary']);
+        $this->assertArrayHasKey('unrealisedPNLTotal', $data['summary']);
+        $this->assertArrayHasKey('marginBalanceTotal', $data['summary']);
+        $this->assertArrayHasKey('positionMarginTotal', $data['summary']);
+        $this->assertArrayHasKey('orderMarginTotal', $data['summary']);
+        $this->assertArrayHasKey('frozenFundsTotal', $data['summary']);
+        $this->assertArrayHasKey('availableBalanceTotal', $data['summary']);
+        $this->assertArrayHasKey('currency', $data['summary']);
+        $this->assertEquals($currency, $data['summary']['currency']);
+        $this->assertInternalType('array', $data['accounts']);
+        foreach ($data['accounts'] as $item) {
+            $this->assertArrayHasKey('accountName', $item);
+            $this->assertArrayHasKey('accountEquity', $item);
+            $this->assertArrayHasKey('unrealisedPNL', $item);
+            $this->assertArrayHasKey('marginBalance', $item);
+            $this->assertArrayHasKey('positionMargin', $item);
+            $this->assertArrayHasKey('orderMargin', $item);
+            $this->assertArrayHasKey('frozenFunds', $item);
+            $this->assertArrayHasKey('availableBalance', $item);
+            $this->assertArrayHasKey('currency', $item);
+            $this->assertEquals($currency, $item['currency']);
+        }
+    }
 }

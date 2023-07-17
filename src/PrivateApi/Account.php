@@ -196,4 +196,18 @@ class Account extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_POST, '/api/v3/transfer-out', compact('recAccountType', 'amount', 'currency'));
         return $response->getApiData();
     }
+
+    /**
+     * Get all account asset information.
+     * @param string $currency
+     * @return array
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getAccountOverviewAll($currency)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/account-overview-all', compact('currency'));
+        return $response->getApiData();
+    }
 }
