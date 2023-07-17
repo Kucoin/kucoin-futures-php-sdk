@@ -207,7 +207,7 @@ class Account extends KuCoinFuturesApi
      */
     public function getAccountOverviewAll($currency)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/account-overview-all', compact($currency));
+        $response = $this->call(Request::METHOD_GET, '/api/v1/account-overview-all', compact('currency'));
         return $response->getApiData();
     }
 }
