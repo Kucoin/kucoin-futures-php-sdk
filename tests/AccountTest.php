@@ -302,6 +302,7 @@ class AccountTest extends TestCase
         $this->assertArrayHasKey('frozenFundsTotal', $data['summary']);
         $this->assertArrayHasKey('availableBalanceTotal', $data['summary']);
         $this->assertArrayHasKey('currency', $data['summary']);
+        $this->assertEquals($currency, $data['summary']['currency']);
         $this->assertInternalType('array', $data['accounts']);
         foreach ($data['accounts'] as $item) {
             $this->assertArrayHasKey('accountName', $item);
@@ -313,6 +314,7 @@ class AccountTest extends TestCase
             $this->assertArrayHasKey('frozenFunds', $item);
             $this->assertArrayHasKey('availableBalance', $item);
             $this->assertArrayHasKey('currency', $item);
+            $this->assertEquals($currency, $item['currency']);
         }
     }
 }
