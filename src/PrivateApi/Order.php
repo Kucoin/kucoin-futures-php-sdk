@@ -2,6 +2,9 @@
 
 namespace KuCoin\Futures\SDK\PrivateApi;
 
+use KuCoin\Futures\SDK\Exceptions\BusinessException;
+use KuCoin\Futures\SDK\Exceptions\HttpException;
+use KuCoin\Futures\SDK\Exceptions\InvalidApiUriException;
 use KuCoin\Futures\SDK\Http\Request;
 use KuCoin\Futures\SDK\KuCoinFuturesApi;
 
@@ -162,6 +165,22 @@ class Order extends KuCoinFuturesApi
     public function getDetailByClientOid($clientOid)
     {
         $response = $this->call(Request::METHOD_GET, '/api/v1/orders/' . $clientOid, ['clientOid' => $clientOid]);
+        return $response->getApiData();
+    }
+
+    /**
+     * Cancel Order by clientOid.
+     *
+     * @param $clientOid
+     * @param $symbol
+     * @return array
+     * @throws BusinessException
+     * @throws HttpException
+     * @throws InvalidApiUriException
+     */
+    public function cancelByClientOid($clientOid, $symbol)
+    {
+        $response = $this->call(Request::METHOD_DELETE, '/api/v1/orders/client-order/' . $clientOid, ['symbol' => $symbol]);
         return $response->getApiData();
     }
 }

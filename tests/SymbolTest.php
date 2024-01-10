@@ -176,4 +176,26 @@ class SymbolTest extends TestCase
         $this->assertInternalType('array', $data['asks']);
         $this->assertInternalType('array', $data['bids']);
     }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Symbol $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetFundingRates(Symbol $api)
+    {
+        $from = strtotime(date('Y-m-d', time() - 86400));
+        $to = $from + 86400;
+        $data = $api->getFundingRates('ETHUSDTM', $from * 1000,  $to * 1000);
+        $this->assertInternalType('array', $data);
+        foreach ($data as $item) {
+            $this->assertInternalType('array', $item);
+            $this->assertArrayHasKey('symbol', $item);
+            $this->assertArrayHasKey('fundingRate', $item);
+            $this->assertArrayHasKey('timepoint', $item);
+        }
+    }
 }

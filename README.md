@@ -247,6 +247,7 @@ go(function () {
 | KuCoin\Futures\SDK\PrivateApi\Order::getDetail() | YES | https://docs.kucoin.com/futures/#get-details-of-a-single-order |
 | KuCoin\Futures\SDK\PrivateApi\Order::getDetailByClientOid() | YES | https://docs.kucoin.com/futures/#get-details-of-a-single-order |
 | KuCoin\Futures\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES | https://docs.kucoin.com/futures/#active-order-value-calculation |
+| KuCoin\Futures\SDK\PrivateApi\Order::cancelByClientOid() | YES | https://www.kucoin.com/docs/rest/futures-trading/orders/cancel-order-by-clientoid|
 
 </details>
 <details>
@@ -311,6 +312,7 @@ go(function () {
 | KuCoin\Futures\SDK\PublicApi\Symbol::getKLines() | NO | https://docs.kucoin.com/futures/?lang=en_US#get-k-line-data-of-contract |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20 | NO | https://docs.kucoin.com/futures/cn/#level-2-2                           |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100 | NO | https://docs.kucoin.com/futures/cn/#level-2-2                           |
+| KuCoin\Futures\SDK\PublicApi\Symbol::getFundingRates | NO |https://www.kucoin.com/docs/rest/futures-trading/funding-fees/get-public-funding-history               |
 
 </details>
 
