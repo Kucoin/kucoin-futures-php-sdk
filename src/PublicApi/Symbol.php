@@ -178,4 +178,22 @@ class Symbol extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v1/level2/depth100', ['symbol' => $symbol]);
         return $response->getApiData();
     }
+
+    /**
+     * Get Public Funding History.
+     *
+     * @param $symbol
+     * @param $from
+     * @param $to
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getFundingRates($symbol, $from, $to)
+    {
+        $params = compact('symbol', 'from', 'to');
+        $response = $this->call(Request::METHOD_GET, '/api/v1/contract/funding-rates', $params);
+        return $response->getApiData();
+    }
 }

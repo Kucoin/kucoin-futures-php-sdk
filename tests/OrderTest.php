@@ -258,4 +258,33 @@ class OrderTest extends TestCase
         $this->assertArrayHasKey('updatedAt', $order);
         $this->assertArrayHasKey('orderTime', $order);
     }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Order $api
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testCancelByClientOid($api)
+    {
+        $clientId = uniqid();
+        $symbol = 'DOTUSDTM';
+        $order = [
+            'clientOid' => $clientId,
+            'type'      => 'limit',
+            'side'      => 'buy',
+            'symbol'    => $symbol,
+            'leverage'  => 5,
+            'remark'    => 'test cancel order',
+
+            'price' => 6,
+            'size'  => 1,
+        ];
+
+        $api->create($order);
+        $result = $api->cancelByClientOid($clientId, $symbol);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('clientOid', $result);
+    }
 }
