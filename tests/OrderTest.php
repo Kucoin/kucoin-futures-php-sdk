@@ -287,4 +287,30 @@ class OrderTest extends TestCase
         $this->assertInternalType('array', $result);
         $this->assertArrayHasKey('clientOid', $result);
     }
+
+    /**
+     * @dataProvider apiProvider
+     * @param Order $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testCreateTest(Order $api)
+    {
+        $order = [
+            'clientOid' => uniqid(),
+            'type'      => 'limit',
+            'side'      => 'buy',
+            'symbol'    => 'DOTUSDM',
+            'leverage'  => 2,
+            'remark'    => 'create test order',
+
+            'price' => '1',
+            'size'  => '1',
+        ];
+        $data = $api->createTest($order);
+        $this->assertInternalType('array', $data);
+        $this->assertArrayHasKey('orderId', $data);
+    }
 }
