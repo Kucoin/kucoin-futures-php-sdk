@@ -183,4 +183,19 @@ class Order extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_DELETE, '/api/v1/orders/client-order/' . $clientOid, ['symbol' => $symbol]);
         return $response->getApiData();
     }
+
+    /**
+     * Order test endpoint, the request parameters and return parameters of this endpoint are exactly the same as the order endpoint, and can be used to verify whether the signature is correct and other operations. After placing an order, the order will not enter the matching system, and the order cannot be queried.
+     *
+     * @param array $order
+     * @return mixed|null
+     * @throws BusinessException
+     * @throws HttpException
+     * @throws InvalidApiUriException
+     */
+    public function createTest(array $order)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v1/orders/test', $order);
+        return $response->getApiData();
+    }
 }
