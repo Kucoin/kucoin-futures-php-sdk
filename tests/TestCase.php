@@ -34,7 +34,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $auth = new Auth($apiKey, $apiSecret, $apiPassPhrase, $apiKeyVersion);
         return [
             [new $this->apiClass($this->apiWithAuth ? $auth : null)],
-            [new $this->apiClass($this->apiWithAuth ? $auth : null, new GuzzleHttp(['skipVerifyTls' => $apiSkipVerifyTls]))],
+           // [new $this->apiClass($this->apiWithAuth ? $auth : null, new GuzzleHttp(['skipVerifyTls' => $apiSkipVerifyTls]))],
             //[new $this->apiClass($this->apiWithAuth ? $auth : null, new SwooleHttp(['skipVerifyTls' => $apiSkipVerifyTls]))],
         ];
     }

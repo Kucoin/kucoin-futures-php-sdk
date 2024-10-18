@@ -313,4 +313,78 @@ class OrderTest extends TestCase
         $this->assertInternalType('array', $data);
         $this->assertArrayHasKey('orderId', $data);
     }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Order $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testCreateMultiOrders(Order $api)
+    {
+        $orders = [
+            [
+                'clientOid' => uniqid(),
+                'type'      => 'limit',
+                'side'      => 'buy',
+                'symbol'    => 'AAVEUSDTM',
+                'leverage'  => 5,
+                'remark'    => 'create test order',
+                'price'     => '1',
+                'size'      => '1',
+            ],
+            [
+                'clientOid' => uniqid(),
+                'type'      => 'limit',
+                'side'      => 'buy',
+                'symbol'    => 'ETHUSDTM',
+                'leverage'  => 5,
+                'remark'    => 'create test order',
+                'price'     => '1',
+                'size'      => '1',
+            ],
+        ];
+
+        $result = $api->createMultiOrders($orders);
+        foreach ($result as $item) {
+            $this->assertInternalType('array', $item);
+            $this->assertArrayHasKey('orderId', $item);
+            $this->assertArrayHasKey('clientOid', $item);
+            $this->assertArrayHasKey('symbol', $item);
+        }
+    }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Order $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testCreateStOrder(Order $api)
+    {
+        $order = [
+            'clientOid'            => uniqid(),
+            'type'                 => 'limit',
+            'side'                 => 'buy',
+            'symbol'               => 'XBTUSDTM',
+            'leverage'             => 1,
+            'remark'               => 'create test order',
+            'price'                => '800',
+            'size'                 => 1,
+            'stopPriceType'        => 'TP',
+            'triggerStopUpPrice'   => '9000',
+            'triggerStopDownPrice' => '700',
+            'marginMode'           => 'ISOLATED',
+        ];
+        $result = $api->createStOrder($order);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('orderId', $result);
+        $this->assertArrayHasKey('clientOid', $result);
+    }
 }
