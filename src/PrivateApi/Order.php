@@ -198,4 +198,38 @@ class Order extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_POST, '/api/v1/orders/test', $order);
         return $response->getApiData();
     }
+
+    /**
+     * You can place up to 20 orders at one time, including limit orders, market orders, and stop orders.
+     *
+     * @param array $orders
+     * @return mixed|null
+     * @throws BusinessException
+     * @throws HttpException
+     * @throws InvalidApiUriException
+     */
+    public function createMultiOrders(array $orders)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v1/orders/multi', $orders);
+        return $response->getApiData();
+    }
+
+    /**
+     * This interface supports both take-profit and stop-loss functions, and other functions are exactly the same as the place order interface.
+     *
+     * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds. Once an order is placed, your funds will be put on hold for the duration of the order. The amount of funds on hold depends on the order type and parameters specified.
+     *
+     * Please be noted that the system would hold the fees from the orders entered the orderbook in advance. Read Get Fills to learn more.
+     *
+     * @param array $order
+     * @return mixed|null
+     * @throws BusinessException
+     * @throws HttpException
+     * @throws InvalidApiUriException
+     */
+    public function createStOrder(array $order)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v1/st-orders', $order);
+        return $response->getApiData();
+    }
 }

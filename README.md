@@ -237,34 +237,50 @@ go(function () {
 
 </details>
 
+
+<details>
+<summary>KuCoin\Futures\SDK\PrivateApi\Fee</summary>
+
+| API                                               | Authentication | Description                                                                        |
+|---------------------------------------------------|----------------|------------------------------------------------------------------------------------|
+| KuCoin\Futures\SDK\PrivateApi\Fee::getTradeFees() | YES            | https://www.kucoin.com/docs/rest/funding/trade-fee/trading-pair-actual-fee-futures |
+
+</details>
+
 <details>
 <summary>KuCoin\Futures\SDK\PrivateApi\Order</summary>
 
-| API                                                           | Authentication | Description                                                                       |
-|---------------------------------------------------------------|----------------|-----------------------------------------------------------------------------------|
-| KuCoin\Futures\SDK\PrivateApi\Order::create()                 | YES            | https://docs.kucoin.com/futures/#place-an-order                                   |
-| KuCoin\Futures\SDK\PrivateApi\Order::cancel()                 | YES            | https://docs.kucoin.com/futures/#cancel-an-order                                  |
-| KuCoin\Futures\SDK\PrivateApi\Order::batchCancel()            | YES            | https://docs.kucoin.com/futures/#limit-order-mass-cancelation                     |
-| KuCoin\Futures\SDK\PrivateApi\Order::stopOrders()             | YES            | https://docs.kucoin.com/futures/#stop-order-mass-cancelation                      |
-| KuCoin\Futures\SDK\PrivateApi\Order::getList()                | YES            | https://docs.kucoin.com/futures/#get-order-list                                   |
-| KuCoin\Futures\SDK\PrivateApi\Order::getStopOrders()          | YES            | https://docs.kucoin.com/futures/#get-untriggered-stop-order-list                  |
-| KuCoin\Futures\SDK\PrivateApi\Order::getRecentDoneOrders()    | YES            | https://docs.kucoin.com/futures/#get-list-of-orders-completed-in-24h              |
-| KuCoin\Futures\SDK\PrivateApi\Order::getDetail()              | YES            | https://docs.kucoin.com/futures/#get-details-of-a-single-order                    |
-| KuCoin\Futures\SDK\PrivateApi\Order::getDetailByClientOid()   | YES            | https://docs.kucoin.com/futures/#get-details-of-a-single-order                    |
-| KuCoin\Futures\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES            | https://docs.kucoin.com/futures/#active-order-value-calculation                   |
-| KuCoin\Futures\SDK\PrivateApi\Order::cancelByClientOid()      | YES            | https://www.kucoin.com/docs/rest/futures-trading/orders/cancel-order-by-clientoid |
-| KuCoin\Futures\SDK\PrivateApi\Order::createTest()             | YES            | https://www.kucoin.com/docs/rest/futures-trading/orders/place-order-test          |
+| API                                                           | Authentication | Description                                                                                   |
+|---------------------------------------------------------------|----------------|-----------------------------------------------------------------------------------------------|
+| KuCoin\Futures\SDK\PrivateApi\Order::create()                 | YES            | https://docs.kucoin.com/futures/#place-an-order                                               |
+| KuCoin\Futures\SDK\PrivateApi\Order::cancel()                 | YES            | https://docs.kucoin.com/futures/#cancel-an-order                                              |
+| KuCoin\Futures\SDK\PrivateApi\Order::batchCancel()            | YES            | https://docs.kucoin.com/futures/#limit-order-mass-cancelation                                 |
+| KuCoin\Futures\SDK\PrivateApi\Order::stopOrders()             | YES            | https://docs.kucoin.com/futures/#stop-order-mass-cancelation                                  |
+| KuCoin\Futures\SDK\PrivateApi\Order::getList()                | YES            | https://docs.kucoin.com/futures/#get-order-list                                               |
+| KuCoin\Futures\SDK\PrivateApi\Order::getStopOrders()          | YES            | https://docs.kucoin.com/futures/#get-untriggered-stop-order-list                              |
+| KuCoin\Futures\SDK\PrivateApi\Order::getRecentDoneOrders()    | YES            | https://docs.kucoin.com/futures/#get-list-of-orders-completed-in-24h                          |
+| KuCoin\Futures\SDK\PrivateApi\Order::getDetail()              | YES            | https://docs.kucoin.com/futures/#get-details-of-a-single-order                                |
+| KuCoin\Futures\SDK\PrivateApi\Order::getDetailByClientOid()   | YES            | https://docs.kucoin.com/futures/#get-details-of-a-single-order                                |
+| KuCoin\Futures\SDK\PrivateApi\Order::getOpenOrderStatistics() | YES            | https://docs.kucoin.com/futures/#active-order-value-calculation                               |
+| KuCoin\Futures\SDK\PrivateApi\Order::cancelByClientOid()      | YES            | https://www.kucoin.com/docs/rest/futures-trading/orders/cancel-order-by-clientoid             |
+| KuCoin\Futures\SDK\PrivateApi\Order::createTest()             | YES            | https://www.kucoin.com/docs/rest/futures-trading/orders/place-order-test                      |
+| KuCoin\Futures\SDK\PrivateApi\Order::createStOrder()          | YES            | https://www.kucoin.com/docs/rest/futures-trading/orders/place-take-profit-and-stop-loss-order |
+| KuCoin\Futures\SDK\PrivateApi\Order::createMultiOrders()      | YES            | https://www.kucoin.com/docs/rest/futures-trading/orders/place-multiple-orders                 |
 
 </details>
 <details>
 <summary>KuCoin\Futures\SDK\PrivateApi\Position</summary>
 
-| API                                                              | Authentication | Description                                                            |
-|------------------------------------------------------------------|----------------|------------------------------------------------------------------------|
-| KuCoin\Futures\SDK\PrivateApi\Position::getList()                | YES            | https://docs.kucoin.com/futures/#get-position-list                     |
-| KuCoin\Futures\SDK\PrivateApi\Position::getDetail()              | YES            | https://docs.kucoin.com/futures/#get-position-details                  |
-| KuCoin\Futures\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES            | https://docs.kucoin.com/futures/#enable-disable-of-auto-deposit-margin |
-| KuCoin\Futures\SDK\PrivateApi\Position::marginAppend()           | YES            | https://docs.kucoin.com/futures/#add-margin-manually                   |
+| API                                                              | Authentication | Description                                                                               |
+|------------------------------------------------------------------|----------------|-------------------------------------------------------------------------------------------|
+| KuCoin\Futures\SDK\PrivateApi\Position::getList()                | YES            | https://docs.kucoin.com/futures/#get-position-list                                        |
+| KuCoin\Futures\SDK\PrivateApi\Position::getDetail()              | YES            | https://docs.kucoin.com/futures/#get-position-details                                     |
+| KuCoin\Futures\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES            | https://docs.kucoin.com/futures/#enable-disable-of-auto-deposit-margin                    |
+| KuCoin\Futures\SDK\PrivateApi\Position::marginAppend()           | YES            | https://docs.kucoin.com/futures/#add-margin-manually                                      |
+| KuCoin\Futures\SDK\PrivateApi\Position::getMaxWithdrawMargin()   | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-max-withdraw-margin        |
+| KuCoin\Futures\SDK\PrivateApi\Position::withdrawMargin()         | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/remove-margin-manually         |
+| KuCoin\Futures\SDK\PrivateApi\Position::getHistoryPositions()    | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-positions-history          |
+| KuCoin\Futures\SDK\PrivateApi\Position::getMaxOpenSize()         | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-maximum-open-position-size |
 
 </details>
 
@@ -320,6 +336,17 @@ go(function () {
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth20      | NO             | https://docs.kucoin.com/futures/cn/#level-2-2                                            |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getLevel2Depth100     | NO             | https://docs.kucoin.com/futures/cn/#level-2-2                                            |
 | KuCoin\Futures\SDK\PublicApi\Symbol::getFundingRates       | NO             | https://www.kucoin.com/docs/rest/futures-trading/funding-fees/get-public-funding-history |
+
+</details>
+
+<details>
+<summary>KuCoin\Futures\SDK\PublicApi\Contract</summary>
+
+| API                                                    | Authentication | Description                                                                                      |
+|--------------------------------------------------------|----------------|--------------------------------------------------------------------------------------------------|
+| KuCoin\Futures\SDK\PublicApi\Contract::getList()       | NO             | https://www.kucoin.com/docs/rest/futures-trading/market-data/get-symbols-list                    |
+| KuCoin\Futures\SDK\PublicApi\Contract::getDetail()     | NO             | https://www.kucoin.com/docs/rest/futures-trading/market-data/get-symbol-detail                   |
+| KuCoin\Futures\SDK\PublicApi\Contract::getAllTickers() | NO             | https://www.kucoin.com/docs/rest/futures-trading/market-data/get-latest-ticker-for-all-contracts |
 
 </details>
 

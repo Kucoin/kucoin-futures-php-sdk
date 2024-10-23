@@ -6,7 +6,7 @@
 
 namespace KuCoin\Futures\SDK\Tests;
 
-use \KuCoin\Futures\SDK\PublicApi\Contract;
+use KuCoin\Futures\SDK\PublicApi\Contract;
 
 
 class ContractTest extends TestCase
@@ -145,5 +145,33 @@ class ContractTest extends TestCase
         $this->assertArrayHasKey('highPrice', $data);
         $this->assertArrayHasKey('priceChgPct', $data);
         $this->assertArrayHasKey('priceChg', $data);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Contract $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetAllTickers(Contract $api)
+    {
+        $data = $api->getAllTickers();
+        $this->assertInternalType('array', $data);
+        foreach ($data as $item) {
+            $this->assertArrayHasKey('symbol', $item);
+            $this->assertArrayHasKey('sequence', $item);
+            $this->assertArrayHasKey('side', $item);
+            $this->assertArrayHasKey('size', $item);
+            $this->assertArrayHasKey('tradeId', $item);
+            $this->assertArrayHasKey('price', $item);
+            $this->assertArrayHasKey('bestBidPrice', $item);
+            $this->assertArrayHasKey('bestBidSize', $item);
+            $this->assertArrayHasKey('bestAskPrice', $item);
+            $this->assertArrayHasKey('bestAskSize', $item);
+            $this->assertArrayHasKey('ts', $item);
+        }
     }
 }

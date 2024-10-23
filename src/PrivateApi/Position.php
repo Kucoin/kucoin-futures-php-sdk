@@ -95,4 +95,66 @@ class Position extends KuCoinFuturesApi
         return $response->getApiData();
     }
 
+
+    /**
+     * Get Max Withdraw Margin.
+     *
+     * @param $symbol
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getMaxWithdrawMargin($symbol)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/margin/maxWithdrawMargin', compact('symbol'));
+        return $response->getApiData();
+    }
+    
+    /**
+     * Remove Margin Manually.
+     *
+     * @param $symbol
+     * @param $withdrawAmount
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function withdrawMargin($symbol, $withdrawAmount)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v1/margin/withdrawMargin', compact('symbol', 'withdrawAmount'));
+        return $response->getApiData();
+    }
+
+    /**
+     * Get Positions History.
+     *
+     * @param array $params
+     * @return \KuCoin\Futures\SDK\Http\Response
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getHistoryPositions(array $params)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/history-positions', $params);
+        return $response->getApiData();
+    }
+
+    /**
+     * Get Maximum Open Position Size.
+     *
+     * @param $symbol
+     * @param $price
+     * @param $leverage
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getMaxOpenSize($symbol, $price, $leverage)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v2/getMaxOpenSize', compact('symbol', 'price', 'leverage'));
+        return $response->getApiData();
+    }
 }

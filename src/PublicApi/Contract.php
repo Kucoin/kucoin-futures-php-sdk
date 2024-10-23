@@ -40,4 +40,18 @@ class Contract extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v1/contracts/' . $symbol);
         return $response->getApiData();
     }
+
+    /**
+     * Get Latest Ticker for All Contracts.
+     *
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getAllTickers()
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v1/allTickers');
+        return $response->getApiData();
+    }
 }
