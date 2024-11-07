@@ -157,4 +157,66 @@ class Position extends KuCoinFuturesApi
         $response = $this->call(Request::METHOD_GET, '/api/v2/getMaxOpenSize', compact('symbol', 'price', 'leverage'));
         return $response->getApiData();
     }
+
+    /**
+     * This interface can modify the current symbol’s cross-margin leverage multiple.
+     *
+     * @param $symbol
+     * @param $leverage
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function modifyCrossUserLeverage($symbol, $leverage)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v2/changeCrossUserLeverage', compact('symbol', 'leverage'));
+        return $response->getApiData();
+    }
+
+    /**
+     * This interface can query the current symbol’s cross-margin leverage multiple.
+     *
+     * @param $symbol
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getCrossUserLeverage($symbol)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v2/getCrossUserLeverage', compact('symbol'));
+        return $response->getApiData();
+    }
+
+    /**
+     * This interface can modify the margin mode of the current symbol
+     *
+     * @param $symbol
+     * @param $marginMode
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function modifyMarginMode($symbol, $marginMode)
+    {
+        $response = $this->call(Request::METHOD_POST, '/api/v2/position/changeMarginMode', compact('symbol', 'marginMode'));
+        return $response->getApiData();
+    }
+
+    /**
+     * This interface can query the margin mode of the current symbol.
+     *
+     * @param $symbol
+     * @return mixed|null
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function getMarginMode($symbol)
+    {
+        $response = $this->call(Request::METHOD_GET, '/api/v2/position/getMarginMode', compact('symbol'));
+        return $response->getApiData();
+    }
 }

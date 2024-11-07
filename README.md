@@ -271,16 +271,20 @@ go(function () {
 <details>
 <summary>KuCoin\Futures\SDK\PrivateApi\Position</summary>
 
-| API                                                              | Authentication | Description                                                                               |
-|------------------------------------------------------------------|----------------|-------------------------------------------------------------------------------------------|
-| KuCoin\Futures\SDK\PrivateApi\Position::getList()                | YES            | https://docs.kucoin.com/futures/#get-position-list                                        |
-| KuCoin\Futures\SDK\PrivateApi\Position::getDetail()              | YES            | https://docs.kucoin.com/futures/#get-position-details                                     |
-| KuCoin\Futures\SDK\PrivateApi\Position::changeAutoAppendStatus() | YES            | https://docs.kucoin.com/futures/#enable-disable-of-auto-deposit-margin                    |
-| KuCoin\Futures\SDK\PrivateApi\Position::marginAppend()           | YES            | https://docs.kucoin.com/futures/#add-margin-manually                                      |
-| KuCoin\Futures\SDK\PrivateApi\Position::getMaxWithdrawMargin()   | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-max-withdraw-margin        |
-| KuCoin\Futures\SDK\PrivateApi\Position::withdrawMargin()         | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/remove-margin-manually         |
-| KuCoin\Futures\SDK\PrivateApi\Position::getHistoryPositions()    | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-positions-history          |
-| KuCoin\Futures\SDK\PrivateApi\Position::getMaxOpenSize()         | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-maximum-open-position-size |
+| API                                                               | Authentication | Description                                                                               |
+|-------------------------------------------------------------------|----------------|-------------------------------------------------------------------------------------------|
+| KuCoin\Futures\SDK\PrivateApi\Position::getList()                 | YES            | https://docs.kucoin.com/futures/#get-position-list                                        |
+| KuCoin\Futures\SDK\PrivateApi\Position::getDetail()               | YES            | https://docs.kucoin.com/futures/#get-position-details                                     |
+| KuCoin\Futures\SDK\PrivateApi\Position::changeAutoAppendStatus()  | YES            | https://docs.kucoin.com/futures/#enable-disable-of-auto-deposit-margin                    |
+| KuCoin\Futures\SDK\PrivateApi\Position::marginAppend()            | YES            | https://docs.kucoin.com/futures/#add-margin-manually                                      |
+| KuCoin\Futures\SDK\PrivateApi\Position::getMaxWithdrawMargin()    | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-max-withdraw-margin        |
+| KuCoin\Futures\SDK\PrivateApi\Position::withdrawMargin()          | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/remove-margin-manually         |
+| KuCoin\Futures\SDK\PrivateApi\Position::getHistoryPositions()     | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-positions-history          |
+| KuCoin\Futures\SDK\PrivateApi\Position::getMaxOpenSize()          | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-maximum-open-position-size |
+| KuCoin\Futures\SDK\PrivateApi\Position::modifyCrossUserLeverage() | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/modify-cross-margin-leverage   |
+| KuCoin\Futures\SDK\PrivateApi\Position::getCrossUserLeverage()    | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-cross-margin-leverage      |
+| KuCoin\Futures\SDK\PrivateApi\Position::modifyMarginMode()        | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/modify-margin-mode             |
+| KuCoin\Futures\SDK\PrivateApi\Position::getMarginMode()           | YES            | https://www.kucoin.com/docs/rest/futures-trading/positions/get-margin-mode                |
 
 </details>
 
