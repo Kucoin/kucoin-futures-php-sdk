@@ -2,6 +2,7 @@
 
 namespace KuCoin\Futures\SDK\Tests;
 
+use KuCoin\Futures\SDK\Enum\MarginMode;
 use KuCoin\Futures\SDK\PrivateApi\Position;
 
 class PositionTest extends TestCase
@@ -223,5 +224,85 @@ class PositionTest extends TestCase
         $this->assertArrayHasKey('symbol', $result);
         $this->assertArrayHasKey('maxBuyOpenSize', $result);
         $this->assertArrayHasKey('maxSellOpenSize', $result);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Position $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testModifyMarginMode(Position $api)
+    {
+        $symbol = 'XBTUSDM';
+        $marginMode = MarginMode::ISOLATED;
+        $result = $api->modifyMarginMode($symbol, $marginMode);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('symbol', $result);
+        $this->assertArrayHasKey('marginMode', $result);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Position $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetMarginMode(Position $api)
+    {
+        $symbol = 'XBTUSDM';
+        $marginMode = MarginMode::ISOLATED;
+        $api->modifyMarginMode($symbol, $marginMode);
+        $result = $api->getMarginMode($symbol);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('symbol', $result);
+        $this->assertArrayHasKey('marginMode', $result);
+        $this->assertEquals($marginMode, $result['marginMode']);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Position $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testModifyCrossUserLeverage(Position $api)
+    {
+        $symbol = 'XBTUSDM';
+        $leverage = 2;
+        $api->modifyMarginMode($symbol, MarginMode::CROSS);
+        $result = $api->modifyCrossUserLeverage($symbol, $leverage);
+        $this->assertEquals(true, $result);
+    }
+
+    /**
+     * @dataProvider apiProvider
+     *
+     * @param Position $api
+     * @return void
+     * @throws \KuCoin\Futures\SDK\Exceptions\BusinessException
+     * @throws \KuCoin\Futures\SDK\Exceptions\HttpException
+     * @throws \KuCoin\Futures\SDK\Exceptions\InvalidApiUriException
+     */
+    public function testGetCrossUserLeverage(Position $api)
+    {
+        $symbol = 'XBTUSDM';
+        $leverage = 2;
+        $api->modifyMarginMode($symbol, MarginMode::CROSS);
+        $api->modifyCrossUserLeverage($symbol, $leverage);
+        $result = $api->getCrossUserLeverage($symbol);
+        $this->assertInternalType('array', $result);
+        $this->assertArrayHasKey('symbol', $result);
+        $this->assertArrayHasKey('leverage', $result);
+        $this->assertEquals($leverage, $result['leverage']);
     }
 }
