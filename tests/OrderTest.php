@@ -237,7 +237,20 @@ class OrderTest extends TestCase
      */
     public function testGetDetailByClientOid(Order $api)
     {
-        $clientOid = 'eresc138b21023a909e5ad59';
+        $clientOid = uniqid();
+        $order =  [
+            'clientOid' => $clientOid,
+            'type'      => 'limit',
+            'side'      => 'buy',
+            'symbol'    => 'XBTUSDTM',
+            'leverage'  => 1,
+            'remark'    => 'create test order',
+            'price'     => '1',
+            'size'      => '1',
+        ];
+
+        $api->create($order);
+        $clientOid = $clientOid;
         $order = $api->getDetailByClientOid($clientOid);
         $this->assertArrayHasKey('symbol', $order);
         $this->assertArrayHasKey('hidden', $order);
@@ -257,6 +270,7 @@ class OrderTest extends TestCase
         $this->assertArrayHasKey('status', $order);
         $this->assertArrayHasKey('updatedAt', $order);
         $this->assertArrayHasKey('orderTime', $order);
+        $api->cancel($order['id']);
     }
 
     /**
