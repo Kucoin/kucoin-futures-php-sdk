@@ -164,7 +164,7 @@ class Order extends KuCoinFuturesApi
      */
     public function getDetailByClientOid($clientOid)
     {
-        $response = $this->call(Request::METHOD_GET, '/api/v1/orders/' . $clientOid, ['clientOid' => $clientOid]);
+        $response = $this->call(Request::METHOD_GET, '/api/v1/orders/byClientOid', ['clientOid' => $clientOid]);
         return $response->getApiData();
     }
 
